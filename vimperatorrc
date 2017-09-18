@@ -110,6 +110,7 @@ nnoremap ym :copy markdown<CR>
 ignorekeys clear
 ignorekeys add feedly\\.com
 ignorekeys add cloud\\.feedly\\.com
+ignorekeys add docs\\.google\\.com
 ignorekeys add trello\\.com
 ignorekeys add facebook\\.com
 ignorekeys add mail\\.google\\.com
