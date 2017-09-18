@@ -92,6 +92,8 @@ set nrformats=
 set whichwrap=b,s,h,l,<,>,[,],~
 " バッファスクロール
 set mouse=a
+" セミコロンをコロン
+nnoremap ; :
 
 " auto reload .vimrc
 augroup source-vimrc
