@@ -11,7 +11,6 @@
       - { name: zsh }
       - { name: zsh-completions }
       - { name: readline }
-      - { name: app-engine-go-64 }
       - { name: docker }
       - { name: openssl }
       - { name: openssl, state: linked, install_options: force }
@@ -48,6 +47,7 @@
       - { name: htop-osx }
       - { name: jpeg }
       - { name: awscli }
+      - { name: nvm }
     homebrew_cask_packages:
       - { name: firefox }
       - { name: iterm2 }
