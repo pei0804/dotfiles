@@ -169,5 +169,12 @@ setopt prompt_subst
 # プロンプトの右側(RPROMPT)にメソッドの結果を表示させる
 RPROMPT='`rprompt-git-current-branch`'
 
+# -------------------------------------
+# node
+# -------------------------------------
 
-
+# nvm
+if [ -e $(brew --prefix nvm)/nvm.sh ]; then
+  export NVM_DIR="${HOME}/.nvm"
+  source $(brew --prefix nvm)/nvm.sh
+fi
