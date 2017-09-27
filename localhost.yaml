@@ -12,6 +12,7 @@
       - { name: zsh-completions }
       - { name: readline }
       - { name: docker }
+      - { name: docker-compose }
       - { name: openssl }
       - { name: openssl, state: linked, install_options: force }
       - { name: python }
