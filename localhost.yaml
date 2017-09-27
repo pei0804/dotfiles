@@ -62,6 +62,7 @@
       - { name: sourcetree }
       - { name: vagrant }
       - { name: virtualbox }
+      - { name: docker }
 
   tasks:
     - name: add homebrew tap repository
