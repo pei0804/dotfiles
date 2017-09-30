@@ -170,7 +170,7 @@ setopt prompt_subst
 RPROMPT='`rprompt-git-current-branch`'
 
 # -------------------------------------
-# node
+# version
 # -------------------------------------
 
 # nvm
@@ -178,3 +178,7 @@ if [ -e $(brew --prefix nvm)/nvm.sh ]; then
   export NVM_DIR="${HOME}/.nvm"
   source $(brew --prefix nvm)/nvm.sh
 fi
+
+# go
+export PATH="$HOME/.goenv/bin:$PATH"
+eval "$(goenv init -)"
