@@ -49,6 +49,7 @@
       - { name: jpeg }
       - { name: awscli }
       - { name: nvm }
+      - { name: mercurial }
     homebrew_cask_packages:
       - { name: firefox }
       - { name: iterm2 }
