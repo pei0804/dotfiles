@@ -1,4 +1,8 @@
-all: install
+all: submodule install
+
+submodule:
+	git submodule init
+	git submodule update
 
 install: vimperator/vimperator-plugins link
 
