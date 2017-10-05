@@ -182,3 +182,6 @@ fi
 # go
 export PATH="$HOME/.goenv/bin:$PATH"
 eval "$(goenv init -)"
+
+# envrc
+eval "$(direnv hook zsh)"
