@@ -173,15 +173,10 @@ RPROMPT='`rprompt-git-current-branch`'
 # version
 # -------------------------------------
 
-# nvm
-if [ -e $(brew --prefix nvm)/nvm.sh ]; then
-  export NVM_DIR="${HOME}/.nvm"
-  source $(brew --prefix nvm)/nvm.sh
-fi
-
-# go
-export PATH="$HOME/.goenv/bin:$PATH"
-eval "$(goenv init -)"
+# anyenv
+# https://github.com/riywo/anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
 
 # envrc
 eval "$(direnv hook zsh)"

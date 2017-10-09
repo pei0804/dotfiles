@@ -16,7 +16,6 @@
       - { name: openssl }
       - { name: openssl, state: linked, install_options: force }
       - { name: python }
-      - { name: goenv }
       - { name: peco }
       - { name: ghq }
       - { name: ansible }
@@ -42,7 +41,6 @@
       - { name: w3m }
       - { name: source-highlight }
       - { name: pwgen}
-      - { name: pyenv }
       - { name: terminal-notifier}
       - { name: watch}
       - { name: htop-osx }
