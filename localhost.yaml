@@ -32,6 +32,7 @@
       - { name: lv }
       - { name: nkf }
       - { name: jq }
+      - { name: yarn }
       - { name: rbenv }
       - { name: ruby-build }
       - { name: mysql }
