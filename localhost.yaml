@@ -15,7 +15,6 @@
       - { name: docker-compose }
       - { name: openssl }
       - { name: openssl, state: linked, install_options: force }
-      - { name: python }
       - { name: peco }
       - { name: ghq }
       - { name: ansible }
@@ -49,6 +48,7 @@
       - { name: awscli }
       - { name: nvm }
       - { name: mercurial }
+      - { name: direnv }
     homebrew_cask_packages:
       - { name: firefox }
       - { name: iterm2 }
