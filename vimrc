@@ -32,6 +32,16 @@ autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 set rtp+=$GOROOT/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+"----------------------------------------
+" neocompleate
+"----------------------------------------
+let g:neocomplete#sources#omni#input_patterns = '\h\w\.\w*'
+
+"----------------------------------------
+" VimFiler
+"----------------------------------------
+let g:vimfiler_as_default_explorer = 1
+nnoremap <C-e> :VimFiler<CR>
 
 "----------------------------------------
 " 全体
@@ -44,9 +54,11 @@ let mapleader = "\<Space>"
 set cursorline
 
 
-"filer
-let g:vimfiler_as_default_explorer = 1
-nnoremap <C-e> :VimFiler<CR>
+" 閉じ括弧補完
+inoremap { {}<Left>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap ( ()<ESC>i
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " ファイルを上書きする前にバックアップを作ることを無効化
 set nowritebackup
@@ -97,7 +109,7 @@ set display=lastline
 " タブ文字を CTRL-I で表示し、行末に $ で表示する
 set list
 " 行末のスペースを可視化
-set listchars=tab:^\ ,trail:~
+set listchars=tab:>-,trail:-,extends:<,precedes:<
 " コマンドラインの履歴を10000件保存する
 set history=10000
 " コメントの色を水色
@@ -178,3 +190,15 @@ if has("autocmd")
     \ endif
   augroup END
 endif
+
+" テーマ
+if has('gui_running')
+    set t_Co=16
+    let g:solarized_termcolors=16
+else
+    " http://stackoverflow.com/questions/7278267/incorrect-colors-with-vim-in-iterm2-using-solarized
+    let g:solarized_termtrans=1
+endif
+set background=dark
+colorscheme solarized
+set cmdheight=2
