@@ -1,3 +1,53 @@
+"----------------------------------------
+" plugin
+"----------------------------------------
+
+call plug#begin()
+
+Plug 'fatih/vim-go', {'for': 'go'}
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler'
+Plug 'Shougo/neocomplete.vim'
+Plug 'mattn/ctrlp-ghq'
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+
+call plug#end()
+
+filetype plugin indent on
+"----------------------------------------
+" vim-go
+"----------------------------------------
+set autowrite
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_version_warning = 0
+let g:go_list_type = "quickfix"
+autocmd FileType go nmap <xRight> :cnext<CR>
+autocmd FileType go nmap <xLeft> :cprevious<CR>
+autocmd FileType go nmap <leader>u  <Plug>(go-test-func)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+set rtp+=$GOROOT/misc/vim
+exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+
+"----------------------------------------
+" 全体
+"----------------------------------------
+
+" <Leader>
+let mapleader = "\<Space>"
+
+" 行番号の色を設定
+set cursorline
+
+
+"filer
+let g:vimfiler_as_default_explorer = 1
+nnoremap <C-e> :VimFiler<CR>
+
 " ファイルを上書きする前にバックアップを作ることを無効化
 set nowritebackup
 " ファイルを上書きする前にバックアップを作ることを無効化
