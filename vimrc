@@ -4,11 +4,15 @@
 
 call plug#begin()
 
-Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler'
 Plug 'Shougo/neocomplete.vim'
 Plug 'mattn/ctrlp-ghq'
+Plug 'tomtom/tcomment_vim'
+Plug 'itchyny/lightline.vim'
+Plug 'ConradIrwin/vim-bracketed-paste'
+
+Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 call plug#end()
@@ -35,13 +39,46 @@ exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 "----------------------------------------
 " neocompleate
 "----------------------------------------
-let g:neocomplete#sources#omni#input_patterns = '\h\w\.\w*'
-
+" let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
 "----------------------------------------
 " VimFiler
 "----------------------------------------
 let g:vimfiler_as_default_explorer = 1
 nnoremap <C-e> :VimFiler<CR>
+"----------------------------------------
+" TComment
+"----------------------------------------
+nmap <C-_> :TComment<CR>
+"----------------------------------------
+" itchyny/lightline.vim
+"----------------------------------------
+" ステータスラインを常に表示
+set laststatus=2
+" 現在のモードを表示
+set showmode
+" 打ったコマンドをステータスラインの下に表示
+set showcmd
+" ステータスラインの右側にカーソルの現在位置を表示する
+set ruler
+" デフォルトのステータスラインを削除
+set noshowmode
+" ステータス表示方法
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ },
+      \ }
+
+function! LightlineFilename()
+  return &filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
+        \ &filetype ==# 'unite' ? unite#get_status_string() :
+        \ &filetype ==# 'vimshell' ? vimshell#get_status_string() :
+        \ expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
 
 "----------------------------------------
 " 全体
@@ -53,12 +90,11 @@ let mapleader = "\<Space>"
 " 行番号の色を設定
 set cursorline
 
-
 " 閉じ括弧補完
 inoremap { {}<Left>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap ( ()<ESC>i
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
+"inoremap ( ()<ESC>i
+"inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " ファイルを上書きする前にバックアップを作ることを無効化
 set nowritebackup
@@ -100,8 +136,6 @@ set showmatch matchtime=1
 set cinoptions+=:0
 " メッセージ表示欄を2行確保
 set cmdheight=2
-" ステータス行を常に表示
-set laststatus=2
 " ウィンドウの右下にまだ実行していない入力中のコマンドを表示
 set showcmd
 " 省略されずに表示
