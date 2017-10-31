@@ -49,6 +49,7 @@
       - { name: nvm }
       - { name: mercurial }
       - { name: direnv }
+      - { name: tmux }
     homebrew_cask_packages:
       - { name: firefox }
       - { name: iterm2 }

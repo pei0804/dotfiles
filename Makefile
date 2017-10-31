@@ -15,7 +15,7 @@ vimperator/vimperator-plugins:
 	ln -s $@/plugin_loader.js vimperator/plugin/
 
 PWD:=$(shell pwd)
-srcs:=vimrc vim vimperator vimperatorrc gitconfig zshrc ideavimrc
+srcs:=vimrc vim vimperator vimperatorrc gitconfig zshrc ideavimrc tmux.conf
 link:
 	$(foreach src,$(srcs),ln -Fs $(PWD)/$(src) $(HOME)/.$(src);)
 
