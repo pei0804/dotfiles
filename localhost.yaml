@@ -50,6 +50,7 @@
       - { name: mercurial }
       - { name: direnv }
       - { name: tmux }
+      - { name: reattach-to-user-namespace }
     homebrew_cask_packages:
       - { name: firefox }
       - { name: iterm2 }
