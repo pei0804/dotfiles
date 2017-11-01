@@ -96,6 +96,18 @@
     - name: install prezto
       git: repo=https://github.com/sorin-ionescu/prezto.git dest=~/.zprezto
 
+    # anyenv
+    - name: install anyenv
+      git: repo=https://github.com/riywo/anyenv.git dest=~/.anyenv
+
+    # tpm
+    - name: install tpm
+      git: repo=https://github.com/tmux-plugins/tpm.git dest=~/.tmux/plugins/tpm
+
+    # shell prompt
+    - name: Install pure-prompt
+      npm: name=pure-prompt global=yes
+
   handlers:
     - name: run fc-cache
       shell: fc-cache -vf
