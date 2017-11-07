@@ -11,6 +11,8 @@ Plug 'mattn/ctrlp-ghq'
 Plug 'tomtom/tcomment_vim'
 Plug 'itchyny/lightline.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'majutsushi/tagbar'
 
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -28,18 +30,63 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_version_warning = 0
 let g:go_list_type = "quickfix"
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
+set updatetime=10
 autocmd FileType go nmap <xRight> :cnext<CR>
 autocmd FileType go nmap <xLeft> :cprevious<CR>
 autocmd FileType go nmap <leader>u  <Plug>(go-test-func)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>d  <Plug>(go-doc)
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
+autocmd FileType go setlocal noexpandtab
+autocmd FileType go setlocal tabstop=4
+autocmd FileType go setlocal shiftwidth=4
 set rtp+=$GOROOT/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 "----------------------------------------
 " neocompleate
 "----------------------------------------
-" let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
+let g:neocomplete#enable_at_startup = 1
+"----------------------------------------
+" tab
+"----------------------------------------
+autocmd FileType go nmap <leader>g :TagbarToggle<CR>
+let g:tagbar_left = 0
+let g:tagbar_autofocus = 1
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+"----------------------------------------
+" ctrlp
+"----------------------------------------
+let g:go_decls_includes = "func,type"
 "----------------------------------------
 " VimFiler
 "----------------------------------------

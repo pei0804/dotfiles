@@ -11,6 +11,10 @@
       - { name: zsh }
       - { name: zsh-completions }
       - { name: readline }
+      - { name: ctags }
+      - { name: gotags }
+      - { name: lua }
+      - { name: vim, install_options: with-lua }
       - { name: docker }
       - { name: docker-compose }
       - { name: openssl }
