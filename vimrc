@@ -31,9 +31,8 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_version_warning = 0
 let g:go_list_type = "quickfix"
-let g:go_auto_type_info = 1
-let g:go_auto_sameids = 1
-set updatetime=10
+" let g:go_auto_type_info = 1
+" let g:go_auto_sameids = 1
 autocmd FileType go nmap <xRight> :cnext<CR>
 autocmd FileType go nmap <xLeft> :cprevious<CR>
 autocmd FileType go nmap <leader>u  <Plug>(go-test-func)
@@ -42,6 +41,7 @@ autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>d  <Plug>(go-doc)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
+autocmd FileType go nmap <Leader>q :GoSameIds<CR>
 autocmd FileType go setlocal noexpandtab
 autocmd FileType go setlocal tabstop=4
 autocmd FileType go setlocal shiftwidth=4
