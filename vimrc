@@ -13,6 +13,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
+Plug 'mattn/emmet-vim'
 
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -46,6 +47,12 @@ autocmd FileType go setlocal tabstop=4
 autocmd FileType go setlocal shiftwidth=4
 set rtp+=$GOROOT/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+"----------------------------------------
+" emmet https://mattn.kaoriya.net/software/vim/20100306021632.htm
+"----------------------------------------
+" <c-y>,
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,tmpl EmmetInstall
 "----------------------------------------
 " neocompleate
 "----------------------------------------
