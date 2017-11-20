@@ -34,6 +34,9 @@ export DOTFILES=$HOME/dotfiles
 # GAE
 export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
 
+# JAVA
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
 # -------------------------------------
 # zsh
 # -------------------------------------

@@ -244,6 +244,9 @@ set whichwrap=b,s,h,l,<,>,[,],~
 set mouse=a
 " セミコロンをコロン
 nnoremap ; :
+"選択範囲のインデントを連続して変更
+vnoremap < <gv
+vnoremap > >gv
 
 " auto reload .vimrc
 augroup source-vimrc
