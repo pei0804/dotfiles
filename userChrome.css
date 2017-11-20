@@ -1,0 +1,16 @@
+/* ${HOME}/Library/Application Support/Firefox/Profiles/hoge.default/chrome */
+
+/* タブ非表示 */
+.tabbrowser-tab[fadein]:not([pinned]) {
+    display: none !important;
+}
+
+/* 新しいタブを開くボタンの非表示 */
+.tabs-newtab-button {
+    display:none !important;
+}
+
+/* サイドバーヘッダー非表示 */
+#sidebar-header {
+  display: none !important;
+}
