@@ -1,5 +1,18 @@
+"pei's vimrc
+" Author: pei0804
+" URL: http://tikasan.hatenablog.com/
+" Source: https://github.com/pei0804/dotfiles
+"=============================================================
+"            ________    _______       ___
+"           |\   __  \  |\  ___ \     |\  \
+"           \ \  \|\  \ \ \   __/|    \ \  \
+"            \ \   ____\ \ \  \_|/__   \ \  \
+"             \ \  \___|  \ \  \_|\ \   \ \  \
+"              \ \__\      \ \_______\   \ \__\
+"               \|__|       \|_______|    \|__|
+"=============================================================
 "----------------------------------------
-" plugin
+" plugin :PlugInstall
 "----------------------------------------
 
 call plug#begin()
@@ -14,6 +27,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
+Plug 'w0rp/ale'
 
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -53,6 +67,24 @@ exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 " <c-y>,
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,tmpl EmmetInstall
+"----------------------------------------
+" ale
+"----------------------------------------
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save = 1
+let g:ale_sign_column_always = 1
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_linters = {'go': ['gometalinter']}
+let g:ale_go_gometalinter_options = '--vendored-linters --disable-all --enable=gotype --enable=vet --enable=golint -t'
+let g:ale_open_list = 1
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 "----------------------------------------
 " neocompleate
 "----------------------------------------

@@ -55,6 +55,7 @@
       - { name: direnv }
       - { name: tmux }
       - { name: reattach-to-user-namespace }
+      - { name: fontforge }
     homebrew_cask_packages:
       - { name: firefox }
       - { name: iterm2 }

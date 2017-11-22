@@ -1,0 +1,13 @@
+{
+  "Keymap": {
+    "C-p": "peco.SelectPrevious",
+    "C-n": "peco.SelectNext",
+    "C-g": "peco.Cancel",
+    "C-v": "peco.SelectNextPage",
+    "C-@": "peco.ToggleSelectionAndSelectNext"
+  },
+  "Style": {
+    "Selected": ["underline", "on_white", "black"],
+    "Matched": ["blue", "on_black"]
+  }
+}
