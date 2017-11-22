@@ -20,7 +20,6 @@ call plug#begin()
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler'
 Plug 'Shougo/neocomplete.vim'
-Plug 'mattn/ctrlp-ghq'
 Plug 'tomtom/tcomment_vim'
 Plug 'itchyny/lightline.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
@@ -55,6 +54,8 @@ autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>d  <Plug>(go-doc)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
+autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
+autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 autocmd FileType go nmap <Leader>q :GoSameIds<CR>
 autocmd FileType go setlocal noexpandtab
 autocmd FileType go setlocal tabstop=4
@@ -122,10 +123,6 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
-"----------------------------------------
-" ctrlp
-"----------------------------------------
-let g:go_decls_includes = "func,type"
 "----------------------------------------
 " VimFiler
 "----------------------------------------
@@ -209,6 +206,22 @@ set incsearch
 " 検索結果をハイライト表示
 set hlsearch
 
+" 検索結果に移動した時に中央にする
+noremap n nzz
+noremap N Nzz
+noremap * *zz
+noremap # #zz
+noremap g* g*zz
+noremap g# g#zz
+
+"==========================
+" 文字コード
+"==========================
+set encoding=utf-8
+source $HOME/.vim/encode.vim
+
+set fileformats=unix,dos,mac
+
 "----------------------------------------
 " 表示設定
 "----------------------------------------
@@ -256,8 +269,6 @@ set showmatch
 set smartindent
 " スワップファイルを作成しない
 set noswapfile
-" 検索にマッチした行以外を折りたたむ(フォールドする)機能
-set nofoldenable
 " タイトルを表示
 set title
 " 行番号の表示
@@ -279,6 +290,9 @@ nnoremap ; :
 "選択範囲のインデントを連続して変更
 vnoremap < <gv
 vnoremap > >gv
+" 畳み込み
+set foldmethod=syntax
+set foldnestmax=1
 
 " auto reload .vimrc
 augroup source-vimrc
