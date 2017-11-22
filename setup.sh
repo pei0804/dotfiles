@@ -70,6 +70,16 @@ esac
 
 echo '---------------------'
 
+echo 'dotfiles setup?[Y/n]'
+read ANSWER
+case $ANSWER in
+  "" | "Y" | "y" )
+	./install;;
+  * ) echo "dotfiles setup skip";;
+esac
+
+echo '---------------------'
+
 echo 'vim setup?[Y/n]'
 read ANSWER
 case $ANSWER in
@@ -77,7 +87,7 @@ case $ANSWER in
 	mkdir -p ~/.vimtmp
 	mkdir -p ~/.vimback
 	curl -fLo $@ --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;;
-  * ) echo "install ansible skip";;
+  * ) echo "vim setup skip";;
 esac
 
 echo '---------------------'
