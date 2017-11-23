@@ -90,6 +90,17 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " neocompleate
 "----------------------------------------
 let g:neocomplete#enable_at_startup = 1
+" 補完を始めるキーワード長を長くする
+let g:neocomplete#sources#syntax#min_keyword_length = 4
+let g:neocomplete#auto_completion_start_length = 4
+" 補完が止まった際に、スキップする長さを短くする
+let g:neocomplete#skip_auto_completion_time = '0.2'
+" 使用する補完の種類を減らす
+" 現在のSourceの取得は `:echo keys(neocomplete#variables#get_sources())`
+" デフォルト: ['file', 'tag', 'neosnippet', 'vim', 'dictionary', 'omni', 'member', 'syntax', 'include', 'buffer', 'file/include']
+let g:neocomplete#sources = {
+  \ '_' : ['vim', 'omni', 'include', 'buffer', 'file/include']
+  \ }
 "----------------------------------------
 " tab
 "----------------------------------------

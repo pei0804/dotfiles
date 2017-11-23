@@ -2,8 +2,6 @@
 
 ```console
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/pei0804/dotfiles/master/setup.sh)"
-$ Dotfiles
-$ make all
 ```
 
 ## antigen not found
