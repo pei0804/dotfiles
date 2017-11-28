@@ -2,6 +2,9 @@
 # 環境変数
 # -------------------------------------
 
+# .config
+export XDG_CONFIG_HOME=$HOME/.config
+
 # GAE
 export PATH=$HOME/go_appengine:$PATH
 

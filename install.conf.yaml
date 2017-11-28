@@ -12,6 +12,7 @@
     ~/.tmux: tmux/tmux
     ~/.tmux.conf: tmux.conf
     ~/.config/peco: peco
+    ~/.config/nvim : nvim
     ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.ideavimrc: ideavimrc

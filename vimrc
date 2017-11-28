@@ -15,6 +15,15 @@
 " plugin :PlugInstall
 "----------------------------------------
 
+" vim-plug
+let vimplug_exists=expand('~/.local/share/nvim/site/autoload/plug.vim')
+if !filereadable(vimplug_exists)
+    echo "Installing vim-plug...\n"
+    !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    let g:not_finish_vimplug = "yes"
+    autocmd VimEnter * PlugInstall
+endif
+
 call plug#begin()
 
 Plug 'Shougo/unite.vim'
@@ -44,6 +53,8 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_version_warning = 0
 let g:go_list_type = "quickfix"
+let g:go_fmt_experimental = 1
+autocmd BufWritePost *.go normal! zv
 " let g:go_auto_type_info = 1
 " let g:go_auto_sameids = 1
 autocmd FileType go nmap <xRight> :cnext<CR>
