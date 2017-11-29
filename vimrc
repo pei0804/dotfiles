@@ -28,7 +28,6 @@ call plug#begin()
 
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler'
-Plug 'Shougo/neocomplete.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'itchyny/lightline.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
@@ -40,9 +39,63 @@ Plug 'w0rp/ale'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'zchee/deoplete-go', { 'do': 'make'}
+else
+  Plug 'Shougo/neocomplete.vim'
+endif
+
 call plug#end()
 
 filetype plugin indent on
+"=======================================
+" nvim area
+"=======================================
+if has('nvim')
+  "----------------------------------------
+  " deoplete
+  "----------------------------------------
+  set completeopt+=noinsert
+  let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_smart_case = 1
+  let g:min_pattern_length = 0
+  "----------------------------------------
+  " deoplete-go
+  "----------------------------------------
+  let g:deoplete#sources#go#align_class = 1
+  let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+  let g:deoplete#sources#go#package_dot = 1
+  "----------------------------------------
+  " 設定
+  "----------------------------------------
+  set clipboard=unnamed
+"=======================================
+" vim area
+"=======================================
+else
+  "----------------------------------------
+  " neocompleate
+  "----------------------------------------
+  let g:neocomplete#enable_at_startup = 1
+  " 補完を始めるキーワード長を長くする
+  let g:neocomplete#sources#syntax#min_keyword_length = 4
+  let g:neocomplete#auto_completion_start_length = 4
+  " 補完が止まった際に、スキップする長さを短くする
+  let g:neocomplete#skip_auto_completion_time = '0.2'
+  " 使用する補完の種類を減らす
+  " 現在のSourceの取得は `:echo keys(neocomplete#variables#get_sources())`
+  " デフォルト: ['file', 'tag', 'neosnippet', 'vim', 'dictionary', 'omni', 'member', 'syntax', 'include', 'buffer', 'file/include']
+  let g:neocomplete#sources = {
+    \ '_' : ['vim', 'omni', 'include', 'buffer', 'file/include']
+    \ }
+  "----------------------------------------
+  " 設定
+  "----------------------------------------
+  " ヤンクでクリップボードにコピー
+  set clipboard=unnamed,autoselect
+endif
 "----------------------------------------
 " vim-go
 "----------------------------------------
@@ -97,21 +150,6 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-"----------------------------------------
-" neocompleate
-"----------------------------------------
-let g:neocomplete#enable_at_startup = 1
-" 補完を始めるキーワード長を長くする
-let g:neocomplete#sources#syntax#min_keyword_length = 4
-let g:neocomplete#auto_completion_start_length = 4
-" 補完が止まった際に、スキップする長さを短くする
-let g:neocomplete#skip_auto_completion_time = '0.2'
-" 使用する補完の種類を減らす
-" 現在のSourceの取得は `:echo keys(neocomplete#variables#get_sources())`
-" デフォルト: ['file', 'tag', 'neosnippet', 'vim', 'dictionary', 'omni', 'member', 'syntax', 'include', 'buffer', 'file/include']
-let g:neocomplete#sources = {
-  \ '_' : ['vim', 'omni', 'include', 'buffer', 'file/include']
-  \ }
 "----------------------------------------
 " tab
 "----------------------------------------
@@ -295,8 +333,6 @@ set noswapfile
 set title
 " 行番号の表示
 set number
-" ヤンクでクリップボードにコピー
-set clipboard=unnamed,autoselect
 " Escの2回押しでハイライト消去
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 " シンタックスハイライト
