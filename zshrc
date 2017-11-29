@@ -116,7 +116,8 @@ alias htdocs='cd /Applications/XAMPP/xamppfiles/htdocs'
 alias vimedit='vim ~/dotfiles/vimrc'
 alias dotfiles='cd ~/dotfiles'
 alias tags='~/dotfiles/Makefile create_tags TARGET_PATH=./'
-alias vi='vim'
+alias vi='nvim'
+alias vim='nvim'
 
 # tree
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける

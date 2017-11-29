@@ -130,6 +130,7 @@ exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 " emmet https://mattn.kaoriya.net/software/vim/20100306021632.htm
 "----------------------------------------
 " <c-y>,
+let g:user_emmet_leader_key='<leader>'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,tmpl EmmetInstall
 "----------------------------------------
@@ -229,9 +230,6 @@ let g:vimshell_force_overwrite_statusline = 0
 
 " <Leader>
 let mapleader = "\<Space>"
-
-" 行番号の色を設定
-set cursorline
 
 " 閉じ括弧補完
 inoremap { {}<Left>
@@ -351,6 +349,10 @@ vnoremap > >gv
 " 畳み込み
 set foldmethod=syntax
 set foldnestmax=1
+" 行を強調表示
+set cursorline
+" 列を強調表示
+set cursorcolumn
 
 " auto reload .vimrc
 augroup source-vimrc
