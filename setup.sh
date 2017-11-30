@@ -80,13 +80,11 @@ esac
 
 echo '---------------------'
 
-echo 'vim setup?[Y/n]'
+echo 'nvim setup?[Y/n]'
 read ANSWER
 case $ANSWER in
   "" | "Y" | "y" )
-	mkdir -p ~/.vimtmp
-	mkdir -p ~/.vimback
-	curl -fLo $@ --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;;
+  pip3 install --upgrade neovim;;
   * ) echo "vim setup skip";;
 esac
 

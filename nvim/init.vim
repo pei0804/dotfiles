@@ -1,1 +1,1 @@
-/Users/jumpei/dotfiles/vimrc
+/Users/chikamori/dotfiles/vimrc

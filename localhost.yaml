@@ -15,6 +15,7 @@
       - { name: gotags }
       - { name: lua }
       - { name: vim, install_options: with-lua }
+      - { name: neovim }
       - { name: docker }
       - { name: docker-compose }
       - { name: openssl }
@@ -38,6 +39,7 @@
       - { name: yarn }
       - { name: rbenv }
       - { name: ruby-build }
+      - { name: python3 }
       - { name: mysql }
       - { name: sqlite }
       - { name: redis }
