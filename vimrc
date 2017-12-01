@@ -347,12 +347,14 @@ nnoremap ; :
 vnoremap < <gv
 vnoremap > >gv
 " 畳み込み
-set foldmethod=syntax
+set foldmethod=indent
 set foldnestmax=1
 " 行を強調表示
 set cursorline
 " 列を強調表示
 set cursorcolumn
+"undoできる数
+set undolevels=100
 
 " auto reload .vimrc
 augroup source-vimrc
