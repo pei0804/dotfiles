@@ -38,6 +38,7 @@ Plug 'w0rp/ale'
 Plug 'itchyny/vim-gitbranch'
 Plug 'mhartington/oceanic-next'
 Plug 'tpope/vim-fugitive'
+Plug 'kana/vim-submode'
 
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -115,11 +116,11 @@ autocmd BufWritePost *.go normal! zv
 " let g:go_auto_sameids = 1
 autocmd FileType go nmap <xRight> :cnext<CR>
 autocmd FileType go nmap <xLeft> :cprevious<CR>
-autocmd FileType go nmap <leader>u  <Plug>(go-test-func)
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-autocmd FileType go nmap <leader>d  <Plug>(go-doc)
+autocmd FileType go nmap <Leader>u  <Plug>(go-test-func)
+autocmd FileType go nmap <Leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>b  <Plug>(go-build)
+autocmd FileType go nmap <Leader>r  <Plug>(go-run)
+autocmd FileType go nmap <Leader>d  <Plug>(go-doc)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
 autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
@@ -133,7 +134,7 @@ exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 " emmet https://mattn.kaoriya.net/software/vim/20100306021632.htm
 "----------------------------------------
 " <c-y>,
-let g:user_emmet_leader_key='<leader>'
+let g:user_emmet_leader_key='<Leader>'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,tmpl EmmetInstall
 "----------------------------------------
@@ -210,12 +211,9 @@ set ruler
 " デフォルトのステータスラインを削除
 set noshowmode
 
-" vim-gitgutter
 let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '➜'
 let g:gitgutter_sign_removed = '✘'
-
-" lightline.vim
 let g:lightline = {
         \ 'mode_map': {'c': 'NORMAL'},
         \ 'active': {
@@ -346,67 +344,6 @@ function! MyCharCode()
 
   return "'". char ."' ". nr
 endfunction
-
-" let g:lightline = {
-"         \ 'colorscheme': 'wombat',
-"         \ 'mode_map': {'c': 'NORMAL'},
-"         \ 'active': {
-"         \   'left': [ [ 'mode', 'paste' ], [  'fugitive', 'filename' ] ]
-"         \ },
-"         \ 'component_function': {
-"         \   'modified': 'LightlineModified',
-"         \   'readonly': 'LightlineReadonly',
-"         \   'fugitive': 'LightlineFugitive',
-"         \   'filename': 'LightlineFilename',
-"         \   'fileformat': 'LightlineFileformat',
-"         \   'filetype': 'LightlineFiletype',
-"         \   'gitbranch': 'gitbranch#name',
-"         \   'fileencoding': 'LightlineFileencoding',
-"         \   'mode': 'LightlineMode'
-"         \ },
-"         \ }
-"
-" function! LightlineModified()
-"   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-" endfunction
-"
-" function! LightlineReadonly()
-"   return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
-" endfunction
-"
-" function! LightlineFilename()
-"   return expand('%:p:h')
-"   return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
-"         \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-"         \  &ft == 'unite' ? unite#get_status_string() :
-"         \  &ft == 'vimshell' ? vimshell#get_status_string() :
-"         \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-"         \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
-" endfunction
-"
-" function! LightlineFugitive()
-"   if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-"     return fugitive#head()
-"   else
-"     return ''
-"   endif
-" endfunction
-"
-" function! LightlineFileformat()
-"   return winwidth(0) > 70 ? &fileformat : ''
-" endfunction
-"
-" function! LightlineFiletype()
-"   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-" endfunction
-"
-" function! LightlineFileencoding()
-"   return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-" endfunction
-"
-" function! LightlineMode()
-"   return winwidth(0) > 60 ? lightline#mode() : ''
-" endfunction
 "----------------------------------------
 " 全体
 "----------------------------------------
@@ -538,6 +475,11 @@ set cursorline
 set cursorcolumn
 "undoできる数
 set undolevels=100
+
+call submode#enter_with('bufmove', 'n', '', '<Leader>.', '<C-w>15>')
+call submode#enter_with('bufmove', 'n', '', '<Leader>,', '<C-w>15<')
+call submode#enter_with('bufmove', 'n', '', '<Leader>=', '<C-w>15+')
+call submode#enter_with('bufmove', 'n', '', '<Leader>-', '<C-w>15-')
 
 " auto reload .vimrc
 augroup source-vimrc
