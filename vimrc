@@ -35,6 +35,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
+Plug 'itchyny/vim-gitbranch'
+Plug 'mhartington/oceanic-next'
 
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -210,6 +212,11 @@ set noshowmode
 let g:lightline = {
       \ 'component_function': {
       \   'filename': 'LightlineFilename',
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ }
 
@@ -223,7 +230,6 @@ endfunction
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
-
 "----------------------------------------
 " 全体
 "----------------------------------------
@@ -390,14 +396,23 @@ if has("autocmd")
   augroup END
 endif
 
-" テーマ
-if has('gui_running')
-    set t_Co=16
-    let g:solarized_termcolors=16
+" Theme
+if has('nvim')
+  " For Neovim 0.1.3 and 0.1.4
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  " Or if you have Neovim >= 0.1.5
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+  " Theme
+  syntax enable
+  colorscheme OceanicNext
 else
-    " http://stackoverflow.com/questions/7278267/incorrect-colors-with-vim-in-iterm2-using-solarized
-    let g:solarized_termtrans=1
+  syntax enable
+  set t_Co=256
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+  colorscheme OceanicNext
 endif
-set background=dark
-colorscheme solarized
 set cmdheight=2
