@@ -42,8 +42,10 @@ Plug 'kana/vim-submode'
 Plug 'kana/vim-operator-user'
 Plug 'haya14busa/vim-operator-flashy'
 Plug 'haya14busa/incsearch.vim'
+Plug 'tpope/vim-pathogen'
 
 Plug 'fatih/vim-go', {'for': 'go'}
+Plug 'jodosha/vim-godebug', {'for': 'go'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 if has('nvim')
