@@ -39,6 +39,9 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'mhartington/oceanic-next'
 Plug 'tpope/vim-fugitive'
 Plug 'kana/vim-submode'
+Plug 'kana/vim-operator-user'
+Plug 'haya14busa/vim-operator-flashy'
+Plug 'haya14busa/incsearch.vim'
 
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -137,6 +140,18 @@ exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 let g:user_emmet_leader_key='<Leader>'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,tmpl EmmetInstall
+"----------------------------------------
+" incsearch
+"----------------------------------------
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+"----------------------------------------
+" operator-flashy
+"----------------------------------------
+map y <Plug>(operator-flashy)
+nmap Y <Plug>(operator-flashy)$
+let g:operator#flashy#flash_time = 200
 "----------------------------------------
 " ale
 "----------------------------------------
@@ -469,12 +484,10 @@ vnoremap > >gv
 " 畳み込み
 set foldmethod=indent
 set foldnestmax=1
-" 行を強調表示
-set cursorline
-" 列を強調表示
-set cursorcolumn
 "undoできる数
 set undolevels=100
+" 行末の余分なスペースを取り除く
+autocmd BufWritePre * :%s/\s\+$//ge
 
 call submode#enter_with('bufmove', 'n', '', '<Leader>.', '<C-w>15>')
 call submode#enter_with('bufmove', 'n', '', '<Leader>,', '<C-w>15<')
@@ -535,3 +548,9 @@ else
   colorscheme OceanicNext
 endif
 set cmdheight=2
+
+" テーマカスタマイズ
+set cursorline
+hi CursorLineNr term=bold cterm=Bold ctermfg=237 ctermbg=209 gui=reverse guifg=#343d46 guibg=#f99157
+hi clear Folded
+hi Folded term=bold cterm=Bold ctermfg=240 ctermbg=235 guifg=#585858 guibg=#262626
