@@ -22,7 +22,7 @@
     "gg": { "type": "scroll.top" },
     "G": { "type": "scroll.bottom" },
     "$": { "type": "scroll.end" },
-    "d": { "type": "tabs.close" },
+    "dd": { "type": "tabs.close" },
     "u": { "type": "tabs.reopen" },
     "h": { "type": "tabs.prev", "count": 1 },
     "l": { "type": "tabs.next", "count": 1 },
