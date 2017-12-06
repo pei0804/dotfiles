@@ -55,6 +55,11 @@ Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'jodosha/vim-godebug', {'for': 'go'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
+Plug 'vim-php/tagbar-phpctags.vim', {'for': 'php'}
+Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
+Plug 'sumpygump/php-documentor-vim', {'for': 'php'}
+Plug '2072/PHP-Indenting-for-VIm', {'for': 'php'}
+
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-go', { 'do': 'make'}
@@ -142,6 +147,11 @@ autocmd FileType go setlocal tabstop=4
 autocmd FileType go setlocal shiftwidth=4
 set rtp+=$GOROOT/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+"----------------------------------------
+" php
+"----------------------------------------
+autocmd FileType php set makeprg=php\ -l\ %
+autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 "----------------------------------------
 " emmet https://mattn.kaoriya.net/software/vim/20100306021632.htm
 "----------------------------------------
