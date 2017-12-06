@@ -26,6 +26,7 @@ endif
 
 call plug#begin()
 
+" all
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler'
 Plug 'tomtom/tcomment_vim'
@@ -44,6 +45,12 @@ Plug 'haya14busa/vim-operator-flashy'
 Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-pathogen'
 
+" snip
+Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate'
+
+" for language
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'jodosha/vim-godebug', {'for': 'go'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -154,6 +161,10 @@ map g/ <Plug>(incsearch-stay)
 map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
 let g:operator#flashy#flash_time = 200
+"----------------------------------------
+" snip
+"----------------------------------------
+nmap <Tab> <Plug>snipMateShow
 "----------------------------------------
 " ale
 "----------------------------------------
