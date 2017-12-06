@@ -489,7 +489,16 @@ set foldnestmax=1
 "undoできる数
 set undolevels=100
 " 行末の余分なスペースを取り除く
-autocmd BufWritePre * :%s/\s\+$//ge
+function! RTrim()
+  let s:cursor = getpos(".")
+  if &filetype == "markdown"
+    %s/\s\+\(\s\{2}\)$/\1/e
+    match Underlined /\s\{2}/
+  else
+    %s/\s\+$//e
+  endif
+  call setpos(".", s:cursor)
+endfunction
 
 call submode#enter_with('bufmove', 'n', '', '<Leader>.', '<C-w>15>')
 call submode#enter_with('bufmove', 'n', '', '<Leader>,', '<C-w>15<')
