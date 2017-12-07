@@ -44,6 +44,9 @@ Plug 'kana/vim-operator-user'
 Plug 'haya14busa/vim-operator-flashy'
 Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-pathogen'
+Plug 'kannokanno/previm', {'for': 'markdown'}
+Plug 'tyru/open-browser.vim', {'for': 'markdown'}
+Plug 'osyo-manga/vim-over'
 
 " snip
 Plug 'tomtom/tlib_vim'
@@ -51,14 +54,18 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 
 " for language
+Plug 'szw/vim-tags', {'for': ['php', 'javascript']}
+
 Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'jodosha/vim-godebug', {'for': 'go'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'vim-php/tagbar-phpctags.vim', {'for': 'php'}
+Plug 'flyinshadow/php_localvarcheck.vim', {'for': 'php'}
 Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
 Plug 'sumpygump/php-documentor-vim', {'for': 'php'}
 Plug '2072/PHP-Indenting-for-VIm', {'for': 'php'}
+Plug 'beanworks/vim-phpfmt', {'for': 'php'}
 Plug 'othree/yajs.vim', {'for': 'javascript'}
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
@@ -154,8 +161,24 @@ exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 "----------------------------------------
 " php
 "----------------------------------------
+" 保存時に走らせる
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+" 変数チェック
+let g:php_localvarcheck_enable = 1
+let g:php_localvarcheck_global = 0
+" phpfmt
+" composer global require "squizlabs/php_codesniffer=*"
+let g:phpfmt_standard = 'PSR2'
+let g:phpfmt_autosave = 1
+" errormarker.vim
+" composer global require ha1t/php-vimparse
+if executable('vimparse.php')
+  setlocal makeprg=vimparse.php\ %\ $*
+  setlocal errorformat=%f:%l:%m
+  setlocal shellpipe=2>&1\ >
+  autocmd BufWritePost <buffer> silent make
+endif
 "----------------------------------------
 " emmet https://mattn.kaoriya.net/software/vim/20100306021632.htm
 "----------------------------------------
@@ -163,6 +186,15 @@ autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else
 let g:user_emmet_leader_key='<Leader>'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,tmpl EmmetInstall
+"----------------------------------------
+" kannokanno/previm
+"----------------------------------------
+" :PrevimOpen
+let g:previm_open_cmd = 'open -a Firefox'
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+  augroup END
 "----------------------------------------
 " incsearch
 "----------------------------------------
@@ -175,6 +207,11 @@ map g/ <Plug>(incsearch-stay)
 map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
 let g:operator#flashy#flash_time = 200
+"----------------------------------------
+" ctags
+"----------------------------------------
+set tags=tags
+autocmd FileType php,html,javascript nnoremap <C-]> g<C-]> 
 "----------------------------------------
 " snip
 "----------------------------------------
@@ -235,6 +272,15 @@ let g:tagbar_type_go = {
 "----------------------------------------
 let g:vimfiler_as_default_explorer = 1
 nnoremap <C-e> :VimFiler<CR>
+"----------------------------------------
+" vim-over
+"----------------------------------------
+" 全体置換
+nnoremap <silent> <Space>o :OverCommandLine<CR>%s//g<Left><Left>
+" 選択範囲置換
+vnoremap <silent> <Space>o :OverCommandLine<CR>s//g<Left><Left>
+" カーソルしたの単語置換
+nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 "----------------------------------------
 " TComment
 "----------------------------------------
@@ -411,7 +457,6 @@ set backspace=indent,eol,start
 set ambiwidth=double
 " wildmenuオプションを有効(vimバーからファイルを選択できる)
 set wildmenu
-
 "----------------------------------------
 " 検索
 "----------------------------------------
