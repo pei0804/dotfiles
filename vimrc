@@ -162,6 +162,11 @@ autocmd FileType go setlocal shiftwidth=4
 set rtp+=$GOROOT/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 "----------------------------------------
+" go
+"----------------------------------------
+autocmd FileType go set foldmethod=indent
+autocmd FileType go set foldnestmax=1
+"----------------------------------------
 " php
 "----------------------------------------
 " 保存時に走らせる
@@ -557,7 +562,7 @@ nnoremap ; :
 vnoremap < <gv
 vnoremap > >gv
 " 畳み込み
-set foldmethod=indent
+set foldmethod=syntax
 set foldnestmax=1
 "undoできる数
 set undolevels=100
