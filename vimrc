@@ -47,6 +47,8 @@ Plug 'tpope/vim-pathogen'
 Plug 'kannokanno/previm', {'for': 'markdown'}
 Plug 'tyru/open-browser.vim', {'for': 'markdown'}
 Plug 'osyo-manga/vim-over'
+Plug 'tyru/operator-camelize.vim'
+Plug 'kana/vim-operator-user'
 
 " snip
 Plug 'tomtom/tlib_vim'
@@ -272,6 +274,11 @@ let g:tagbar_type_go = {
 "----------------------------------------
 let g:vimfiler_as_default_explorer = 1
 nnoremap <C-e> :VimFiler<CR>
+"----------------------------------------
+" tyru/operator-camelize.vim'
+" kana/vim-operator-user'
+"----------------------------------------
+map <leader>c <plug>(operator-camelize-toggle)
 "----------------------------------------
 " vim-over
 "----------------------------------------
