@@ -13,7 +13,6 @@
     ~/.tmux.conf: tmux.conf
     ~/.config/peco: peco
     ~/.config/nvim : nvim
-    ~/.config/nvim/init.vim: vimrc
     ~/.ctags: ctags
     ~/.vim: vim
     ~/.vimrc: vimrc
