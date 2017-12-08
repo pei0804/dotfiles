@@ -171,12 +171,17 @@ endif
 " Esc または jj で戻す
 tnoremap <silent> <ESC> <C-\><C-n>
 tnoremap <silent> jj <C-\><C-n>
+tnoremap <C-w>h <C-\><C-n><C-w>h
+tnoremap <C-w>j <C-\><C-n><C-w>j
+tnoremap <C-w>k <C-\><C-n><C-w>k
+tnoremap <C-w>l <C-\><C-n><C-w>l
 "----------------------------------------
 " neoterm
 "----------------------------------------
 noremap <silent> tt :Tnew<CR>
 let g:neoterm_size = 8
 let g:neoterm_autojump = 1
+let g:neoterm_autoinsert = 1
 "----------------------------------------
 " emmet https://mattn.kaoriya.net/software/vim/20100306021632.htm
 "----------------------------------------
