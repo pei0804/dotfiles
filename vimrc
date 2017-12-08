@@ -30,6 +30,7 @@ call plug#begin()
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler'
 Plug 'tomtom/tcomment_vim'
+Plug 'cohama/lexima.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -274,6 +275,7 @@ let g:tagbar_type_go = {
 "----------------------------------------
 let g:vimfiler_as_default_explorer = 1
 nnoremap <C-e> :VimFiler<CR>
+map F <Plug>(vimfiler_make_directory)
 "----------------------------------------
 " tyru/operator-camelize.vim'
 " kana/vim-operator-user'
@@ -445,12 +447,6 @@ endfunction
 
 " <Leader>
 let mapleader = "\<Space>"
-
-" 閉じ括弧補完
-inoremap { {}<Left>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-"inoremap ( ()<ESC>i
-"inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " ファイルを上書きする前にバックアップを作ることを無効化
 set nowritebackup
