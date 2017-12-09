@@ -559,6 +559,18 @@ vnoremap > >gv
 " 畳み込み
 set foldmethod=syntax
 set foldnestmax=1
+" 折り返し部分を見やすくする
+set showbreak=↪
+" 矢印キーでなら行内を動けるように
+nnoremap <Down> gj
+nnoremap <Up>   gk
+" 日本語入力がオンのままでも使えるコマンド(Enterキーは必要)
+nnoremap あ a
+nnoremap い i
+nnoremap う u
+nnoremap お o
+nnoremap っd dd
+nnoremap っy yy
 "undoできる数
 set undolevels=100
 " クリップボードにコピー
