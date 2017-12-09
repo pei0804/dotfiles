@@ -556,6 +556,18 @@ set nrformats=
 set whichwrap=b,s,h,l,<,>,[,],~
 " バッファスクロール
 set mouse=a
+" 折り返し部分を見やすくする
+set showbreak=↪
+" 矢印キーでなら行内を動けるように
+nnoremap <Down> gj
+nnoremap <Up>   gk
+" 日本語入力がオンのままでも使えるコマンド(Enterキーは必要)
+nnoremap あ a
+nnoremap い i
+nnoremap う u
+nnoremap お o
+nnoremap っd dd
+nnoremap っy yy
 " セミコロンをコロン
 nnoremap ; :
 "選択範囲のインデントを連続して変更
