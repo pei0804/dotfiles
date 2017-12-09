@@ -573,6 +573,8 @@ nnoremap っy yy
 set undolevels=100
 " クリップボードにコピー
 set clipboard=unnamed
+" pasteモード解除
+autocmd InsertLeave * set nopaste
 " jj でEsc
 inoremap <silent> jj <ESC>
 " 行末の余分なスペースを取り除く
