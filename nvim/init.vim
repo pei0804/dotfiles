@@ -486,8 +486,6 @@ noremap g# g#zz
 " 文字コード
 "==========================
 set encoding=utf-8
-source $HOME/.vim/encode.vim
-
 set fileformats=unix,dos,mac
 
 "----------------------------------------
