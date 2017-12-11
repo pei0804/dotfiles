@@ -183,6 +183,31 @@ let g:neoterm_size = 8
 let g:neoterm_autojump = 1
 let g:neoterm_autoinsert = 1
 "----------------------------------------
+" ctrlp
+"----------------------------------------
+set wildignore+=**/tmp/,*.so,*.swp,*.zip,*.pyc,htmlcov,__pycache__
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|htmlcov|node_modules|DS_Store)$',
+  \ 'file': '\v\.(exe|so|dll|pyc)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
+" 終了時キャッシュをクリアしない
+let g:ctrlp_clear_cache_on_exit = 0
+" MRUの最大記録数
+let g:ctrlp_mruf_max = 10000
+" 絞り込みで一致した部分のハイライト
+let g:ctrlp_highlight_match = [1, 'IncSearch']
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtSelectMove("j")':   ['<c-j>', '<c-n>'],
+    \ 'PrtSelectMove("k")':   ['<c-k>', '<c-p>'],
+    \ 'PrtHistory(-1)':       ['<down>'],
+    \ 'PrtHistory(1)':        ['<up>'],
+    \ }
+"----------------------------------------
 " emmet https://mattn.kaoriya.net/software/vim/20100306021632.htm
 "----------------------------------------
 " <c-y>,
