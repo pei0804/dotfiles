@@ -30,7 +30,6 @@ call plug#begin()
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler'
 Plug 'tomtom/tcomment_vim'
-Plug 'cohama/lexima.vim'
 Plug 'kassio/neoterm'
 Plug 'itchyny/lightline.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
@@ -51,6 +50,7 @@ Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
 Plug 'osyo-manga/vim-over'
 Plug 'tyru/operator-camelize.vim'
 Plug 'kana/vim-operator-user'
+Plug 'reedes/vim-lexical'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
@@ -566,6 +566,8 @@ set title
 set number
 " Escの2回押しでハイライト消去
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
+" Escの2回押しでハイライト消去
+nnoremap tn :tabnew<CR>
 " シンタックスハイライト
 syntax on
 " すべての数を10進数として扱う
