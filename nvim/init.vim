@@ -50,7 +50,6 @@ Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
 Plug 'osyo-manga/vim-over'
 Plug 'tyru/operator-camelize.vim'
 Plug 'kana/vim-operator-user'
-Plug 'reedes/vim-lexical'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
