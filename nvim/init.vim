@@ -27,35 +27,27 @@ endif
 call plug#begin()
 
 " all
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimfiler'
-Plug 'tomtom/tcomment_vim'
-Plug 'kassio/neoterm'
-Plug 'itchyny/lightline.vim'
-Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'majutsushi/tagbar'
-Plug 'cohama/lexima.vim'
-Plug 'mattn/emmet-vim'
-Plug 'w0rp/ale'
-Plug 'itchyny/vim-gitbranch'
-Plug 'mhartington/oceanic-next'
-Plug 'tpope/vim-fugitive'
-Plug 'kana/vim-submode'
-Plug 'kana/vim-operator-user'
-Plug 'haya14busa/vim-operator-flashy'
-Plug 'haya14busa/incsearch.vim'
-Plug 'tpope/vim-pathogen'
-Plug 'iamcco/mathjax-support-for-mkdp', {'for': 'markdown'}
-Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
-Plug 'osyo-manga/vim-over'
-Plug 'tyru/operator-camelize.vim'
-Plug 'kana/vim-operator-user'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'Shougo/unite.vim' "統合ユーザインターフェース
+Plug 'Shougo/vimfiler' " File Viwer
+Plug 'tomtom/tcomment_vim' " Comment作成
+Plug 'kassio/neoterm' " neovimのterminalをカスタマイズ
+Plug 'ConradIrwin/vim-bracketed-paste' " コピペずれしないようにする
+Plug 'ctrlpvim/ctrlp.vim' " ファイル検索
+Plug 'majutsushi/tagbar' " tagを一覧する
+Plug 'cohama/lexima.vim' " 閉じ括弧をいい感じにする
+Plug 'mattn/emmet-vim' " emmet
+Plug 'w0rp/ale' " 非同期文法チェック
+Plug 'itchyny/lightline.vim' " ステータスライン
+Plug 'itchyny/vim-gitbranch' " gitブランチ名を取得する lightline.vimに使う
+Plug 'tpope/vim-fugitive' " git
+Plug 'mhartington/oceanic-next' " カラーテーマ
+Plug 'kana/vim-submode' " サブモードを定義
+Plug 'haya14busa/vim-operator-flashy' " テキスト選択範囲の見える化
+Plug 'haya14busa/incsearch.vim' " 検索文字列のハイライトをいい感じにする
+Plug 'osyo-manga/vim-over' " 文字列置換の可視化
+Plug 'tyru/operator-camelize.vim' " キャメルケースとスネークケースの切り替え \c
+Plug 'kana/vim-operator-user' " tyru/operator-camelize.vimで使う
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " 入力補完
 
 " snip
 Plug 'tomtom/tlib_vim'
@@ -75,6 +67,7 @@ Plug 'beanworks/vim-phpfmt', {'for': 'php'}
 " go
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'jodosha/vim-godebug', {'for': 'go'}
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 " javascript
@@ -91,6 +84,10 @@ Plug 'gko/vim-coloresque'
 
 " Docker
 Plug 'ekalinin/Dockerfile.vim'
+
+" markdown
+Plug 'iamcco/mathjax-support-for-mkdp', {'for': 'markdown'}
+Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
 
 call plug#end()
 
@@ -302,9 +299,10 @@ let g:vimfiler_as_default_explorer = 1
 nnoremap <C-e> :VimFiler<CR>
 map F <Plug>(vimfiler_make_directory)
 "----------------------------------------
-" tyru/operator-camelize.vim'
-" kana/vim-operator-user'
+" operator-camelize
+" vim-operator-user
 "----------------------------------------
+" \c
 map <leader>c <plug>(operator-camelize-toggle)
 "----------------------------------------
 " vim-over
