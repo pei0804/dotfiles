@@ -119,6 +119,7 @@ alias tags='~/dotfiles/Makefile create_tags TARGET_PATH=./'
 alias vi='nvim'
 alias vim='nvim'
 alias ctags="`brew --prefix`/bin/ctags"
+alias rm="trash"
 
 # tree
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける

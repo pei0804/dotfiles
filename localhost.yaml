@@ -13,6 +13,7 @@
       - { name: readline }
       - { name: ctags }
       - { name: gotags }
+      - { name: trash }
       - { name: lua }
       - { name: vim, install_options: with-lua }
       - { name: neovim }
