@@ -48,6 +48,7 @@ Plug 'osyo-manga/vim-over' " 文字列置換の可視化
 Plug 'tyru/operator-camelize.vim' " キャメルケースとスネークケースの切り替え \c
 Plug 'kana/vim-operator-user' " tyru/operator-camelize.vimで使う
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " 入力補完
+Plug 'rhysd/vim-grammarous' " 文法チェック
 
 " snip
 Plug 'tomtom/tlib_vim'
