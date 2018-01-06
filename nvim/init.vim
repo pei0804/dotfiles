@@ -49,6 +49,7 @@ Plug 'tyru/operator-camelize.vim' " キャメルケースとスネークケー�
 Plug 'kana/vim-operator-user' " tyru/operator-camelize.vimで使う
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " 入力補完
 Plug 'rhysd/vim-grammarous' " 文法チェック
+Plug 'rhysd/ghpr-blame.vim' " git blame
 
 " snip
 Plug 'tomtom/tlib_vim'
@@ -180,6 +181,19 @@ noremap <silent> tt :Tnew<CR>
 let g:neoterm_size = 8
 let g:neoterm_autojump = 1
 let g:neoterm_autoinsert = 1
+"----------------------------------------
+" grammar
+"----------------------------------------
+let g:grammarous#hooks = {}
+function! g:grammarous#hooks.on_check(errs) abort
+    nmap <buffer><C-n> <Plug>(grammarous-move-to-next-error)
+    nmap <buffer><C-p> <Plug>(grammarous-move-to-previous-error)
+endfunction
+
+function! g:grammarous#hooks.on_reset(errs) abort
+  nunmap <buffer><C-n>
+  nunmap <buffer><C-p>
+endfunction
 "----------------------------------------
 " ctrlp
 "----------------------------------------

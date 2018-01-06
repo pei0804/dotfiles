@@ -120,6 +120,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias ctags="`brew --prefix`/bin/ctags"
 alias rm="trash"
+alias tws="tw --stream --id"
 
 # tree
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
