@@ -139,11 +139,6 @@ autocmd FileType go setlocal shiftwidth=4
 set rtp+=$GOROOT/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 "----------------------------------------
-" go
-"----------------------------------------
-autocmd FileType go set foldmethod=indent
-autocmd FileType go set foldnestmax=1
-"----------------------------------------
 " php
 "----------------------------------------
 " 保存時に走らせる
@@ -498,6 +493,29 @@ set backspace=indent,eol,start
 set ambiwidth=double
 " wildmenuオプションを有効(vimバーからファイルを選択できる)
 set wildmenu
+"----------------------------------------
+" インデント
+"----------------------------------------
+autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
+autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 et
+autocmd FileType js          setlocal sw=4 sts=4 ts=4 et
+autocmd FileType zsh         setlocal sw=4 sts=4 ts=4 et
+autocmd FileType python      setlocal sw=4 sts=4 ts=4 et
+autocmd FileType scala       setlocal sw=4 sts=4 ts=4 et
+autocmd FileType json        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType css         setlocal sw=4 sts=4 ts=4 et
+autocmd FileType scss        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType sass        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et
+"----------------------------------------
+" 畳み込み
+"----------------------------------------
+set foldmethod=syntax
+set foldnestmax=1
+autocmd FileType go set foldmethod=indent
+autocmd FileType go set foldnestmax=1
 "----------------------------------------
 " 検索
 "----------------------------------------

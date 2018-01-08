@@ -36,6 +36,7 @@
       - { name: tree }
       - { name: lv }
       - { name: nkf }
+      - { name: fd }
       - { name: jq }
       - { name: yarn }
       - { name: rbenv }
