@@ -50,6 +50,7 @@ Plug 'kana/vim-operator-user' " tyru/operator-camelize.vimで使う
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " 入力補完
 Plug 'rhysd/vim-grammarous' " 文法チェック
 Plug 'rhysd/ghpr-blame.vim' " git blame
+Plug 'szw/vim-tags' " ctagsを保存する度に自動生成
 
 " snip
 Plug 'tomtom/tlib_vim'
@@ -71,6 +72,13 @@ Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'jodosha/vim-godebug', {'for': 'go'}
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+
+" Ruby
+Plug 'vim-ruby/vim-ruby', {'for': 'ruby'} " 統合的なvimプラグイン
+Plug 'Shougo/deoplete-rct', {'for': 'ruby'} " 入力補完
+Plug 'vim-utils/vim-ruby-fold', {'for': 'ruby'} " foldをいい感じにする
+Plug 'fishbullet/deoplete-ruby', {'for': 'ruby'} " 入力補完
+Plug 'osyo-manga/vim-monster', {'for': 'ruby'} " 入力補完
 
 " javascript
 Plug 'othree/yajs.vim', {'for': 'javascript'}
@@ -94,6 +102,12 @@ Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
 call plug#end()
 
 filetype plugin indent on
+
+"----------------------------------------
+"python: https://github.com/tweekmonster/nvim-python-doctor/wiki/Advanced:-Using-pyenv
+"----------------------------------------
+let g:python_host_prog = expand('~/.anyenv/envs/pyenv/versions/neovim2/bin/python')
+let g:python3_host_prog = expand('~/.anyenv/envs/pyenv/versions/neovim3/bin/python')
 "----------------------------------------
 " deoplete
 "----------------------------------------
@@ -102,6 +116,9 @@ let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:min_pattern_length = 0
+"========================================
+" Go
+"========================================
 "----------------------------------------
 " deoplete-go
 "----------------------------------------
@@ -138,9 +155,9 @@ autocmd FileType go setlocal tabstop=4
 autocmd FileType go setlocal shiftwidth=4
 set rtp+=$GOROOT/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
-"----------------------------------------
-" php
-"----------------------------------------
+"========================================
+" PHP
+"========================================
 " 保存時に走らせる
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
@@ -159,6 +176,20 @@ if executable('vimparse.php')
   setlocal shellpipe=2>&1\ >
   autocmd BufWritePost <buffer> silent make
 endif
+"========================================
+" Ruby
+"========================================
+" Rubyと認識させるファイル
+autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby
+autocmd BufNewFile,BufRead Guardfile  set filetype=ruby
+autocmd BufNewFile,BufRead .pryrc     set filetype=ruby
+" ?は単語の区切りとして認識されるのを防ぐ
+autocmd FileType ruby setl iskeyword+=?
+
+let g:monster#completion#rcodetools#backend = "async_rct_complete"
+let g:deoplete#sources#omni#input_patterns = {
+  \ "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+  \}
 "----------------------------------------
 " terminal
 "----------------------------------------
@@ -176,6 +207,11 @@ noremap <silent> tt :Tnew<CR>
 let g:neoterm_size = 8
 let g:neoterm_autojump = 1
 let g:neoterm_autoinsert = 1
+"----------------------------------------
+" szw/vim-tags
+"----------------------------------------
+let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
+let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
 "----------------------------------------
 " grammar
 "----------------------------------------
@@ -246,7 +282,7 @@ let g:operator#flashy#flash_time = 200
 " ctags
 "----------------------------------------
 set tags=tags
-autocmd FileType php,html,javascript nnoremap <C-]> g<C-]> 
+autocmd FileType php,html,javascript,rb nnoremap <C-]> g<C-]> 
 "----------------------------------------
 " snip
 "----------------------------------------
@@ -512,10 +548,22 @@ autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et
 "----------------------------------------
 " 畳み込み
 "----------------------------------------
-set foldmethod=syntax
-set foldnestmax=1
-autocmd FileType go set foldmethod=indent
-autocmd FileType go set foldnestmax=1
+set foldmethod=manual
+autocmd FileType ruby :set foldlevel=1
+autocmd FileType ruby :set foldnestmax=2
+autocmd FileType go :set foldmethod=indent
+autocmd FileType go :set foldnestmax=1
+" http://thinca.hatenablog.com/entry/20110523/1306080318
+augroup foldmethod-expr
+  autocmd!
+  autocmd InsertEnter * if &l:foldmethod ==# 'expr'
+  \                   |   let b:foldinfo = [&l:foldmethod, &l:foldexpr]
+  \                   |   setlocal foldmethod=manual foldexpr=0
+  \                   | endif
+  autocmd InsertLeave * if exists('b:foldinfo')
+  \                   |   let [&l:foldmethod, &l:foldexpr] = b:foldinfo
+  \                   | endif
+augroup END
 "----------------------------------------
 " 検索
 "----------------------------------------
