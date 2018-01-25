@@ -51,6 +51,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " 入力補完
 Plug 'rhysd/vim-grammarous' " 文法チェック
 Plug 'rhysd/ghpr-blame.vim' " git blame
 Plug 'szw/vim-tags' " ctagsを保存する度に自動生成
+Plug 'Chiel92/vim-autoformat' " フォーマッター
 
 " snip
 Plug 'tomtom/tlib_vim'
@@ -190,7 +191,10 @@ let g:monster#completion#rcodetools#backend = "async_rct_complete"
 let g:deoplete#sources#omni#input_patterns = {
   \ "ruby" : '[^. *\t]\.\w*\|\h\w*::',
   \}
-"----------------------------------------
+"========================================
+" All language
+"========================================
+"---------------------------------------u
 " terminal
 "----------------------------------------
 " Esc または jj で戻す
@@ -212,6 +216,10 @@ let g:neoterm_autoinsert = 1
 "----------------------------------------
 let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
 let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
+"----------------------------------------
+" Chiel92/vim-autoformat
+"----------------------------------------
+let g:autoformat_verbosemode=1
 "----------------------------------------
 " grammar
 "----------------------------------------
