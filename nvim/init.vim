@@ -52,6 +52,8 @@ Plug 'rhysd/vim-grammarous' " 文法チェック
 Plug 'rhysd/ghpr-blame.vim' " git blame
 Plug 'szw/vim-tags' " ctagsを保存する度に自動生成
 Plug 'Chiel92/vim-autoformat' " フォーマッター
+Plug 'fuenor/qfixhowm' " メモ系 https://qiita.com/mago1chi/items/bd9b756d4fc1abfc6224
+Plug 'rhysd/vim-fixjson', {'for': 'json'} " json fix
 
 " snip
 Plug 'tomtom/tlib_vim'
@@ -211,6 +213,46 @@ noremap <silent> tt :Tnew<CR>
 let g:neoterm_size = 8
 let g:neoterm_autojump = 1
 let g:neoterm_autoinsert = 1
+"----------------------------------------
+" fuenor/qfixhowm
+"----------------------------------------
+" m,i：サイドメニューを表示する
+" m,u：一時的なメモを開く
+" m,：その日に紐付いたメモを開く
+" m,q：カレンダーを確認する
+" m,s：これまでに作成したメモから指定キーワードで横断検索
+" キーマップリーダー
+let QFixHowm_Key = 'm'
+" howm_dirはファイルを保存したいディレクトリを設定
+let howm_dir             = expand('~/Dropbox/memo')
+let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.md'
+let howm_fileencoding    = 'utf-8'
+let howm_fileformat      = 'dos'
+" キーコードやマッピングされたキー列が完了するのを待つ時間(ミリ秒)
+set timeout timeoutlen=3000 ttimeoutlen=100
+" " プレビューや絞り込みをQuickFix/ロケーションリストの両方で有効化(デフォル
+" ト:2)
+let QFixWin_EnableMode = 1
+" QFixHowmのファイルタイプ
+" 私がよくmarkdown使うので以下のように設定
+let QFixHowm_FileType = 'markdown'
+" タイトル記号を # に変更する(markdown使用の都合上)
+let QFixHowm_Title = '#'
+" QuickFixウィンドウでもプレビューや絞り込みを有効化
+let QFixWin_EnableMode = 1
+" QFixHowm/QFixGrepの結果表示にロケーションリストを使用する/しない
+let QFix_UseLocationList = 1
+set shellslash
+" textwidthの再設定
+au Filetype qfix_memo setlocal textwidth=0
+" 休日定義ファイル
+let QFixHowm_HolidayFile = expand('~/dotfiles/nvim/plugged/qfixhowm/misc/holiday/Sche-Hd-0000-00-00-000000.utf8')
+" オートリンクでファイルを開く
+let QFixHowm_Wiki = 1
+"----------------------------------------
+" rhysd/vim-fixjson
+"----------------------------------------
+let g:fixjson_fix_on_save = 1
 "----------------------------------------
 " szw/vim-tags
 "----------------------------------------
@@ -561,6 +603,8 @@ autocmd FileType ruby :set foldlevel=1
 autocmd FileType ruby :set foldnestmax=2
 autocmd FileType go :set foldmethod=indent
 autocmd FileType go :set foldnestmax=1
+autocmd FileType json :set foldmethod=manual
+autocmd FileType sql :set foldmethod=manual
 " http://thinca.hatenablog.com/entry/20110523/1306080318
 augroup foldmethod-expr
   autocmd!
