@@ -47,7 +47,7 @@ Plug 'haya14busa/incsearch.vim' " 検索文字列のハイライトをいい感�
 Plug 'osyo-manga/vim-over' " 文字列置換の可視化
 Plug 'tyru/operator-camelize.vim' " キャメルケースとスネークケースの切り替え \c
 Plug 'kana/vim-operator-user' " tyru/operator-camelize.vimで使う
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " 入力補完
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' ,'branch': 'parallel'} " 入力補完
 Plug 'rhysd/vim-grammarous' " 文法チェック
 Plug 'rhysd/ghpr-blame.vim' " git blame
 Plug 'szw/vim-tags' " ctagsを保存する度に自動生成
@@ -799,7 +799,7 @@ colorscheme OceanicNext
 set cmdheight=2
 
 " テーマカスタマイズ
-set cursorline
-hi CursorLineNr term=bold cterm=Bold ctermfg=237 ctermbg=209 gui=reverse guifg=#343d46 guibg=#f99157
+" set cursorline
+" hi CursorLineNr term=bold cterm=Bold ctermfg=237 ctermbg=209 gui=reverse guifg=#343d46 guibg=#f99157
 hi clear Folded
 hi Folded term=bold cterm=Bold ctermfg=240 ctermbg=235 guifg=#585858 guibg=#262626
