@@ -75,6 +75,7 @@ Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'jodosha/vim-godebug', {'for': 'go'}
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'godoctor/godoctor.vim', { 'do': ':GoDoctorInstall', 'for': 'go'}
 
 " Ruby
 Plug 'vim-ruby/vim-ruby', {'for': 'ruby'} " 統合的なvimプラグイン

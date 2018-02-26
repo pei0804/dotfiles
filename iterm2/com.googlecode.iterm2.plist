@@ -555,7 +555,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>0 519 918 485 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>440 325 570 452 0 0 1680 1027 </string>
+	<string>4 372 650 477 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>44 194 570 452 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1316,7 +1316,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-01-06T01:24:44Z</date>
+	<date>2018-02-12T14:24:21Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>Selected Text Color</key>
@@ -1341,6 +1341,8 @@
 		<key>Red Component</key>
 		<real>0.24374458193778992</real>
 	</dict>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>iTerm Version</key>
 	<string>3.1.5</string>
 </dict>
