@@ -4,11 +4,11 @@
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/pei0804/dotfiles/master/setup.sh)"
 ```
 
-## antigen not found
+## submodule
 
 ```
-$ rm -rf Dotfiles/antigen
-$ git clone https://github.com/zsh-users/antigen.git antigen
+$ git submodule init
+$ git submodule update
 ```
 
 ## bashからzsh
