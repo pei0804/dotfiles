@@ -136,3 +136,6 @@ eval "$(anyenv init -)"
 
 # envrc
 eval "$(direnv hook zsh)"
+
+# added by travis gem
+[ -f /Users/jumpei/.travis/travis.sh ] && source /Users/jumpei/.travis/travis.sh

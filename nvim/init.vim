@@ -54,6 +54,7 @@ Plug 'szw/vim-tags' " ctagsを保存する度に自動生成
 Plug 'Chiel92/vim-autoformat' " フォーマッター
 Plug 'fuenor/qfixhowm' " メモ系 https://qiita.com/mago1chi/items/bd9b756d4fc1abfc6224
 Plug 'rhysd/vim-fixjson', {'for': 'json'} " json fix
+Plug 'jparise/vim-graphql', {'for': ['graphql', 'graphqls', 'gql']} " graphql syntax
 
 " snip
 Plug 'tomtom/tlib_vim'
