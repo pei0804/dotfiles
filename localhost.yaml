@@ -5,8 +5,7 @@
   vars:
     homebrew_tap_repository:
       - caskroom/cask
-      - homebrew/binary
-      - homebrew/dupes
+      - caskroom/versions
     homebrew_packages:
       - { name: zsh }
       - { name: zsh-completions }

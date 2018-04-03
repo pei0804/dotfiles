@@ -19,3 +19,9 @@ $ git submodule update
 
 - gをタイプすると、$GOPATH以下のリポジトリをghq pecoを使って移動
 - ghq get hoge.gitでリポジトリ追加
+
+## tmux
+
+```console
+$ tmux source ~/.tmux.conf
+```
