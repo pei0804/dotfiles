@@ -55,6 +55,8 @@ Plug 'Chiel92/vim-autoformat' " フォーマッター
 Plug 'fuenor/qfixhowm' " メモ系 https://qiita.com/mago1chi/items/bd9b756d4fc1abfc6224
 Plug 'rhysd/vim-fixjson', {'for': 'json'} " json fix
 Plug 'jparise/vim-graphql', {'for': ['graphql', 'graphqls', 'gql']} " graphql syntax
+Plug 'chr4/nginx.vim' " nginx syntax
+Plug 'vim-scripts/nginx.vim'
 
 " snip
 Plug 'tomtom/tlib_vim'
@@ -215,6 +217,10 @@ noremap <silent> tt :Tnew<CR>
 let g:neoterm_size = 8
 let g:neoterm_autojump = 1
 let g:neoterm_autoinsert = 1
+"----------------------------------------
+" vim-scripts/nginx.vim
+"----------------------------------------
+au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/*,nginx*.conf if &ft == '' | setfiletype nginx | endif
 "----------------------------------------
 " fuenor/qfixhowm
 "----------------------------------------
