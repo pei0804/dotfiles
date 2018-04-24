@@ -47,7 +47,7 @@ Plug 'haya14busa/incsearch.vim' " 検索文字列のハイライトをいい感�
 Plug 'osyo-manga/vim-over' " 文字列置換の可視化
 Plug 'tyru/operator-camelize.vim' " キャメルケースとスネークケースの切り替え \c
 Plug 'kana/vim-operator-user' " tyru/operator-camelize.vimで使う
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' ,'branch': 'parallel'} " 入力補完
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'} " 入力補完
 Plug 'rhysd/vim-grammarous' " 文法チェック
 Plug 'rhysd/ghpr-blame.vim' " git blame
 Plug 'szw/vim-tags' " ctagsを保存する度に自動生成
@@ -56,7 +56,6 @@ Plug 'fuenor/qfixhowm' " メモ系 https://qiita.com/mago1chi/items/bd9b756d4fc1
 Plug 'rhysd/vim-fixjson', {'for': 'json'} " json fix
 Plug 'jparise/vim-graphql', {'for': ['graphql', 'graphqls', 'gql']} " graphql syntax
 Plug 'chr4/nginx.vim' " nginx syntax
-Plug 'vim-scripts/nginx.vim'
 
 " snip
 Plug 'tomtom/tlib_vim'
@@ -99,12 +98,19 @@ Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 Plug 'gko/vim-coloresque'
 
+" scala
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+Plug 'ervandew/eclim', { 'for': 'scala' }
+
 " Docker
 Plug 'ekalinin/Dockerfile.vim'
 
 " markdown
 Plug 'iamcco/mathjax-support-for-mkdp', {'for': 'markdown'}
 Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
+
+" Python
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
 
 call plug#end()
 
@@ -163,6 +169,32 @@ autocmd FileType go setlocal shiftwidth=4
 set rtp+=$GOROOT/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 "========================================
+" Scala
+"========================================
+" derekwyatt/vim-scala
+let g:scala_scaladoc_indent = 1
+" Eclim support
+" See https://www.reddit.com/r/vim/comments/5xspok/trouble_with_eclim_and_deoplete/
+let g:EclimCompletionMethod = 'omnifunc'
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#input_patterns.java = '[^. *\t]\.\w*'
+
+" Autoclose preview windows
+" https://github.com/Shougo/deoplete.nvim/issues/115
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" https://github.com/Shougo/deoplete.nvim/issues/100
+" use tab to forward cycle
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" use tab to backward cycle
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+
+" Lazy load Deoplete to reduce statuptime
+" See manpage
+" Enable deoplete when InsertEnter.
+let g:deoplete#enable_at_startup = 0
+autocmd InsertEnter * call deoplete#enable()
+"========================================
 " PHP
 "========================================
 " 保存時に走らせる
@@ -183,6 +215,20 @@ if executable('vimparse.php')
   setlocal shellpipe=2>&1\ >
   autocmd BufWritePost <buffer> silent make
 endif
+"========================================
+" Python
+"========================================
+" jedi-vim
+autocmd FileType python setlocal completeopt-=preview
+let g:jedi#popup_on_dot = 1
+let g:jedi#auto_initialization = 1
+let g:jedi#auto_vim_configuration = 1
+let g:jedi#rename_command = '<Leader>r'
+let g:jedi#goto_assignments_command = "<C-v>"
+let g:jedi#goto_definitions_command = "<C-]>"
+let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 0
+autocmd FileType python setlocal omnifunc=jedi#completions
 "========================================
 " Ruby
 "========================================
@@ -354,8 +400,6 @@ let g:ale_lint_on_save = 1
 let g:ale_sign_column_always = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
-let g:ale_linters = {'go': ['gometalinter']}
-let g:ale_go_gometalinter_options = '--vendored-linters --disable-all --enable=gotype --enable=vet --enable=golint -t'
 let g:ale_open_list = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
@@ -363,6 +407,17 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" language
+let g:ale_linters = {
+\ 'go': ['gometalinter'],
+\ 'python': ['flake8'],
+\}
+" setting
+" pip install flake8
+let g:ale_python_flake8_args = '--max-line-length=120'
+" go get -u github.com/alecthomas/gometalinter
+" gometalinter --install
+let g:ale_go_gometalinter_options = '--vendored-linters --disable-all --enable=gotype --enable=vet --enable=golint -t'
 "----------------------------------------
 " tab
 "----------------------------------------
