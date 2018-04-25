@@ -51,10 +51,6 @@ nnoremap gj j
 nnoremap gk k
 
 
-nnoremap cw ciw
-nnoremap dw diw
-inoremap <C-w> <ESC>ciw
-
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-b> <Left>
@@ -70,3 +66,5 @@ vnoremap : ;
 
 nnoremap q; q:
 vnoremap q; q:
+
+set clipboard=unnamed
