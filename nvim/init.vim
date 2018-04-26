@@ -75,7 +75,7 @@ Plug 'beanworks/vim-phpfmt', {'for': 'php'}
 " go
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'jodosha/vim-godebug', {'for': 'go'}
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'zchee/deoplete-go', { 'do': 'go'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'godoctor/godoctor.vim', { 'do': ':GoDoctorInstall', 'for': 'go'}
 
@@ -124,11 +124,11 @@ let g:python3_host_prog = expand('~/.anyenv/envs/pyenv/versions/neovim3/bin/pyth
 "----------------------------------------
 " deoplete
 "----------------------------------------
-set completeopt+=noinsert
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:min_pattern_length = 0
+set completeopt-=preview
 "========================================
 " Go
 "========================================
@@ -145,10 +145,16 @@ set autowrite
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
 let g:go_highlight_structs = 1
 let g:go_version_warning = 0
 let g:go_list_type = "quickfix"
 let g:go_fmt_experimental = 1
+let g:go_auto_type_info = 0
+let g:go_doc_keywordprg_enabled = 0
 autocmd BufWritePost *.go normal! zv
 " let g:go_auto_type_info = 1
 " let g:go_auto_sameids = 1
