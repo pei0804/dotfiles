@@ -22,6 +22,9 @@ fi
 export GOPATH=$HOME/go
 export PATH=$PATH::$GOPATH/bin
 
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # EDITER
 export EDITOR=vim
 
@@ -121,6 +124,8 @@ alias vim='nvim'
 alias ctags="`brew --prefix`/bin/ctags"
 alias rm="trash"
 alias tws="tw --stream --id"
+function _gi() { curl -s https://www.gitignore.io/api/$1 ;}
+alias gi='_gi $(_gi list | gsed "s/,/\n/g" | peco )'
 
 # tree
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
@@ -139,3 +144,10 @@ eval "$(direnv hook zsh)"
 
 # added by travis gem
 [ -f /Users/jumpei/.travis/travis.sh ] && source /Users/jumpei/.travis/travis.sh
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/jumpei/.anyenv/envs/ndenv/versions/v10.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/jumpei/.anyenv/envs/ndenv/versions/v10.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/jumpei/.anyenv/envs/ndenv/versions/v10.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/jumpei/.anyenv/envs/ndenv/versions/v10.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh

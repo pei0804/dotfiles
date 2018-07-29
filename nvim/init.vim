@@ -56,6 +56,7 @@ Plug 'fuenor/qfixhowm' " メモ系 https://qiita.com/mago1chi/items/bd9b756d4fc1
 Plug 'rhysd/vim-fixjson', {'for': 'json'} " json fix
 Plug 'jparise/vim-graphql', {'for': ['graphql', 'graphqls', 'gql']} " graphql syntax
 Plug 'chr4/nginx.vim' " nginx syntax
+Plug 'k0kubun/vim-open-github' " OpenGithub
 
 " snip
 Plug 'tomtom/tlib_vim'
@@ -364,9 +365,9 @@ let g:ctrlp_prompt_mappings = {
 " emmet https://mattn.kaoriya.net/software/vim/20100306021632.htm
 "----------------------------------------
 " <c-y>,
-let g:user_emmet_leader_key='<Leader>'
+" let g:user_emmet_leader_key='<Leader>'
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,tmpl EmmetInstall
+autocmd FileType html,css,tmpl,tpl EmmetInstall
 "----------------------------------------
 " kannokanno/previm
 "----------------------------------------
@@ -396,11 +397,12 @@ autocmd FileType php,html,javascript,rb nnoremap <C-]> g<C-]>
 "----------------------------------------
 " snip
 "----------------------------------------
-nmap <Tab> <Plug>snipMateShow
+imap <Tab> <Plug>snipMateNextOrTrigger
 "----------------------------------------
 " ale
 "----------------------------------------
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_list_window_size = 3
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_sign_column_always = 1
