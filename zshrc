@@ -126,6 +126,7 @@ alias rm="trash"
 alias tws="tw --stream --id"
 function _gi() { curl -s https://www.gitignore.io/api/$1 ;}
 alias gi='_gi $(_gi list | gsed "s/,/\n/g" | peco )'
+alias date="gdate"
 
 # tree
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
@@ -137,6 +138,7 @@ alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 # anyenv
 # https://github.com/riywo/anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 eval "$(anyenv init -)"
 
 # envrc
