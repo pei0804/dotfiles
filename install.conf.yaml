@@ -17,3 +17,4 @@
     ~/.ctags: ctags
     ~/.ideavimrc: ideavimrc
     ~/.zshrc: zshrc
+    ~/Library/Application Support/Code/User/settings.json: vscode/settings.json
