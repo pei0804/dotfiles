@@ -8,6 +8,9 @@ export XDG_CONFIG_HOME=$HOME/.config
 # GAE
 export PATH=$HOME/go_appengine:$PATH
 
+# mecab
+export PATH=/usr/local/mecab/bin:$PATH
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /Users/jumpei/google-cloud-sdk/path.zsh.inc ]; then
   source "$HOME/google-cloud-sdk/path.zsh.inc"
@@ -127,7 +130,7 @@ alias tws="tw --stream --id"
 function _gi() { curl -s https://www.gitignore.io/api/$1 ;}
 alias gi='_gi $(_gi list | gsed "s/,/\n/g" | peco )'
 alias date="gdate"
-
+alias clean_branch='git branch --merged|grep -v -E "\*|master"|xargs -n1 -I{} git branch -d {}'
 # tree
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 
