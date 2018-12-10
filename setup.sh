@@ -56,6 +56,16 @@ case $ANSWER in
     rehash;;
   * ) echo "install ansible skip";;
 esac
+echo '---------------------'
+
+echo 'install command line tool?[Y/n]'
+read ANSWER
+case $ANSWER in
+  "" | "Y" | "y" )
+    xcode-select --install
+    rehash;;
+  * ) echo "install command line tool";;
+esac
 
 echo '---------------------'
 
