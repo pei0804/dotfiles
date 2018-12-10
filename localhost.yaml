@@ -60,21 +60,6 @@
       - { name: tmux }
       - { name: reattach-to-user-namespace }
       - { name: fontforge }
-    homebrew_cask_packages:
-      - { name: firefox }
-      - { name: iterm2 }
-      - { name: java }
-      - { name: google-japanese-ime }
-      - { name: google-chrome }
-      - { name: evernote }
-      - { name: alfred }
-      - { name: skype }
-      - { name: slack }
-      - { name: sourcetree }
-      - { name: vagrant }
-      - { name: virtualbox }
-      - { name: docker }
-      - { name: kubernetes-cli }
 
   tasks:
     - name: add homebrew tap repository
@@ -94,13 +79,6 @@
           else item.install_options
         }}
       with_items: "{{ homebrew_packages }}"
-
-    # homebrew-cask
-    - name: install homebrew-cask
-      homebrew: name=cask state=latest
-    - name: install homebrew-cask package
-      homebrew_cask: name={{ item.name }} state={{ item.state|default('installed') }}
-      with_items: "{{ homebrew_cask_packages }}"
 
     # prezto
     - name: install prezto
