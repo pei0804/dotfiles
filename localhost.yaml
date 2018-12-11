@@ -14,7 +14,6 @@
       - { name: gotags }
       - { name: trash }
       - { name: lua }
-      - { name: pyenv-virtualenv }
       - { name: vim, install_options: with-lua }
       - { name: neovim }
       - { name: docker }
@@ -41,7 +40,6 @@
       - { name: yarn }
       - { name: rbenv }
       - { name: ruby-build }
-      - { name: python3 }
       - { name: mysql }
       - { name: sqlite }
       - { name: redis }

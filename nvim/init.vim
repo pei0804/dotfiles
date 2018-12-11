@@ -26,6 +26,10 @@ endif
 
 call plug#begin()
 
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'} " 入力補完
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
 " all
 Plug 'Shougo/unite.vim' "統合ユーザインターフェース
 Plug 'Shougo/vimfiler' " File Viwer
@@ -47,7 +51,6 @@ Plug 'haya14busa/incsearch.vim' " 検索文字列のハイライトをいい感�
 Plug 'osyo-manga/vim-over' " 文字列置換の可視化
 Plug 'tyru/operator-camelize.vim' " キャメルケースとスネークケースの切り替え \c
 Plug 'kana/vim-operator-user' " tyru/operator-camelize.vimで使う
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'} " 入力補完
 Plug 'rhysd/vim-grammarous' " 文法チェック
 Plug 'rhysd/ghpr-blame.vim' " git blame
 Plug 'szw/vim-tags' " ctagsを保存する度に自動生成
@@ -101,7 +104,7 @@ Plug 'gko/vim-coloresque'
 
 " scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-Plug 'ervandew/eclim', { 'for': 'scala' }
+" Plug 'ervandew/eclim', { 'for': 'scala' }
 
 " Docker
 Plug 'ekalinin/Dockerfile.vim'
@@ -118,15 +121,12 @@ call plug#end()
 filetype plugin indent on
 
 "----------------------------------------
-"python: https://github.com/tweekmonster/nvim-python-doctor/wiki/Advanced:-Using-pyenv
-"----------------------------------------
-let g:python_host_prog = expand('~/.anyenv/envs/pyenv/versions/neovim2/bin/python')
-let g:python3_host_prog = expand('~/.anyenv/envs/pyenv/versions/neovim3/bin/python')
-"----------------------------------------
+" python: https://github.com/tweekmonster/nvim-python-doctor/wiki/Advanced:-Using-pyenv
 " deoplete
 "----------------------------------------
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#_python_version_check = 1
 let g:deoplete#enable_smart_case = 1
 let g:min_pattern_length = 0
 set completeopt-=preview
