@@ -1,4 +1,4 @@
-/* ${HOME}/Library/Application Support/Firefox/Profiles/hoge.default/chrome */
+/* ${HOME}/Library/Application Support/Firefox/Profiles/hoge.default/chrome/userChrome.css */
 
 /* タブ非表示 */
 .tabbrowser-tab[fadein]:not([pinned]) {
