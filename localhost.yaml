@@ -16,6 +16,14 @@
       - { name: lua }
       - { name: vim, install_options: with-lua }
       - { name: neovim }
+      - { name: diffutils }
+      - { name: findutils, install_options: with-default-names }
+      - { name: ed, install_options: default-names }
+      - { name: gnu-sed, install_options: with-default-names }
+      - { name: gnu-tar, install_options: with-default-names }
+      - { name: grep, install_options: with-default-names }
+      - { name: gzip }
+      - { name: gawk }
       - { name: docker }
       - { name: docker-compose }
       - { name: openssl }
