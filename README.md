@@ -25,3 +25,23 @@ $ git submodule update
 ```console
 $ tmux source ~/.tmux.conf
 ```
+
+## download
+
+- [Google日本語入力](https://www.google.co.jp/ime/)
+- [Workbench](https://dev.mysql.com/downloads/workbench/)
+- [Karabiner](https://pqrs.org/osx/karabiner/)
+- JetBrains系
+- Chrome
+- Firefox
+
+## App
+
+- Evernote
+- Slack
+- VPN系
+- Moom
+- Kindle
+- LastPass
+- iTerm
+- LINE
