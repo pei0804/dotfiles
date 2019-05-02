@@ -1,41 +1,72 @@
 {
-    "window.zoomLevel": 1,
-    "window.title": "${dirty}${activeEditorShort} / ${rootName}",
-    "workbench.colorTheme": "Oceanic Next (dimmed bg)",
-    "editor.renderLineHighlight": "all",
-    "editor.tabSize": 2,
-    "editor.formatOnType": true,
-    "editor.formatOnPaste": true,
-    "files.autoSave": "off",
-    "files.eol": "\n",
-    "files.insertFinalNewline": true,
-    "files.autoGuessEncoding": true,
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/bin": true,
-        "**/*.o": true,
-        "**/*.obj": true,
-        "**/*.ilk": true,
-        "**/*.pdb": true,
-        "**/*.tlog": true,
-        "**/*.idb": true,
-        "**/*.dll": true
+  "window.zoomLevel": 1,
+  "window.title": "${dirty}${activeEditorShort} / ${rootName}",
+  "workbench.colorTheme": "Oceanic Next (dimmed bg)",
+  "editor.renderLineHighlight": "all",
+  "editor.tabSize": 2,
+  "editor.formatOnType": true,
+  "editor.formatOnPaste": true,
+  "files.autoSave": "off",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.autoGuessEncoding": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/bin": true,
+    "**/*.o": true,
+    "**/*.obj": true,
+    "**/*.ilk": true,
+    "**/*.pdb": true,
+    "**/*.tlog": true,
+    "**/*.idb": true,
+    "**/*.dll": true
+  },
+  "extensions.autoUpdate": true,
+  "extensions.ignoreRecommendations": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [";"],
+      "commands": ["workbench.action.showCommands"]
+    }
+  ],
+  "css.validate": true,
+  "editor.formatOnSave": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.enable": true,
+  "eslint.validate": [
+    {
+      "language": "javascript",
+      "autoFix": true
     },
-    "extensions.autoUpdate": true,
-    "extensions.ignoreRecommendations": false,
-    "workbench.iconTheme": "material-icon-theme",
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                ":"
-            ],
-            "commands": [
-                "workbench.action.showCommands"
-            ]
-        }
-    ]
+    {
+      "language": "javascriptreact",
+      "autoFix": true
+    },
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ],
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "prettier.eslintIntegration": true,
+  "prettier.stylelintIntegration": true,
+  "stylelint.enable": true,
+  "typescript.tsserver.trace": "verbose",
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }

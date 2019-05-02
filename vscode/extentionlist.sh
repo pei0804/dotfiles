@@ -13,6 +13,13 @@ abusaidm.html-snippets
 ecmel.vscode-html-css
 zignd.html-css-class-completion
 kisstkondoros.vscode-gutter-preview
+coenraads.bracket-pair-colorizer
+dbaeumer.vscode-eslint
+oderwat.indent-rainbow
+ms-vsliveshare.vsliveshare
+esbenp.prettier-vscode
+hinnn.stylelint
+vscode-icons-team.vscode-icons
 )
 
 for i in ${pkglist[@]}; do
