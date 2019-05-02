@@ -2,9 +2,9 @@
     link:
       create: true
       relink: true
-      force:  true
+      force: true
 
-- clean: ['~', '~/.config']
+- clean: ["~", "~/.config"]
 
 - link:
     ~/.gitconfig: gitconfig
@@ -13,8 +13,9 @@
     ~/.tmux.conf: tmuxConf/.tmux.conf
     ~/.tmux.conf.local: tmux.conf.local
     ~/.config/peco: peco
-    ~/.config/nvim : nvim
+    ~/.config/nvim: nvim
     ~/.ctags: ctags
     ~/.ideavimrc: ideavimrc
     ~/.zshrc: zshrc
     ~/Library/Application Support/Code/User/settings.json: vscode/settings.json
+    ~/Library/Application Support/Code/User/keybindings.json: vscode/keybindings.json
