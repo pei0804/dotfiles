@@ -1,7 +1,7 @@
 {
   "window.zoomLevel": 1,
   "window.title": "${dirty}${activeEditorShort} / ${rootName}",
-  "workbench.colorTheme": "Oceanic Next (dimmed bg)",
+  "workbench.colorTheme": "Darcula Theme from IntelliJ",
   "editor.renderLineHighlight": "all",
   "editor.tabSize": 2,
   "editor.formatOnType": true,
@@ -36,6 +36,7 @@
   ],
   "css.validate": true,
   "editor.formatOnSave": true,
+  "javascript.format.enable": false,
   "eslint.autoFixOnSave": true,
   "eslint.enable": true,
   "eslint.validate": [
