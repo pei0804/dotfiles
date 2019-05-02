@@ -35,12 +35,18 @@
     "command": "workbench.action.focusFirstEditorGroup",
     "when": "!editorFocus"
   },
-  // 検索窓を閉じる
+  // ターミナル
   {
-    "key": "ctrl+[",
-    "command": "workbench.action.closeQuickOpen",
-    "when": "inQuickOpen"
+    "key": "cmd+t",
+    "command": "workbench.action.terminal.focus",
+    "when": "editorTextFocus"
   },
+  {
+    "key": "cmd+t",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "terminalFocus"
+  },
+  // キャンセル系
   {
     "key": "ctrl+[",
     "command": "search.action.cancel",
