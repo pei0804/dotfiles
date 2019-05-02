@@ -20,6 +20,8 @@ ms-vsliveshare.vsliveshare
 esbenp.prettier-vscode
 hinnn.stylelint
 vscode-icons-team.vscode-icons
+k--kato.intellij-idea-keybindings
+vscodevim.vim
 )
 
 for i in ${pkglist[@]}; do
