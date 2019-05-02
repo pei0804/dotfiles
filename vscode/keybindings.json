@@ -13,13 +13,13 @@
   },
   // 実装箇所にコードジャンプ
   {
-    "key": "ctrl+[",
+    "key": "ctrl+]",
     "command": "references-view.find",
     "when": "editorFocus"
   },
   // 宣言箇所に移動
   {
-    "key": "ctrl+[",
+    "key": "ctrl+]",
     "command": "editor.action.goToDeclaration",
     "when": "editorFocus"
   },
