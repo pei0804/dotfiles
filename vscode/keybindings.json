@@ -1,0 +1,50 @@
+// Place your key bindings in this file to override the defaults
+[
+  // プロジェクト全体検索の切り替え
+  {
+    "key": "shift+cmd+f",
+    "command": "workbench.action.findInFiles",
+    "when": "!searchInputBoxFocus"
+  },
+  {
+    "key": "shift+cmd+f",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "searchInputBoxFocus"
+  },
+  // 実装箇所にコードジャンプ
+  {
+    "key": "ctrl+[",
+    "command": "editor.action.goToImplementation",
+    "command": "references-view.find",
+    "when": "editorFocus"
+  },
+  // 宣言箇所に移動
+  {
+    "key": "ctrl+[",
+    "command": "editor.action.goToDeclaration",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "references-view.find",
+    "when": "editorHasReferenceProvider"
+  },
+  // サイドバーへの移動 (ctrl+hをhにしてctrlを話すだけで切り替わる)
+  {
+    "key": "ctrl+w h",
+    "command": "workbench.action.focusSideBar",
+    "when": "editorFocus"
+  },
+  // サイドバーからの移動 (ctrl+hをhにしてctrlを話すだけで切り替わる)
+  {
+    "key": "ctrl+w l",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "!editorFocus"
+  },
+  // 検索窓を閉じる
+  {
+    "key": "ctrl+[",
+    "command": "workbench.action.closeQuickOpen",
+    "when": "inQuickOpen"
+  }
+]
