@@ -5,7 +5,7 @@
     interactive = auto
     ui = auto
 [core]
-    excludesfile = ~/.gitignore
+	excludesfile = /Users/j-chikamori/.gitignore_global
     pager = less -r
     editor = vim
 	quotepath = false
@@ -84,5 +84,5 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

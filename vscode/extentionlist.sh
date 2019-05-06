@@ -23,6 +23,7 @@ vscode-icons-team.vscode-icons
 k--kato.intellij-idea-keybindings
 vscodevim.vim
 msjsdiag.debugger-for-chrome
+editorconfig.editorconfig
 )
 
 for i in ${pkglist[@]}; do
