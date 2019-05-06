@@ -17,5 +17,6 @@
     ~/.ctags: ctags
     ~/.ideavimrc: ideavimrc
     ~/.zshrc: zshrc
+    ~/.editorconfig: editorconfig
     ~/Library/Application Support/Code/User/settings.json: vscode/settings.json
     ~/Library/Application Support/Code/User/keybindings.json: vscode/keybindings.json
