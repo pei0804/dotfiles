@@ -132,7 +132,7 @@ function _gi() { curl -s https://www.gitignore.io/api/$1 ;}
 alias gi='_gi $(_gi list | gsed "s/,/\n/g" | peco )'
 alias date="gdate"
 alias clean_branch='git branch --merged|grep -v -E "\*|master"|xargs -n1 -I{} git branch -d {}'
-# tree
+alias jqr="jq -R 'fromjson?'"
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 
 # -------------------------------------
