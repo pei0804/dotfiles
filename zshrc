@@ -21,10 +21,6 @@ if [ -f $HOME/google-cloud-sdk/completion.zsh.inc ]; then
   source "$HOME/google-cloud-sdk/completion.zsh.inc"
 fi
 
-# Go
-export GOPATH=$HOME/go
-export PATH=$PATH::$GOPATH/bin
-
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
@@ -144,6 +140,15 @@ alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(anyenv init -)"
+
+# Go
+export GO_VERSION=1.12.1
+export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
+export GOPATH=$HOME/go
+export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
+export PATH=$GOROOT/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
+echo Now using golang v$GO_VERSION
 
 # envrc
 eval "$(direnv hook zsh)"
