@@ -126,10 +126,23 @@ alias rm="trash"
 alias tws="tw --stream --id"
 function _gi() { curl -s https://www.gitignore.io/api/$1 ;}
 alias gi='_gi $(_gi list | gsed "s/,/\n/g" | peco )'
-alias date="gdate"
 alias clean_branch='git branch --merged|grep -v -E "\*|master"|xargs -n1 -I{} git branch -d {}'
 alias jqr="jq -R 'fromjson?'"
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
+
+# -------------------------------------
+# gnu cmd
+# -------------------------------------
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
+MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
+MANPATH="/usr/local/opt/grep/libexec/gnuman:$MANPATH"
 
 # -------------------------------------
 # version
