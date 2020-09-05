@@ -26,7 +26,7 @@ endif
 
 call plug#begin()
 
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'} " 入力補完
+" Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'} " 入力補完
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 
@@ -79,15 +79,15 @@ Plug 'beanworks/vim-phpfmt', {'for': 'php'}
 " go
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'jodosha/vim-godebug', {'for': 'go'}
-Plug 'zchee/deoplete-go', { 'do': 'go'}
+" Plug 'zchee/deoplete-go', { 'do': 'go'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'godoctor/godoctor.vim', { 'do': ':GoDoctorInstall', 'for': 'go'}
 
 " Ruby
 Plug 'vim-ruby/vim-ruby', {'for': 'ruby'} " 統合的なvimプラグイン
-Plug 'Shougo/deoplete-rct', {'for': 'ruby'} " 入力補完
+" Plug 'Shougo/deoplete-rct', {'for': 'ruby'} " 入力補完
 Plug 'vim-utils/vim-ruby-fold', {'for': 'ruby'} " foldをいい感じにする
-Plug 'fishbullet/deoplete-ruby', {'for': 'ruby'} " 入力補完
+" Plug 'fishbullet/deoplete-ruby', {'for': 'ruby'} " 入力補完
 Plug 'osyo-manga/vim-monster', {'for': 'ruby'} " 入力補完
 
 " javascript
@@ -124,21 +124,21 @@ filetype plugin indent on
 " python: https://github.com/tweekmonster/nvim-python-doctor/wiki/Advanced:-Using-pyenv
 " deoplete
 "----------------------------------------
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#_python_version_check = 1
-let g:deoplete#enable_smart_case = 1
-let g:min_pattern_length = 0
-set completeopt-=preview
+" let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#_python_version_check = 1
+" let g:deoplete#enable_smart_case = 1
+" let g:min_pattern_length = 0
+" set completeopt-=preview
 "========================================
 " Go
 "========================================
 "----------------------------------------
 " deoplete-go
 "----------------------------------------
-let g:deoplete#sources#go#align_class = 1
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#package_dot = 1
+" let g:deoplete#sources#go#align_class = 1
+" let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+" let g:deoplete#sources#go#package_dot = 1
 "----------------------------------------
 " vim-go
 "----------------------------------------
@@ -183,12 +183,12 @@ let g:scala_scaladoc_indent = 1
 " Eclim support
 " See https://www.reddit.com/r/vim/comments/5xspok/trouble_with_eclim_and_deoplete/
 let g:EclimCompletionMethod = 'omnifunc'
-let g:deoplete#omni#input_patterns = {}
-let g:deoplete#omni#input_patterns.java = '[^. *\t]\.\w*'
+" let g:deoplete#omni#input_patterns = {}
+" let g:deoplete#omni#input_patterns.java = '[^. *\t]\.\w*'
 
 " Autoclose preview windows
 " https://github.com/Shougo/deoplete.nvim/issues/115
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " https://github.com/Shougo/deoplete.nvim/issues/100
 " use tab to forward cycle
@@ -199,8 +199,8 @@ inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 " Lazy load Deoplete to reduce statuptime
 " See manpage
 " Enable deoplete when InsertEnter.
-let g:deoplete#enable_at_startup = 0
-autocmd InsertEnter * call deoplete#enable()
+" let g:deoplete#enable_at_startup = 0
+" autocmd InsertEnter * call deoplete#enable()
 "========================================
 " PHP
 "========================================

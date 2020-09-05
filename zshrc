@@ -1,5 +1,4 @@
-# -------------------------------------
-# 環境変数
+# ------------------------------------- 環境変数
 # -------------------------------------
 
 # .config
@@ -21,6 +20,12 @@ if [ -f $HOME/google-cloud-sdk/completion.zsh.inc ]; then
   source "$HOME/google-cloud-sdk/completion.zsh.inc"
 fi
 
+# SDKMAN
+export SDKMAN_DIR="$HOME/.sdkman"
+if [ -d "${SDKMAN_DIR}" ]; then
+  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
+
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
@@ -40,7 +45,8 @@ export DOTFILES=$HOME/dotfiles
 export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
 
 # JAVA
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+# https://qiita.com/seri/items/cbfe1886ec902029529d
+export JAVA_HOME=$HOME/.sdkman/candidates/java/current
 export PATH=$JAVA_HOME/bin:$PATH
 
 # -------------------------------------
@@ -155,7 +161,7 @@ export PATH="$HOME/.local/bin:$PATH"
 eval "$(anyenv init -)"
 
 # Go
-export GO_VERSION=1.12.7
+export GO_VERSION=1.13rc1
 export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
 export GOPATH=$HOME/go
 export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
@@ -175,3 +181,7 @@ eval "$(direnv hook zsh)"
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/jumpei/.anyenv/envs/ndenv/versions/v10.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/jumpei/.anyenv/envs/ndenv/versions/v10.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/j-chikamori/.sdkman"
+[[ -s "/Users/j-chikamori/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/j-chikamori/.sdkman/bin/sdkman-init.sh"
