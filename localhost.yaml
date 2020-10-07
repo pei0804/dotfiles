@@ -12,6 +12,7 @@
       - name: readline
       - name: imagemagick
       - name: docker
+      - name: docker-compose
       - name: go
       - name: yarn
       - name: ndenv
