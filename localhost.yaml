@@ -1,101 +1,54 @@
 - hosts: localhost
   connection: local
   gather_facts: no
-  sudo: no
+
   vars:
-    homebrew_tap_repository:
-      - caskroom/cask
-      - caskroom/versions
     homebrew_packages:
-      - { name: zsh }
-      - { name: zsh-completions }
-      - { name: readline }
-      - { name: ctags }
-      - { name: gotags }
-      - { name: trash }
-      - { name: lua }
-      - { name: vim, install_options: with-lua }
-      - { name: neovim }
-      - { name: diffutils }
-      - { name: findutils, install_options: with-default-names }
-      - { name: ed, install_options: default-names }
-      - { name: gnu-sed, install_options: with-default-names }
-      - { name: gnu-tar, install_options: with-default-names }
-      - { name: grep, install_options: with-default-names }
-      - { name: gzip }
-      - { name: gawk }
-      - { name: docker }
-      - { name: docker-compose }
-      - { name: openssl }
-      - { name: openssl, state: linked, install_options: force }
-      - { name: peco }
-      - { name: ghq }
-      - { name: ansible }
-      - { name: coreutils }
-      - { name: git }
-      - { name: zsh, install_options: disable-etcdir }
-      - { name: wget }
-      - { name: curl }
-      - { name: cmake }
-      - { name: autoconf }
-      - { name: automake }
-      - { name: pkg-config }
-      - { name: tree }
-      - { name: lv }
-      - { name: nkf }
-      - { name: fd }
-      - { name: jq }
-      - { name: yarn }
-      - { name: rbenv }
-      - { name: ruby-build }
-      - { name: mysql }
-      - { name: sqlite }
-      - { name: redis }
-      - { name: imagemagick }
-      - { name: w3m }
-      - { name: source-highlight }
-      - { name: pwgen}
-      - { name: terminal-notifier}
-      - { name: watch}
-      - { name: htop-osx }
-      - { name: jpeg }
-      - { name: awscli }
-      - { name: nvm }
-      - { name: mercurial }
-      - { name: direnv }
-      - { name: tmux }
-      - { name: reattach-to-user-namespace }
-      - { name: fontforge }
-      - { name: tfenv }
-
+      - name: tmux
+      - name: hub
+      - name: rbenv
+      - name: ruby-build
+      - name: openssl
+      - name: readline
+      - name: imagemagick
+      - name: docker
+      - name: go
+      - name: yarn
+      - name: ndenv
+      - name: tree
+      - name: starship
+      - name: peco
+      - name: ghq
+      - name: jq
+      - name: yarn
+      - name: starship
+      - name: tfenv
+      - name: bat
+      - name: fontforge
+      - name: watch
+      - name: direnv
+      - name: anyenv
+      - name: trash
+      - name: nvim
+      - name: gnu-sed
+        options: "--with-default-names"
   tasks:
-    - name: add homebrew tap repository
-      homebrew_tap: name={{ item }}
-      with_items: "{{ homebrew_tap_repository }}"
-    - name: update homebrew
-      homebrew: update_homebrew=yes
+    - name: homebrew update
+      homebrew:
+        update_homebrew: yes
 
-    # homebrew
-    - name: install homebrew package
-      homebrew: >
-        name={{ item.name }}
-        state={{ item.state | default('latest') }}
-        install_options={{
-          item.install_options | default() | join(',')
-          if item.install_options is not string
-          else item.install_options
-        }}
+    - name: homebrew packages install
+      homebrew:
+        name: "{{ item.name }}"
+        state: "{{ item.state | default('present') }}"
       with_items: "{{ homebrew_packages }}"
 
-    # prezto
     - name: install prezto
       git: repo=https://github.com/sorin-ionescu/prezto.git dest=~/.zprezto
 
-    # tpm
     - name: install tpm
       git: repo=https://github.com/tmux-plugins/tpm.git dest=~/.tmux/plugins/tpm
 
-    # shell prompt
     - name: Install pure-prompt
       npm: name=pure-prompt global=yes
 

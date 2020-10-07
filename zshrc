@@ -161,7 +161,7 @@ export PATH="$HOME/.local/bin:$PATH"
 eval "$(anyenv init -)"
 
 # Go
-export GO_VERSION=1.13rc1
+export GO_VERSION=1.15.2
 export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
 export GOPATH=$HOME/go
 export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
