@@ -6,30 +6,25 @@
     homebrew_packages:
       - name: tmux
       - name: hub
-      - name: rbenv
       - name: ruby-build
       - name: openssl
       - name: readline
       - name: imagemagick
       - name: docker
       - name: docker-compose
-      - name: go
-      - name: yarn
-      - name: ndenv
       - name: tree
       - name: starship
       - name: peco
       - name: ghq
       - name: jq
-      - name: yarn
       - name: starship
-      - name: tfenv
       - name: bat
       - name: fontforge
       - name: watch
       - name: direnv
       - name: anyenv
       - name: trash
+      - name: pure
       - name: nvim
       - name: gnu-sed
         options: "--with-default-names"
@@ -49,9 +44,6 @@
 
     - name: install tpm
       git: repo=https://github.com/tmux-plugins/tpm.git dest=~/.tmux/plugins/tpm
-
-    - name: Install pure-prompt
-      npm: name=pure-prompt global=yes
 
   handlers:
     - name: run fc-cache
