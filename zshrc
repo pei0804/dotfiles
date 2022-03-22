@@ -161,7 +161,7 @@ export PATH="$HOME/.local/bin:$PATH"
 eval "$(anyenv init -)"
 
 # Go
-export GO_VERSION=1.15.2
+export GO_VERSION=1.17.6
 export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
 export GOPATH=$HOME/go
 export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
@@ -185,3 +185,5 @@ eval "$(direnv hook zsh)"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/j-chikamori/.sdkman"
 [[ -s "/Users/j-chikamori/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/j-chikamori/.sdkman/bin/sdkman-init.sh"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
