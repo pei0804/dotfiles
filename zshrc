@@ -183,7 +183,8 @@ eval "$(direnv hook zsh)"
 [[ -f /Users/jumpei/.anyenv/envs/ndenv/versions/v10.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/jumpei/.anyenv/envs/ndenv/versions/v10.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/j-chikamori/.sdkman"
-[[ -s "/Users/j-chikamori/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/j-chikamori/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "RHOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
