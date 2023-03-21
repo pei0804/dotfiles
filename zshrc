@@ -188,3 +188,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+export POETRY_HOME="$HOME/.poetry"
+export PATH="$POETRY_HOME/bin:$PATH"
+
+export PATH="$HOME/.poetry/bin:$PATH"
+
+# added by Snowflake SnowSQL installer v1.2
+export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH

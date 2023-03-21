@@ -1,29 +1,25 @@
 {
   "window.zoomLevel": 1,
   "window.title": "${dirty}${activeEditorShort} / ${rootName}",
-  "workbench.colorTheme": "Darcula Theme from IntelliJ",
   "editor.renderLineHighlight": "all",
   "editor.tabSize": 2,
   "editor.formatOnType": true,
-  "editor.formatOnPaste": true,
-  "files.autoSave": "off",
+  "files.autoSave": "afterDelay",
   "files.eol": "\n",
-  "files.insertFinalNewline": true,
   "files.autoGuessEncoding": true,
   "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
     "**/.DS_Store": true,
-    "**/bin": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/*.dll": true,
+    "**/*.idb": true,
+    "**/*.ilk": true,
     "**/*.o": true,
     "**/*.obj": true,
-    "**/*.ilk": true,
     "**/*.pdb": true,
     "**/*.tlog": true,
-    "**/*.idb": true,
-    "**/*.dll": true
+    "**/CVS": true
   },
   "extensions.autoUpdate": true,
   "extensions.ignoreRecommendations": false,
@@ -71,9 +67,74 @@
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "vim.statusBarColors.normal": "",
+  "vim.insertModeKeyBindings": [
+        {
+        "before":["ctrl+]"],
+        "after":["&lt;Esc&gt;"]
+        }
+    ],
+    "vim.useSystemClipboard": true,
+    "workbench.tree.indent": 16,
+    "workbench.colorTheme": "Darcula Theme from IntelliJ",
+    "window.openFoldersInNewWindow": "on",
+    "terminal.external.osxExec": "iTerm.app",
+    "search.useIgnoreFiles": false,
+    "html.format.enable": false,
+    "dbt-formatter.lowerWords": false,
+    "dbt-formatter.upper": false,
+    "dbt-formatter.dialect": "",
+    "dbt-formatter.camelCase": false,
+    "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+          "scope": "keyword.other.dotenv",
+          "settings": {
+            "foreground": "#FF000005"
+          }
+        }
+      ]
+    },
+    "[python]": {
+      "editor.formatOnType": true
+    },
+    "yaml.customTags": [
+      "!And",
+      "!And sequence",
+      "!If",
+      "!If sequence",
+      "!Not",
+      "!Not sequence",
+      "!Equals",
+      "!Equals sequence",
+      "!Or",
+      "!Or sequence",
+      "!FindInMap",
+      "!FindInMap sequence",
+      "!Base64",
+      "!Join",
+      "!Join sequence",
+      "!Cidr",
+      "!Ref",
+      "!Sub",
+      "!Sub sequence",
+      "!GetAtt",
+      "!GetAZs",
+      "!ImportValue",
+      "!ImportValue sequence",
+      "!Select",
+      "!Select sequence",
+      "!Split",
+      "!Split sequence"
+    ],
+    "redhat.telemetry.enabled": true,
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.advanced": {
+      
+    }
 }
