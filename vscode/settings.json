@@ -19,7 +19,12 @@
     "**/*.obj": true,
     "**/*.pdb": true,
     "**/*.tlog": true,
-    "**/CVS": true
+    "**/CVS": true,
+    "**/.trunk/*out/": true,
+    "**/.trunk/*actions/": true,
+    "**/.trunk/*logs/": true,
+    "**/.trunk/*plugins/": true,
+    "**/.trunk/*notifications/": true
   },
   "extensions.autoUpdate": true,
   "extensions.ignoreRecommendations": false,
@@ -70,7 +75,7 @@
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "vim.statusBarColors.normal": "",
   "vim.insertModeKeyBindings": [
@@ -84,7 +89,6 @@
     "workbench.colorTheme": "Darcula Theme from IntelliJ",
     "window.openFoldersInNewWindow": "on",
     "terminal.external.osxExec": "iTerm.app",
-    "search.useIgnoreFiles": false,
     "html.format.enable": false,
     "dbt-formatter.lowerWords": false,
     "dbt-formatter.upper": false,
@@ -135,6 +139,22 @@
     "redhat.telemetry.enabled": true,
     "editor.inlineSuggest.enabled": true,
     "github.copilot.advanced": {
-      
-    }
+
+    },
+    "markdown.preview.breaks": true,
+    "[json]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "dbt.prefixGenerateModel": "src",
+    "dbt.fileNameTemplateGenerateModel": "{prefix}_{sourceName}__{tableName}",
+    "trunk.trunkGrayOutNonBlockingIssues": false,
+    "files.watcherExclude": {
+      "**/.trunk/*out/": true,
+      "**/.trunk/*actions/": true,
+      "**/.trunk/*logs/": true,
+      "**/.trunk/*plugins/": true,
+      "**/.trunk/*notifications/": true
+    },
+    "editor.defaultFormatter": "trunk.io",
+    "terminal.integrated.inheritEnv": false
 }

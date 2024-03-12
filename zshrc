@@ -41,9 +41,6 @@ export LANG=ja_JP.UTF-8
 # Dotfile
 export DOTFILES=$HOME/dotfiles
 
-# GAE
-export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
-
 # JAVA
 # https://qiita.com/seri/items/cbfe1886ec902029529d
 export JAVA_HOME=$HOME/.sdkman/candidates/java/current
@@ -188,10 +185,28 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-export POETRY_HOME="$HOME/.poetry"
-export PATH="$POETRY_HOME/bin:$PATH"
-
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # added by Snowflake SnowSQL installer v1.2
 export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
+
+source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/j-chikamori/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/j-chikamori/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/j-chikamori/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/j-chikamori/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# rye
+source "$HOME/.rye/env"
