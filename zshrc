@@ -10,6 +10,10 @@ export PATH=$HOME/go_appengine:$PATH
 # mecab
 export PATH=/usr/local/mecab/bin:$PATH
 
+# homebrew
+export PATH="$PATH:/opt/homebrew/bin/"
+
+
 # SDKMAN
 export SDKMAN_DIR="$HOME/.sdkman"
 if [ -d "${SDKMAN_DIR}" ]; then
@@ -58,6 +62,7 @@ antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
 antigen apply
 
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
 prompt pure
 
