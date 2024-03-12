@@ -10,16 +10,6 @@ export PATH=$HOME/go_appengine:$PATH
 # mecab
 export PATH=/usr/local/mecab/bin:$PATH
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /Users/jumpei/google-cloud-sdk/path.zsh.inc ]; then
-  source "$HOME/google-cloud-sdk/path.zsh.inc"
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f $HOME/google-cloud-sdk/completion.zsh.inc ]; then
-  source "$HOME/google-cloud-sdk/completion.zsh.inc"
-fi
-
 # SDKMAN
 export SDKMAN_DIR="$HOME/.sdkman"
 if [ -d "${SDKMAN_DIR}" ]; then
@@ -190,23 +180,7 @@ export PATH="$HOME/.poetry/bin:$PATH"
 # added by Snowflake SnowSQL installer v1.2
 export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
 
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/j-chikamori/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/j-chikamori/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/j-chikamori/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/j-chikamori/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 # rye
-source "$HOME/.rye/env"
+if [ -f "$HOME/.rye/env" ]; then
+  source "$HOME/.rye/env"
+fi
