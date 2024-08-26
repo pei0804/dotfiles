@@ -33,9 +33,6 @@ path=( \
   $path
 )
 
-#-----------------------------------------
-# Manpath設定
-#-----------------------------------------
 manpath=( \
   ${HOMEBREW_PREFIX}/opt/*/libexec/gnuman(N-/) \
   $manpath
@@ -79,6 +76,8 @@ alias g='ghq-cd'
 alias vi='nvim'
 alias vim='nvim'
 alias rm='trash'
+alias cd='z'
+alias cat='bat'
 
 # ----------------------------------------
 # プロンプト設定
