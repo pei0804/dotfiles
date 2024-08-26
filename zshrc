@@ -1,191 +1,106 @@
-# ------------------------------------- 環境変数
-# -------------------------------------
-
-# .config
-export XDG_CONFIG_HOME=$HOME/.config
-
-# GAE
-export PATH=$HOME/go_appengine:$PATH
-
-# mecab
-export PATH=/usr/local/mecab/bin:$PATH
-
-# homebrew
-export PATH="$PATH:/opt/homebrew/bin/"
-
-
-# SDKMAN
-export SDKMAN_DIR="$HOME/.sdkman"
-if [ -d "${SDKMAN_DIR}" ]; then
-  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-fi
-
-# Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# EDITER
-export EDITOR=vim
-
-# PATH
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
-
-# 文字コード
+# ----------------------------------------
+# 基本設定
+# ----------------------------------------
 export LANG=ja_JP.UTF-8
+export EDITOR=vim
+typeset -U path
 
-# Dotfile
-export DOTFILES=$HOME/dotfiles
-
-# JAVA
-# https://qiita.com/seri/items/cbfe1886ec902029529d
-export JAVA_HOME=$HOME/.sdkman/candidates/java/current
-export PATH=$JAVA_HOME/bin:$PATH
-
-# -------------------------------------
-# zsh
-# -------------------------------------
-
-# History
+# コマンド履歴の設定
 HISTFILE=${HOME}/.zsh_history
-HISTSIZE=50000
-SAVEHIST=50000
+HISTSIZE=10000
+SAVEHIST=10000
 
-# antigen
-source $DOTFILES/antigen/antigen.zsh
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle git
-antigen bundle command-not-found
-antigen bundle golang
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
-antigen apply
-
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
-autoload -U promptinit; promptinit
-prompt pure
-
-# THEME
-ZSH_THEME=''
-
-# 入力しているコマンド名が間違っている場合にもしかして：を出す。
-setopt correct
-
-# ビープを鳴らさない
-setopt nobeep
-
-# 色を使う
-setopt prompt_subst
-
-# ^Dでログアウトしない。
-setopt ignoreeof
-
-# バックグラウンドジョブが終了したらすぐに知らせる。
-setopt no_tify
-
-# 直前と同じコマンドをヒストリに追加しない
+# 履歴の共有と重複の制御
+setopt share_history
 setopt hist_ignore_dups
-
-# ヒストリを呼び出してから実行する間に一旦編集
 setopt hist_verify
 
-# cd -[tab]で過去のディレクトリにひとっ飛びできるようにする
+# ディレクトリ操作の簡略化
+setopt auto_cd
 setopt auto_pushd
 
-# ディレクトリ名を入力するだけでcdできるようにする
-setopt auto_cd
+# コマンド補完機能の有効化
+autoload -Uz compinit && compinit
 
-# iTerm2のタブ名を変更する
-# cdしたあとで、自動的に ls する
-function chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
+# ----------------------------------------
+# PATH設定
+# ----------------------------------------
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# ヒストリを共有
-setopt share_history
+path=( \
+  ${HOMEBREW_PREFIX}/opt/*/libexec/gnubin(N-/) \
+  ${HOME}/.local/bin \
+  $path
+)
 
-# -------------------------------------
-# エイリアス
-# -------------------------------------
+#-----------------------------------------
+# Manpath設定
+#-----------------------------------------
+manpath=( \
+  ${HOMEBREW_PREFIX}/opt/*/libexec/gnuman(N-/) \
+  $manpath
+)
 
-# alias
-alias ls="ls -G"
-alias la="ls -laGF"
-alias gl="git log --oneline --decorate --all --graph"
-alias g='cd $(ghq root)/$(ghq list | peco)'
-alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
-alias htdocs='cd /Applications/XAMPP/xamppfiles/htdocs'
-alias vimedit='vim ~/dotfiles/vimrc'
-alias dotfiles='cd ~/dotfiles'
-alias tags='~/dotfiles/Makefile create_tags TARGET_PATH=./'
-alias vi='nvim'
-alias vim='nvim'
-alias ctags="`brew --prefix`/bin/ctags"
-alias rm="trash"
-alias tws="tw --stream --id"
-function _gi() { curl -s https://www.gitignore.io/api/$1 ;}
-alias gi='_gi $(_gi list | gsed "s/,/\n/g" | peco )'
-alias clean_branch='git branch --merged|grep -v -E "\*|master"|xargs -n1 -I{} git branch -d {}'
-alias jqr="jq -R 'fromjson?'"
-alias tree="tree -NC" # N: 文字化け対策, C:色をつける
+# ----------------------------------------
+# 開発環境設定
+# ----------------------------------------
+# Python (pyenv)
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
-# -------------------------------------
-# gnu cmd
-# -------------------------------------
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
-MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
-MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
-MANPATH="/usr/local/opt/grep/libexec/gnuman:$MANPATH"
-
-# -------------------------------------
-# version
-# -------------------------------------
-
-# anyenv
-# https://github.com/riywo/anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-eval "$(anyenv init -)"
-
-# Go
-export GO_VERSION=1.17.6
-export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
-export GOPATH=$HOME/go
-export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
-export PATH=$GOROOT/bin:$PATH
-export PATH=$GOPATH/bin:$PATH
-echo Now using golang v$GO_VERSION
-
-# envrc
+# direnv
 eval "$(direnv hook zsh)"
 
-# added by travis gem
-[ -f /Users/jumpei/.travis/travis.sh ] && source /Users/jumpei/.travis/travis.sh
+# zoxide
+eval "$(zoxide init zsh)"
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/jumpei/.anyenv/envs/ndenv/versions/v10.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/jumpei/.anyenv/envs/ndenv/versions/v10.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/jumpei/.anyenv/envs/ndenv/versions/v10.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/jumpei/.anyenv/envs/ndenv/versions/v10.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# ----------------------------------------
+# ツール設定
+# ----------------------------------------
+# fzf
+export FZF_DEFAULT_OPTS='
+  --extended
+  --ansi
+  --multi
+  --border
+  --reverse
+'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "RHOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# ----------------------------------------
+# エイリアス
+# ----------------------------------------
+alias ls="ls --color=auto"
+alias ll="ls -la"
+alias python="python3"
+alias pip="pip3"
+alias g='ghq-cd'
+alias vi='nvim'
+alias vim='nvim'
+alias rm='trash'
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-export PATH="$HOME/.poetry/bin:$PATH"
+# ----------------------------------------
+# プロンプト設定
+# ----------------------------------------
+PROMPT='%F{green}%n@%m%f:%F{blue}%~%f$ '
 
-# added by Snowflake SnowSQL installer v1.2
-export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
+# ----------------------------------------
+# カスタム関数
+# ----------------------------------------
+# ディレクトリ変更時の自動ls実行とiTerm2のタブ名変更
+function chpwd() {
+  ls
+  echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
+}
 
-# rye
-if [ -f "$HOME/.rye/env" ]; then
-  source "$HOME/.rye/env"
-fi
+# ghqとfzfを使用したリポジトリ移動
+function ghq-cd() {
+  local repository=$(ghq list | fzf +m)
+  [[ -n $repository ]] && cd $(ghq root)/$repository
+}
+
+# fzfを使用したhistory検索と実行
+function hf() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
+}

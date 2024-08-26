@@ -220,7 +220,7 @@ let g:operator#flashy#flash_time = 200
 " ctags
 "----------------------------------------
 set tags=tags
-autocmd FileType php,html,javascript,rb nnoremap <C-]> g<C-]> 
+autocmd FileType php,html,javascript,rb nnoremap <C-]> g<C-]>
 "----------------------------------------
 " snip
 "----------------------------------------
@@ -496,27 +496,6 @@ autocmd FileType css         setlocal sw=4 sts=4 ts=4 et
 autocmd FileType scss        setlocal sw=4 sts=4 ts=4 et
 autocmd FileType sass        setlocal sw=4 sts=4 ts=4 et
 autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et
-"----------------------------------------
-" 畳み込み
-"----------------------------------------
-set foldmethod=manual
-autocmd FileType ruby :set foldlevel=1
-autocmd FileType ruby :set foldnestmax=2
-autocmd FileType go :set foldmethod=indent
-autocmd FileType go :set foldnestmax=1
-autocmd FileType json :set foldmethod=manual
-autocmd FileType sql :set foldmethod=manual
-" http://thinca.hatenablog.com/entry/20110523/1306080318
-augroup foldmethod-expr
-  autocmd!
-  autocmd InsertEnter * if &l:foldmethod ==# 'expr'
-  \                   |   let b:foldinfo = [&l:foldmethod, &l:foldexpr]
-  \                   |   setlocal foldmethod=manual foldexpr=0
-  \                   | endif
-  autocmd InsertLeave * if exists('b:foldinfo')
-  \                   |   let [&l:foldmethod, &l:foldexpr] = b:foldinfo
-  \                   | endif
-augroup END
 "----------------------------------------
 " 検索
 "----------------------------------------

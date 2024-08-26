@@ -156,5 +156,11 @@
       "**/.trunk/*notifications/": true
     },
     "editor.defaultFormatter": "trunk.io",
-    "terminal.integrated.inheritEnv": false
+    "terminal.integrated.inheritEnv": false,
+    "git.autofetch": true,
+    "github.copilot.editor.enableAutoCompletions": true,
+    "snowflake.connectionsConfigFile": "/Users/j-chikamori/Library/Application Support/Code/User/globalStorage/snowflake.snowflake-vsc/connections.toml",
+    "[json5]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
