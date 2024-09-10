@@ -1,3 +1,4 @@
+brew "chezmoi"
 brew "vim"
 brew "anyenv"
 brew "awscli"
