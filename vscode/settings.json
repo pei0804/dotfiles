@@ -162,5 +162,7 @@
     "snowflake.connectionsConfigFile": "/Users/j-chikamori/Library/Application Support/Code/User/globalStorage/snowflake.snowflake-vsc/connections.toml",
     "[json5]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "editor.fontFamily": "Source Code Pro",
+    "editor.accessibilitySupport": "off"
 }

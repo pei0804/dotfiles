@@ -22,6 +22,10 @@ setopt auto_pushd
 # コマンド補完機能の有効化
 autoload -Uz compinit && compinit
 
+# prompt
+autoload -U promptinit; promptinit
+prompt pure
+
 # ----------------------------------------
 # PATH設定
 # ----------------------------------------
@@ -52,6 +56,10 @@ eval "$(direnv hook zsh)"
 # zoxide
 eval "$(zoxide init zsh)"
 
+# sheldon plugin manager
+eval "$(sheldon source)"
+
+
 # ----------------------------------------
 # ツール設定
 # ----------------------------------------
@@ -76,8 +84,10 @@ alias g='ghq-cd'
 alias vi='nvim'
 alias vim='nvim'
 alias rm='trash'
-alias cd='z'
 alias cat='bat'
+alias cd='z'
+alias clean_branch="git branch --merged | egrep -v \"(^\*|main|master)\" | xargs git branch -d"
+alias brewup="brew update && brew upgrade && brew autoremove && brew cleanup -s"
 
 # ----------------------------------------
 # カスタム関数
@@ -98,3 +108,22 @@ function ghq-cd() {
 function hf() {
   print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
 }
+
+# 入力補完
+setopt auto_menu
+setopt menu_complete
+
+# 補完候補をカーソルで選択可能にする
+zstyle ':completion:*:default' menu select=2
+
+# 補完関数の遅延ロード
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
+
+# キーバインディングの設定
+bindkey "^I" menu-complete  # タブキーで補完候補を順に表示
+bindkey "^[[Z" reverse-menu-complete  # Shift+Tabで逆順に表示
