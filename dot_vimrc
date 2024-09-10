@@ -1,11 +1,7 @@
 " 基本設定
-" set nowrapscan
-" set ignorecase
-" set hlsearch
-" set scrolloff=8
-" set number
-" set visualbell
-" set noerrorbells
+set scrolloff=8
+set number
+set noerrorbells
 
 " クリップボード連携
 set clipboard=unnamed
