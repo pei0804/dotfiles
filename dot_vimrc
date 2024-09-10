@@ -82,7 +82,6 @@ syntax enable
 
 " ステータスライン
 set laststatus=2
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
 
 " バックアップファイルを作成しない
 set nobackup
