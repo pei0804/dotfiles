@@ -8,4 +8,6 @@ brew_bundle:
 	brew bundle
 
 .PHONY: dotfile_update
+dotfile_update:
     chezmoi update
+
