@@ -9,5 +9,5 @@ brew_bundle:
 
 .PHONY: dotfile_update
 dotfile_update:
-    chezmoi update
+	chezmoi update
 
