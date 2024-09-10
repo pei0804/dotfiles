@@ -1,0 +1,34 @@
+[helpers]
+
+[default]
+depends = []
+
+[default.files]
+Brewfile = ""
+LICENSE = ""
+Makefile = ""
+"README.md" = ""
+antigen = ""
+dotbot = ""
+gitconfig = ""
+gitignore_global = ""
+gitmodules = ""
+hosts = ""
+ideavimrc = ""
+install = ""
+"install.conf.yaml" = ""
+iterm2 = ""
+karabiner = ""
+"localhost.yaml" = ""
+nvim = ""
+raycast = ""
+sheldon = ""
+"tmux.conf.local" = ""
+"userChrome.css" = ""
+vscode = ""
+zshrc = ""
+
+[default.variables]
+
+[settings]
+default_target_type = "automatic"
