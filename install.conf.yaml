@@ -9,12 +9,7 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
-    ~/.tmux: tmux/tmux
-    ~/.tmux.conf: tmuxConf/.tmux.conf
-    ~/.tmux.conf.local: tmux.conf.local
-    ~/.config/peco: peco
     ~/.config/nvim: nvim
-    ~/.ctags: ctags
     ~/.ideavimrc: ideavimrc
     ~/.zshrc: zshrc
     ~/.editorconfig: editorconfig
