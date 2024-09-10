@@ -54,12 +54,6 @@ cnoremap <C-f> <Right>
 cnoremap <C-l> <C-d>
 cnoremap <C-d> <Delete>
 
-" ; と : の入れ替え
-nnoremap ; :
-nnoremap : ;
-vnoremap ; :
-vnoremap : ;
-
 " コマンドライン履歴
 nnoremap q; q:
 vnoremap q; q:
