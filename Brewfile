@@ -1,3 +1,4 @@
+brew "vim"
 brew "anyenv"
 brew "awscli"
 brew "bat"
