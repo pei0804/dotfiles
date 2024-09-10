@@ -1,0 +1,90 @@
+" 基本設定
+set nowrapscan
+set ignorecase
+set hlsearch
+set scrolloff=8
+set number
+set visualbell
+set noerrorbells
+
+" クリップボード連携
+set clipboard=unnamed
+
+" キーマッピング
+inoremap <C-]> <Esc>
+
+" 選択範囲のインデントを連続して変更
+vnoremap < <gv
+vnoremap > >gv
+
+" Bash like insert
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$<Right>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+inoremap <C-h> <BS>
+inoremap <C-d> <Del>
+inoremap <C-k> <C-o>D<Right>
+inoremap <C-u> <C-o>d^
+
+" タブ操作
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+
+" Yank操作
+nnoremap Y y$
+
+" カーソル位置の単語をヤンクした単語に置換
+nnoremap <silent> cy ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR><ESC>
+nnoremap <silent> ciy ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR><ESC>
+
+" 行移動
+nnoremap j gj
+onoremap j gj
+xnoremap j gj
+nnoremap k gk
+onoremap k gk
+xnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+" コマンドラインモードのキーバインド
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-l> <C-d>
+cnoremap <C-d> <Delete>
+
+" ; と : の入れ替え
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
+" コマンドライン履歴
+nnoremap q; q:
+vnoremap q; q:
+
+" その他の有用な設定
+set autoindent
+set smartindent
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set hidden
+set backspace=indent,eol,start
+
+" シンタックスハイライト
+syntax enable
+
+" ステータスライン
+set laststatus=2
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
+
+" バックアップファイルを作成しない
+set nobackup
+set noswapfile
+set noundofile
