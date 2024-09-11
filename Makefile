@@ -4,7 +4,6 @@ HOMEBREW := $(shell command -v brew 2>/dev/null)
 
 all: brew_bundle dotfile_update
 
-
 .PHONY: all
 all:
 	$(MAKE) brew_bundle
