@@ -2,14 +2,8 @@
 
 HOMEBREW := $(shell command -v brew 2>/dev/null)
 
-all: brew_bundle dotfile_update
-
 .PHONY: all
-all:
-	$(MAKE) brew_bundle
-	$(MAKE) update_vscode_config
-	$(MAKE) mise_install
-	$(MAKE) dotfile_update
+all: brew_bundle update_vscode_config mise_install dotfile_update 
 
 .PHONY: brew_bundle
 brew_bundle: required_homebrew
