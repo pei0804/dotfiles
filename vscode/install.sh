@@ -1,14 +1,13 @@
 #!/bin/bash
-
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-VSCODE_SETTING_PATH="${HOME}/Library/Application\ Support/Code/User/settings.json"
+VSCODE_SETTING_PATH="${HOME}/Library/Application Support/Code/User/settings.json"
 
 # Link settings.json to vscode
-if not [ -L "${VSCODE_SETTING_PATH}" ]; then
+if [ ! -L "${VSCODE_SETTING_PATH}" ]; then
   echo "Linking settings.json to vscode..."
   ln -fsvn "${SCRIPT_DIR}/settings.json" "${VSCODE_SETTING_PATH}"
 else
-  echo "VSCode settings.json is not found."
+  echo "VSCode settings.json is already linked."
 fi
 
 # Install extensions to vscode
@@ -19,5 +18,5 @@ if [ "$(which "code")" != "" ]; then
     code --install-extension "$line"
   done
 else
-  echo "Code command not found."
+  echo "Code command not found. Please make sure VSCode is installed and 'code' command is available in your PATH."
 fi
