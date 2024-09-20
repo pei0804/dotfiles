@@ -1,0 +1,6 @@
+[tools]
+python = "3.12"
+java = "21"
+go = "1.23"
+node = "lts"
+terraform = ["1.9", "1.5"]

@@ -1,6 +1,6 @@
 brew "chezmoi"
 brew "vim"
-brew "anyenv"
+brew "mise"
 brew "awscli"
 brew "bat"
 brew "coreutils"
