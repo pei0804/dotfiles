@@ -1,9 +1,0 @@
-[submodule "antigen"]
-	path = antigen
-	url = https://github.com/zsh-users/antigen.git
-[submodule "dotbot"]
-	path = dotbot
-	url = https://github.com/anishathalye/dotbot
-[submodule "tmuxConf"]
-	path = tmuxConf
-	url = https://github.com/gpakosz/.tmux
