@@ -27,7 +27,7 @@ install_homebrew:
 update_vscode_config:
 	bash vscode/install.sh
 
-.PHONY: mise_install:
+.PHONY: mise_install
 mise_install:
 	mise install
 
