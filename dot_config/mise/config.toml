@@ -1,6 +1,25 @@
+[settings]
+experimental = true
+pipx_uvx = true
+
 [tools]
-python = "3.12"
-java = "21"
-go = "1.23"
+java = "latest"
+terraform = "latest"
+bun = "latest"
+deno = "latest"
+go = "latest"
 node = "lts"
-terraform = ["1.9", "1.5"]
+python = "latest"
+rust = "latest"
+
+ghq = "latest"
+fzf = "latest"
+awscli = "latest"
+tfenv = "latest"
+jq = "latest"
+uv = "latest"
+yq = "latest"
+zoxide = "latest"
+bat = "latest"
+
+"pipx:snowflake-cli-labs" = "latest"
