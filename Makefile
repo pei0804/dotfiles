@@ -9,6 +9,7 @@ all:
 	$(MAKE) brew_bundle
 	$(MAKE) dotfile_update
 	$(MAKE) update_vscode_config
+	$(MAKE) mise_install
 
 .PHONY: brew_bundle
 brew_bundle: required_homebrew
@@ -25,6 +26,10 @@ install_homebrew:
 .PHONY: update_vscode_config
 update_vscode_config:
 	bash vscode/install.sh
+
+.PHONY: mise_install:
+mise_install:
+	mise install
 
 .PHONY: required_homebrew
 required_homebrew:
