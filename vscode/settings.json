@@ -1,5 +1,12 @@
 {
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "$HOME/.vimrc",
-    "vim.useSystemClipboard": true
+    "vim.useSystemClipboard": true,
+    "snowflake.connectionsConfigFile": "/Users/j-chikamori/Library/Application Support/Code/User/globalStorage/snowflake.snowflake-vsc/connections.toml",
+    "files.autoSave": "afterDelay",
+    "editor.fontSize": 14,
+    "editor.accessibilitySupport": "off",
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

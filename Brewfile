@@ -1,5 +1,7 @@
 brew "chezmoi"
 brew "vim"
+brew "wget"
+brew "duckdb"
 brew "mise"
 brew "awscli"
 brew "bat"
