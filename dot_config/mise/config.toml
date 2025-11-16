@@ -11,6 +11,7 @@ go = "latest"
 node = "lts"
 python = "3.13"
 rust = "latest"
+aws-vault = "latest"
 
 ghq = "latest"
 fzf = "latest"
