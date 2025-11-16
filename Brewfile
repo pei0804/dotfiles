@@ -1,3 +1,4 @@
+brew "git"
 brew "chezmoi"
 brew "vim"
 brew "wget"
