@@ -1,6 +1,12 @@
 # dotfiles
 
 ```console
+brew install chezmoi
+chezmoi init git@github.com:pei0804/dotfiles.git
+chezmoi apply
+```
+
+```console
 make all
 ```
 
