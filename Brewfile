@@ -20,3 +20,5 @@ brew "trash"
 brew "terminal-notifier"
 brew "tree"
 brew "zsh"
+
+cask "ghostty"
