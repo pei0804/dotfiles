@@ -19,7 +19,15 @@
       "Bash(/Users/ca00930/.claude/statusline.sh)",
       "Bash(/bin/rm:*)",
       "Bash(/bin/cat -v)",
-      "Bash(chezmoi add:*)"
+      "Bash(chezmoi add:*)",
+      "Bash(osascript:*)",
+      "Bash(head:*)",
+      "Bash(defaults read:*)",
+      "Bash(brew install:*)",
+      "Bash(terminal-notifier:*)",
+      "Bash(zsh:*)",
+      "Bash(brew uninstall:*)",
+      "Bash(mise install:*)"
     ]
   }
 }

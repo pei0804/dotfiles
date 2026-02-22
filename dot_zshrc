@@ -2,7 +2,6 @@
 # 基本設定
 # ----------------------------------------
 export LANG=ja_JP.UTF-8
-export EDITOR=vim
 typeset -U path
 export EDITOR="code --wait"
 
@@ -19,9 +18,6 @@ setopt hist_verify
 # ディレクトリ操作の簡略化
 setopt auto_cd
 setopt auto_pushd
-
-# コマンド補完機能の有効化
-autoload -Uz compinit && compinit
 
 # prompt
 autoload -U promptinit; promptinit
@@ -45,6 +41,9 @@ manpath=( \
   $manpath
 )
 
+# mise
+eval "$(mise activate zsh)"
+
 # direnv
 eval "$(direnv hook zsh)"
 
@@ -53,14 +52,6 @@ eval "$(zoxide init zsh)"
 
 # sheldon plugin manager
 eval "$(sheldon source)"
-
-# volta
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
-# mise
-export PATH="$HOME/.local/share/mise/shims:$PATH"
-eval "$(mise activate zsh)"
 
 # gcloud sdk
 if [ -d "$(brew --prefix)/Caskroom/google-cloud-sdk/" ] ; then
@@ -79,7 +70,7 @@ export FZF_DEFAULT_OPTS='
   --border
   --reverse
 '
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 # ----------------------------------------
 # エイリアス
@@ -98,10 +89,9 @@ alias brewup="brew update && brew upgrade && brew autoremove && brew cleanup -s"
 # ----------------------------------------
 # カスタム関数
 # ----------------------------------------
-# ディレクトリ変更時の自動ls実行とiTerm2のタブ名変更
+# ディレクトリ変更時の自動ls実行
 function chpwd() {
   ls
-  echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
 }
 
 # ghqとfzfを使用したリポジトリ移動
