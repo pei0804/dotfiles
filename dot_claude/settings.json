@@ -6,5 +6,22 @@
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Claude Codeが入力待ちです\" with title \"Claude Code\" sound name \"Glass\"'"
+          },
+          {
+            "type": "command",
+            "command": "printf '\\033]0;⏳ Claude Code - 入力待ち\\007'"
+          }
+        ]
+      }
+    ]
   }
 }
