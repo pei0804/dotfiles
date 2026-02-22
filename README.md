@@ -2,10 +2,8 @@
 
 ```console
 brew install chezmoi
-chezmoi init git@github.com:pei0804/dotfiles.git
-chezmoi apply
-chezmoi cd
-make all
+chezmoi init --apply git@github.com:pei0804/dotfiles.git
+make -C "$(chezmoi source-path)" all
 ```
 
 ## マニュアル設定
