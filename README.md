@@ -16,7 +16,6 @@ make all
 - Chrome
 - VSCode
 - Raycast
-- iTerm2
 - StatusClock
 - NightTone
 - CelanShot X
