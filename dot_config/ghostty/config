@@ -5,7 +5,7 @@ font-family = JetBrains Mono
 font-size = 14
 
 # Theme
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 
 # Window
 window-padding-x = 4
@@ -57,15 +57,13 @@ keybind = cmd+3=goto_tab:3
 keybind = cmd+4=goto_tab:4
 keybind = cmd+5=goto_tab:5
 
-# Scrollback vim mode (Alt+v to enter, Escape to exit)
-keybind = alt+v=activate_key_table:vim
-keybind = vim/j=scroll_page_lines:1
-keybind = vim/k=scroll_page_lines:-1
-keybind = vim/ctrl+d=scroll_page_fractional:0.5
-keybind = vim/ctrl+u=scroll_page_fractional:-0.5
-keybind = vim/g=scroll_to_top
-keybind = vim/shift+g=scroll_to_bottom
-keybind = vim/escape=deactivate_key_table
+# Scrollback vim-style navigation (Alt as modifier)
+keybind = alt+j=scroll_page_lines:1
+keybind = alt+k=scroll_page_lines:-1
+keybind = alt+d=scroll_page_fractional:0.5
+keybind = alt+u=scroll_page_fractional:-0.5
+keybind = alt+g=scroll_to_top
+keybind = alt+shift+g=scroll_to_bottom
 
 # Open scrollback in $EDITOR (full vim navigation)
 keybind = cmd+shift+e=write_scrollback_file:open

@@ -9,7 +9,16 @@
       "WebFetch(domain:ghostty.org)",
       "WebFetch(domain:michaelbommarito.com)",
       "Bash(chezmoi managed:*)",
-      "Bash(git:*)"
+      "Bash(git:*)",
+      "WebFetch(domain:man.archlinux.org)",
+      "WebFetch(domain:github.com)",
+      "Bash(ghostty:*)",
+      "Bash(chmod +x:*)",
+      "Bash(echo:*)",
+      "WebFetch(domain:dev.classmethod.jp)",
+      "Bash(/Users/ca00930/.claude/statusline.sh)",
+      "Bash(/bin/rm:*)",
+      "Bash(/bin/cat -v)"
     ]
   }
 }
