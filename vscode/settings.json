@@ -8,5 +8,11 @@
     "editor.accessibilitySupport": "off",
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "claudeCode.preferredLocation": "panel",
+    "yaml.style.flowSequence": "forbid",
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "docker.extension.enableComposeLanguageServer": false
 }
