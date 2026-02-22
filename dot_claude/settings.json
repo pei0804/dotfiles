@@ -2,5 +2,9 @@
   "skipDangerousModePermissionPrompt": true,
   "enabledPlugins": {
     "terraform-skill@antonbabenko": true
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
   }
 }

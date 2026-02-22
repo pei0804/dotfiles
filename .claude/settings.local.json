@@ -18,7 +18,8 @@
       "WebFetch(domain:dev.classmethod.jp)",
       "Bash(/Users/ca00930/.claude/statusline.sh)",
       "Bash(/bin/rm:*)",
-      "Bash(/bin/cat -v)"
+      "Bash(/bin/cat -v)",
+      "Bash(chezmoi add:*)"
     ]
   }
 }
