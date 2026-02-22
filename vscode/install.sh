@@ -1,5 +1,5 @@
 #!/bin/bash
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+SCRIPT_DIR="/Users/ca00930/.local/share/chezmoi/vscode"
 VSCODE_SETTING_PATH="${HOME}/Library/Application Support/Code/User/settings.json"
 
 # Link settings.json to vscode
