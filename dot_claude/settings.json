@@ -1,0 +1,6 @@
+{
+  "skipDangerousModePermissionPrompt": true,
+  "enabledPlugins": {
+    "terraform-skill@antonbabenko": true
+  }
+}
