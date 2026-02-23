@@ -6,10 +6,11 @@
 case "$1" in
   on)
     # Claude is waiting for input - subtle green tint
-    tmux select-pane -t "$TMUX_PANE" -P 'bg=#11201a'
+    # Use set-option -p instead of select-pane -P to avoid stealing focus
+    tmux set-option -p -t "$TMUX_PANE" window-style 'bg=#11201a'
     ;;
   off)
     # Claude is running - restore default
-    tmux select-pane -t "$TMUX_PANE" -P 'default'
+    tmux set-option -p -t "$TMUX_PANE" window-style 'default'
     ;;
 esac
