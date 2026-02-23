@@ -15,10 +15,6 @@
           {
             "type": "command",
             "command": "terminal-notifier -title 'Claude Code' -message 'Claude Codeが完了しました' -sound Glass"
-          },
-          {
-            "type": "command",
-            "command": "printf '\\a\\033]0;⏳ Claude Code - 入力待ち\\007'"
           }
         ]
       }
