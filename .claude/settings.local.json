@@ -31,7 +31,9 @@
       "WebFetch(domain:claudelog.com)",
       "WebFetch(domain:community.bigbeartechworld.com)",
       "WebFetch(domain:software-dc.com)",
-      "Bash(tmux:*)"
+      "Bash(tmux:*)",
+      "Bash(~/.claude/tmux-notify.sh on:*)",
+      "Bash(~/.claude/tmux-notify.sh off:*)"
     ]
   }
 }
