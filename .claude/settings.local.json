@@ -27,7 +27,11 @@
       "Bash(terminal-notifier:*)",
       "Bash(zsh:*)",
       "Bash(brew uninstall:*)",
-      "Bash(mise install:*)"
+      "Bash(mise install:*)",
+      "WebFetch(domain:claudelog.com)",
+      "WebFetch(domain:community.bigbeartechworld.com)",
+      "WebFetch(domain:software-dc.com)",
+      "Bash(tmux:*)"
     ]
   }
 }

@@ -18,6 +18,7 @@ brew "pure"
 brew "sheldon"
 brew "trash"
 brew "terminal-notifier"
+brew "tmux"
 brew "tree"
 brew "zsh"
 
