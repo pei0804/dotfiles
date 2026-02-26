@@ -1,7 +1,7 @@
 # Ghostty Configuration
 
 # Font
-font-family = JetBrains Mono
+font-family = PlemolJP Console NF
 font-size = 14
 
 # Theme
@@ -19,6 +19,9 @@ cursor-style-blink = false
 
 # Shell integration
 shell-integration = zsh
+
+# tmux auto-start
+command = tmux new-session -A -s main
 
 # Clipboard
 copy-on-select = clipboard

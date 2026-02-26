@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# tmux session selector with fzf
+# - Select an existing session or type a new name to create one
+
+out=$(tmux list-sessions -F '#{session_name}' 2>/dev/null \
+  | fzf --reverse --print-query --header="select / type new name")
+rc=$?
+query=$(echo "$out" | head -1)
+selected=$(echo "$out" | sed -n 2p)
+
+if [ $rc -eq 0 ] && [ -n "$selected" ]; then
+  tmux switch-client -t "$selected"
+elif [ -n "$query" ]; then
+  tmux new-session -ds "$query" && tmux switch-client -t "$query"
+fi

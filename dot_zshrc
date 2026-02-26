@@ -1,11 +1,4 @@
 # ----------------------------------------
-# tmux 自動起動
-# ----------------------------------------
-if command -v tmux &>/dev/null && [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
-  tmux attach -t default 2>/dev/null || tmux new -s default
-fi
-
-# ----------------------------------------
 # 基本設定
 # ----------------------------------------
 export LANG=ja_JP.UTF-8
