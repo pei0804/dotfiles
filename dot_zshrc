@@ -48,7 +48,7 @@ eval "$(mise activate zsh)"
 eval "$(direnv hook zsh)"
 
 # zoxide
-eval "$(zoxide init zsh)"
+command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
 # sheldon plugin manager
 eval "$(sheldon source)"
@@ -70,7 +70,7 @@ export FZF_DEFAULT_OPTS='
   --border
   --reverse
 '
-source <(fzf --zsh)
+command -v fzf &>/dev/null && source <(fzf --zsh)
 
 # ----------------------------------------
 # エイリアス
