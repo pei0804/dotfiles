@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PATTERNS_FILE="$(git rev-parse --show-toplevel)/.forbidden-patterns"
+
+if [[ ! -f "$PATTERNS_FILE" ]]; then
+  exit 0
+fi
+
+# Read patterns (skip empty lines and comments)
+patterns=()
+while IFS= read -r line; do
+  line="${line%%#*}"   # strip comments
+  line="${line// /}"   # strip spaces
+  [[ -z "$line" ]] && continue
+  patterns+=("$line")
+done < "$PATTERNS_FILE"
+
+if [[ ${#patterns[@]} -eq 0 ]]; then
+  exit 0
+fi
+
+# Build grep pattern (case-insensitive)
+grep_pattern=$(IFS='|'; echo "${patterns[*]}")
+
+# Exclude the patterns file itself and this hook from the check
+EXCLUDE_FILES=(".forbidden-patterns" ".githooks/pre-commit")
+exclude_args=()
+for f in "${EXCLUDE_FILES[@]}"; do
+  exclude_args+=(":(exclude)$f")
+done
+
+# Check staged diff content
+if git diff --cached --diff-filter=ACMR -U0 -- . "${exclude_args[@]}" | grep -iE "$grep_pattern" > /dev/null 2>&1; then
+  echo "ERROR: Forbidden pattern detected in staged changes."
+  echo ""
+  echo "Matched patterns:"
+  git diff --cached --diff-filter=ACMR -U0 -- . "${exclude_args[@]}" | grep -inE "$grep_pattern" | head -20
+  echo ""
+  echo "Blocked patterns: ${patterns[*]}"
+  echo "Edit .forbidden-patterns to update the list."
+  exit 1
+fi
