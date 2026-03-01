@@ -45,8 +45,43 @@
 5. **Document Results**: Add review section to `tasks/todo.md`
 6. **Capture Lessons**: Update `tasks/lessons.md` after corrections
 
+## Dotfiles Management (chezmoi)
+
+- **絶対に `~/.config/` や `~/.claude/` を直接編集しない**
+- dotfiles の変更は必ず chezmoi ソース (`~/.local/share/chezmoi/`) 側を編集する
+  - `~/.config/foo/bar` → `~/.local/share/chezmoi/dot_config/foo/bar` を編集
+  - `~/.claude/CLAUDE.md` → `~/.local/share/chezmoi/dot_claude/CLAUDE.md` を編集
+- 編集後は `chezmoi apply` で反映する
+- 新しいファイルを管理対象に追加する場合は `chezmoi add <path>` を使う
+
 ## Core Principles
 
 - **Simplicity First**: Make every change as simple as possible. Impact minimal code.
 - **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
 - **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
+
+## Plugin Management
+
+### cekernel plugin auto-update
+- On session start, pull the latest main for the cekernel plugin:
+  ```bash
+  git -C ~/.claude/plugins/marketplaces/clonable-eden-glimmer pull origin main --quiet
+  ```
+
+## Issue & PR Rules
+
+### Permalink Usage
+
+Always use GitHub permalinks (commit SHA-based) when referencing source code in Issues and PRs.
+
+- Never use branch-based links (`/blob/main/...`)
+- Always use commit SHA-based links (`/blob/abc1234/...`)
+- Use `#L10-L20` format for line ranges
+
+### Scripts Require Tests
+
+When writing one-shot scripts (batch replacements, migrations, etc.), always write test code alongside them.
+
+- Write the script and its tests together — never mark a script task as complete without tests
+- Tests must verify correctness using real input/output samples
+- PRs must describe what the script does and what tests were passed

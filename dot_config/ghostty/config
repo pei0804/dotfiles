@@ -20,9 +20,6 @@ cursor-style-blink = false
 # Shell integration
 shell-integration = zsh
 
-# tmux auto-start
-command = tmux new-session -A -s main
-
 # Clipboard
 copy-on-select = clipboard
 clipboard-paste-protection = false

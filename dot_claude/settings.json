@@ -1,7 +1,8 @@
 {
   "skipDangerousModePermissionPrompt": true,
   "enabledPlugins": {
-    "terraform-skill@antonbabenko": true
+    "terraform-skill@antonbabenko": true,
+    "cekernel@clonable-eden-glimmer": true
   },
   "statusLine": {
     "type": "command",

@@ -1,6 +1,10 @@
 {
   "permissions": {
     "allow": [
+      "Bash",
+      "Edit",
+      "Write",
+      "Read",
       "Bash(chezmoi verify:*)",
       "Bash(chezmoi diff:*)",
       "Bash(chezmoi apply:*)",
@@ -33,7 +37,15 @@
       "WebFetch(domain:software-dc.com)",
       "Bash(tmux:*)",
       "Bash(~/.claude/tmux-notify.sh on:*)",
-      "Bash(~/.claude/tmux-notify.sh off:*)"
+      "Bash(~/.claude/tmux-notify.sh off:*)",
+      "Bash(brew leaves:*)"
+    ],
+    "deny": [
+      "Bash(sudo *)",
+      "Bash(rm -rf /)",
+      "Bash(rm -rf /*)",
+      "Bash(shutdown *)",
+      "Bash(reboot *)"
     ]
   }
 }
