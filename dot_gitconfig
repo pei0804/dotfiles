@@ -81,6 +81,8 @@
 [user]
 	name = pei
 	email = peeeei0804@gmail.com
+[includeIf "gitdir:~/go/src/github.com/voyagegroup/"]
+    path = ~/.gitconfig-voyagegroup
 [http]
 [https]
 [url "https://"]
@@ -104,3 +106,9 @@
 
 [delta]
     side-by-side = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
