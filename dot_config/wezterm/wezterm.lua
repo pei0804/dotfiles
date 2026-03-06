@@ -5,7 +5,10 @@ local config = wezterm.config_builder()
 local config_dir = wezterm.config_dir
 local plugins_dir = config_dir .. "/plugins.d"
 for _, entry in ipairs(wezterm.glob(plugins_dir .. "/*.lua")) do
-  dofile(entry)
+  local ok, err = pcall(dofile, entry)
+  if not ok then
+    wezterm.log_warn("Failed to load plugin " .. entry .. ": " .. tostring(err))
+  end
 end
 
 -- Font

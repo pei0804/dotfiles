@@ -1,13 +1,4 @@
 {
-  "skipDangerousModePermissionPrompt": true,
-  "enabledPlugins": {
-    "terraform-skill@antonbabenko": true,
-    "cekernel@clonable-eden-glimmer": true
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.sh"
-  },
   "hooks": {
     "Stop": [
       {
@@ -35,5 +26,15 @@
         ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "terraform-skill@antonbabenko": true,
+    "cekernel@clonable-eden-plugins": true,
+    "dbt@dbt-agent-marketplace": true
+  },
+  "skipDangerousModePermissionPrompt": true
 }

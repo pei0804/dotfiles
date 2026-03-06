@@ -38,7 +38,8 @@
       "Bash(tmux:*)",
       "Bash(~/.claude/tmux-notify.sh on:*)",
       "Bash(~/.claude/tmux-notify.sh off:*)",
-      "Bash(brew leaves:*)"
+      "Bash(brew leaves:*)",
+      "WebFetch(domain:qiita.com)"
     ],
     "deny": [
       "Bash(sudo *)",

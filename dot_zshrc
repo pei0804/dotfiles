@@ -85,6 +85,8 @@ alias cat='bat'
 alias cd='z'
 alias clean_branch="git branch --merged | egrep -v \"(^\*|main|master)\" | xargs git branch -d"
 alias brewup="brew update && brew upgrade && brew autoremove && brew cleanup -s"
+alias nosleep="sudo pmset -a disablesleep 1"
+alias yessleep="sudo pmset -a disablesleep 0"
 
 # ----------------------------------------
 # カスタム関数
