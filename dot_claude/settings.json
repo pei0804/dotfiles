@@ -55,6 +55,18 @@
           }
         ]
       }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/audit-command.sh",
+            "timeout": 5
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
