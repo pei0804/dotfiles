@@ -1,0 +1,8 @@
+# Local config files containing sensitive info (user IDs, workspace details)
+dot_claude/skills/*/config.json
+
+# Organization-specific chezmoi data
+.chezmoidata.yaml
+
+# Organization-specific forbidden patterns
+.forbidden-patterns

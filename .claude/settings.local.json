@@ -39,7 +39,9 @@
       "Bash(~/.claude/tmux-notify.sh on:*)",
       "Bash(~/.claude/tmux-notify.sh off:*)",
       "Bash(brew leaves:*)",
-      "WebFetch(domain:qiita.com)"
+      "WebFetch(domain:qiita.com)",
+      "Skill(my-github-dashboard)",
+      "mcp__slack__slack_search_public_and_private"
     ],
     "deny": [
       "Bash(sudo *)",

@@ -34,7 +34,17 @@
   "enabledPlugins": {
     "terraform-skill@antonbabenko": true,
     "cekernel@clonable-eden-plugins": true,
-    "dbt@dbt-agent-marketplace": true
+    "dbt@dbt-agent-marketplace": true,
+    "example-skills@anthropic-agent-skills": true,
+    "document-skills@anthropic-agent-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "anthropic-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/skills"
+      }
+    }
   },
   "skipDangerousModePermissionPrompt": true
 }

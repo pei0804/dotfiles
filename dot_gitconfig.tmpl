@@ -81,8 +81,10 @@
 [user]
 	name = pei
 	email = peeeei0804@gmail.com
-[includeIf "gitdir:~/go/src/github.com/voyagegroup/"]
-    path = ~/.gitconfig-voyagegroup
+{{ if .org -}}
+[includeIf "gitdir:{{ .org.github_dir }}"]
+    path = {{ .org.gitconfig_path }}
+{{ end -}}
 [http]
 [https]
 [url "https://"]
