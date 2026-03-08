@@ -68,6 +68,14 @@
   git -C ~/.claude/plugins/marketplaces/clonable-eden-plugins pull origin main --quiet
   ```
 
+## Worktree First
+
+ファイル編集を伴う作業を開始する前に、現在の作業環境を確認する。
+
+- mainブランチの場合: worktreeを作成してから作業を開始する
+- 既存ブランチでworktree外の場合: worktreeへの移行を提案する
+- 作業開始時に「worktreeを作成しますか？」と確認する
+
 ## Issue & PR Rules
 
 ### Permalink Usage
