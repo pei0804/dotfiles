@@ -4,6 +4,9 @@
 
 CMD=$(jq -r .tool_input.command)
 
+# Strip heredoc bodies and quoted strings to avoid matching commit messages etc.
+CLEAN_CMD=$(echo "$CMD" | sed '/<<.*EOF/,/^EOF$/d' | sed "s/'[^']*'//g" | sed 's/"[^"]*"//g')
+
 PATTERNS=(
   "rm -rf /"
   "rm -rf ~"
@@ -17,7 +20,7 @@ PATTERNS=(
 )
 
 for p in "${PATTERNS[@]}"; do
-  if echo "$CMD" | grep -qiE "$p"; then
+  if echo "$CLEAN_CMD" | grep -qiE "$p"; then
     echo "Blocked: destructive pattern \"$p\" detected" >&2
     exit 2
   fi
