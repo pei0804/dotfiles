@@ -29,4 +29,3 @@ brew "make"
 brew "poppler"
 brew "watch"
 
-cask "ghostty"

@@ -10,13 +10,11 @@
       "Bash(chezmoi apply:*)",
       "WebSearch",
       "Bash(ls:*)",
-      "WebFetch(domain:ghostty.org)",
       "WebFetch(domain:michaelbommarito.com)",
       "Bash(chezmoi managed:*)",
       "Bash(git:*)",
       "WebFetch(domain:man.archlinux.org)",
       "WebFetch(domain:github.com)",
-      "Bash(ghostty:*)",
       "Bash(chmod +x:*)",
       "Bash(echo:*)",
       "WebFetch(domain:dev.classmethod.jp)",
@@ -41,7 +39,9 @@
       "Bash(brew leaves:*)",
       "WebFetch(domain:qiita.com)",
       "Skill(my-github-dashboard)",
-      "mcp__slack__slack_search_public_and_private"
+      "mcp__slack__slack_search_public_and_private",
+      "WebFetch(domain:blog.gitbutler.com)",
+      "WebFetch(domain:aiorg.dev)"
     ],
     "deny": [
       "Bash(sudo *)",

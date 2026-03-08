@@ -11,8 +11,8 @@ PATTERNS=(
   "drop table"
   "TRUNCATE"
   "truncate"
-  "push.*--force"
-  "push.*-f"
+  "push .* --force( |$)"
+  "push .* -f( |$)"
   "reset --hard"
 )
 
