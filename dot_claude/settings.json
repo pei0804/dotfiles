@@ -78,6 +78,16 @@
             "timeout": 5
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/update-pr-on-merge.sh",
+            "timeout": 30
+          }
+        ]
       }
     ]
   },
