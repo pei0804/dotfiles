@@ -1,0 +1,35 @@
+{
+  "skill_name": "run-skill-audit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "スキル監査して",
+      "expected_output": "スキルポートフォリオの監査ワークフローが開始される。言語とスコープの確認後、データ収集→バッチ分析→マージ→ポートフォリオ分析→HTMLレポート生成まで自動実行される",
+      "should_trigger": true
+    },
+    {
+      "id": 2,
+      "prompt": "最近スキルの誤発火が気になるんだけど、build-sourceが変なタイミングで発火する。全体的に調べてほしい",
+      "expected_output": "skill-auditorのワークフローが実行され、build-sourceを含む全スキルのルーティング精度が分析される。誤発火パターンの特定と改善パッチが提案される",
+      "should_trigger": true
+    },
+    {
+      "id": 3,
+      "prompt": "スキルのdescriptionをもっと良くしたい。build-sourceの説明文を最適化して",
+      "expected_output": "これはskill-creatorの領域。run-skill-auditは発火しないべき",
+      "should_trigger": false
+    },
+    {
+      "id": 4,
+      "prompt": "新しいスキルを作りたい。dbtモデルのレビュー用のスキルが欲しい",
+      "expected_output": "これはskill-creatorの領域。run-skill-auditは発火しないべき",
+      "should_trigger": false
+    },
+    {
+      "id": 5,
+      "prompt": "skill auditの結果を見たい。前回のレポートどこにある？",
+      "expected_output": "既存のレポートパスを案内するか、新規監査の実行を提案する",
+      "should_trigger": true
+    }
+  ]
+}
