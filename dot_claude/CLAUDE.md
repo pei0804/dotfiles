@@ -60,6 +60,11 @@
 - **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
 - **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
 
+## API Usage
+
+- API にフィルター機能があるなら、サーバーサイドで処理させる
+- 全件取得してローカルでフィルターする実装は採用しない
+
 ## Plugin Management
 
 ### cekernel plugin auto-update
