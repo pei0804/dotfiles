@@ -1,5 +1,5 @@
 ---
-description: PRブランチをmainに追従させ、CIを待ち、マージする（リトライループ付き）
+description: PRブランチをmainに追従させ、CIを待ち、マージする（リトライループ付き）。「PRマージして」「このPRマージ」「merge this PR」「PR#123をマージ」などと言われたときに使う。
 argument-hint: "<pr-number-or-url> [pr-number-or-url ...]"
 allowed-tools:
   - Bash(gh *)

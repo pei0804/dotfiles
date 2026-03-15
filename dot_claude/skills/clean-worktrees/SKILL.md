@@ -1,10 +1,9 @@
 ---
-description: 溜まったgit worktreeを一覧表示し、不要なものを一括削除する
+description: 溜まったgit worktreeを一覧表示し、不要なものを一括削除する。「worktree掃除」「worktree消して」「worktree整理」「clean worktrees」「worktreeが溜まった」などと言われたときに使う。
 allowed-tools:
   - Bash(git *)
   - Bash(rm *)
   - Bash(ls *)
-  - Bash(find *)
 ---
 
 # Worktree一括クリーンアップ

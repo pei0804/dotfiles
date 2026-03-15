@@ -1,5 +1,5 @@
 ---
-description: Claude Codeの監査ログ（command-audit.log）を解析し、実行コマンドのサマリー・頻出コマンド・プロジェクト別活動・時間帯分析・危険コマンド検出を行う。「監査ログ見せて」「今日何やった？（コマンド）」「どんなコマンド実行した？」「audit log」「コマンド履歴」などと聞かれたときに使う。Slackではなくコマンド実行履歴の話をしている場合はこのスキルを使う。
+description: Claude Codeの監査ログ（command-audit.log）を解析し、実行コマンドのサマリー・頻出コマンド・プロジェクト別活動・時間帯分析・危険コマンド検出を行う。「監査ログ見せて」「今日何やった？（コマンド）」「どんなコマンド実行した？」「audit log」「コマンド履歴」「command history」「what commands did I run」などと聞かれたときに使う。Slackではなくコマンド実行履歴の話をしている場合はこのスキルを使う。
 ---
 
 # Audit Log Analyzer
@@ -18,11 +18,11 @@ description: Claude Codeの監査ログ（command-audit.log）を解析し、実
 
 ### 1. パーサースクリプトで解析
 
-`~/.claude/skills/audit-analyzer/scripts/parse-audit.sh` を実行してJSONを取得する。
+このスキルの `scripts/parse-audit.sh` を実行してJSONを取得する。
 
 期間を指定する場合:
 ```bash
-~/.claude/skills/audit-analyzer/scripts/parse-audit.sh --after 2026-03-01 --before 2026-03-07
+scripts/parse-audit.sh --after 2026-03-01 --before 2026-03-07
 ```
 
 期間が指定されない場合:

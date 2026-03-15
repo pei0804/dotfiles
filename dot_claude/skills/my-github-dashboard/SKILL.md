@@ -14,10 +14,10 @@ allowed-tools:
 
 ```bash
 # Issues
-gh search issues --author=@me --state=open --limit 50 --json repository,number,title,labels,createdAt -- "created:>$(date -d '3 months ago' +%Y-%m-%d)"
+gh search issues --author=@me --state=open --limit 50 --json repository,number,title,labels,createdAt -- "created:>$(date -v-3m +%Y-%m-%d)"
 
 # PRs
-gh search prs --author=@me --state=open --limit 50 --json repository,number,title,labels,createdAt -- "created:>$(date -d '3 months ago' +%Y-%m-%d)"
+gh search prs --author=@me --state=open --limit 50 --json repository,number,title,labels,createdAt -- "created:>$(date -v-3m +%Y-%m-%d)"
 ```
 
 両方を並列で実行すること。
