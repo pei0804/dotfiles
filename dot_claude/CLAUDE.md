@@ -64,19 +64,6 @@
 - **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
 - **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
 
-## API Usage
-
-- API にフィルター機能があるなら、サーバーサイドで処理させる
-- 全件取得してローカルでフィルターする実装は採用しない
-
-## Plugin Management
-
-### cekernel plugin auto-update
-- On session start, pull the latest main for the cekernel plugin:
-  ```bash
-  git -C ~/.claude/plugins/marketplaces/clonable-eden-plugins pull origin main --quiet
-  ```
-
 ## Worktree First
 
 ファイル編集を伴う作業を開始する前に、現在の作業環境を確認する。
@@ -85,20 +72,7 @@
 - 既存ブランチでworktree外の場合: worktreeへの移行を提案する
 - 作業開始時に「worktreeを作成しますか？」と確認する
 
-## Issue & PR Rules
+## References
 
-### Permalink Usage
-
-Always use GitHub permalinks (commit SHA-based) when referencing source code in Issues and PRs.
-
-- Never use branch-based links (`/blob/main/...`)
-- Always use commit SHA-based links (`/blob/abc1234/...`)
-- Use `#L10-L20` format for line ranges
-
-### Scripts Require Tests
-
-When writing one-shot scripts (batch replacements, migrations, etc.), always write test code alongside them.
-
-- Write the script and its tests together — never mark a script task as complete without tests
-- Tests must verify correctness using real input/output samples
-- PRs must describe what the script does and what tests were passed
+- Issue/PR作成時は `~/.claude/references/issue_pr_rules.md` を参照
+- セッション開始時は `~/.claude/references/plugin_management.md` を確認

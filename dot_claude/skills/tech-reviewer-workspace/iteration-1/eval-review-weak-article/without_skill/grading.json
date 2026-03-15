@@ -1,0 +1,64 @@
+{
+  "eval_id": 3,
+  "eval_name": "review-weak-article",
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "具体例（docker-compose.yml等）の欠如を指摘している",
+      "passed": true,
+      "evidence": "項目1「コードサンプルが一切ない」で「記事全体を通して docker-compose.yml の具体例が一つもありません」と明確に指摘。改善案として Web + DB 構成例、各ディレクティブのコメント付き解説、Dockerfile との連携例を提案している。"
+    },
+    {
+      "text": "悪い例と良い例の対比がないことを指摘している",
+      "passed": true,
+      "evidence": "項目2「『悪い例 vs 良い例』の比較がない」で明確に指摘。「Docker Compose の設定にはよくあるアンチパターンが多数存在しますが、それらへの言及がありません」と述べ、4つの具体的な比較テーマ（ボリューム、ヘルスチェック、ビルドキャッシュ、環境変数）を提示。"
+    },
+    {
+      "text": "本番での注意点の欠如を指摘している",
+      "passed": true,
+      "evidence": "項目3「本番環境での注意点・制限事項への言及がない」で明確に指摘。改善案として5つの具体的な注意点を箇条書きで提示: 単一ホスト制約、開発用設定の本番持ち込み禁止、restart: always の挙動差、ログ管理/リソース制限、V1/V2の違い。"
+    },
+    {
+      "text": "「〜が足りない」だけでなく具体的な改善案を提示している",
+      "passed": true,
+      "evidence": "全ての指摘に「改善案」セクションが付随。項目1: 掲載すべき具体例3種を提案。項目2: 4つの比較テーマを具体的に提案。項目3: 5つの注意点を提案。項目4: ネットワーク・ボリューム・環境変数の各追加内容を提案。項目5: 紹介すべき6つのコマンドをリスト。項目6: 3つの参考文献リンクを提示。"
+    },
+    {
+      "text": "レビューが優先度付きで構造化されている",
+      "passed": false,
+      "evidence": "レビューは6つの項目が番号付きで並んでいるが、優先度による分類はされていない。全項目が同じレベルで扱われており、「優先度高/あると良い/細かい指摘」のような段階的な構造がない。まとめで最優先項目を1つ（コードサンプル追加）挙げてはいるが、本文の構造自体は優先度ベースではなくトピック別のフラットな構造。"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "pass_rate": 0.8
+  },
+  "timing": {
+    "total_duration_seconds": 69.6
+  },
+  "claims": [
+    {
+      "claim": "Docker Compose は基本的に単一ホスト向けであり、マルチホストのオーケストレーションには Kubernetes 等が必要",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Docker Compose は単一ホストでのマルチコンテナ管理ツール。正確な記述。"
+    },
+    {
+      "claim": "docker-compose (V1) は非推奨",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Docker Compose V1 は 2023年7月にEOLとなり、V2 (docker compose) が推奨。正確。"
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "レビューが優先度付きで構造化されている",
+        "reason": "This assertion effectively discriminates between with_skill (3-tier priority structure) and without_skill (flat numbered list). It captures a meaningful quality difference in review output."
+      }
+    ],
+    "overall": "No suggestions, evals look solid. The structured-output assertion is the key discriminator between configurations, and it correctly detects the difference."
+  }
+}

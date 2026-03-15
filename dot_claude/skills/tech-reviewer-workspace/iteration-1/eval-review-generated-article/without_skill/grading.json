@@ -1,0 +1,59 @@
+{
+  "eval_id": 2,
+  "eval_name": "review-well-written-article",
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "レビューが優先度付き（優先度高・あると良い・細かい指摘）で構造化されている",
+      "passed": false,
+      "evidence": "レビューは「構成・構造に関する改善点」「技術的な正確性に関する改善点」「コード例に関する改善点」「説明・表現に関する改善点」「細かい指摘」というカテゴリで構造化されているが、これは「観点別」の分類であって「優先度付き」の分類ではない。優先度高/あると良い/細かい指摘という3段階の優先度構造ではない。まとめで3つの優先改善を挙げてはいるが、本文の構造自体が優先度ベースになっていない。"
+    },
+    {
+      "text": "改善点に対して具体的な改善案（例文やコード）が含まれている",
+      "passed": true,
+      "evidence": "項目3で errors.As の説明修正案をコードブロックで提示。項目9でエラーチェーンの図解をASCIIアートで提示。項目4でカスタム Is メソッドへの橋渡し提案。ただし全体的に「〜すると良い」という提案形式が多く、with_skill版ほど具体的な代替テキストの提示は少ない。"
+    },
+    {
+      "text": "記事の良い点にも言及している",
+      "passed": true,
+      "evidence": "「総評」で「丁寧に解説した良い記事」「構成が論理的」「『壊れるコード → 正しい書き方 → よくある間違い → 実践パターン』という流れが読者にとって自然」「ターゲット読者に対して適切なレベル感」と良い点を挙げている。"
+    },
+    {
+      "text": "指摘が3つ以内の優先度高に絞られている（圧倒しない）",
+      "passed": false,
+      "evidence": "レビュー全体で13個の指摘項目がフラットに並んでおり、明確な優先度の絞り込みがない。まとめで3つの優先項目を挙げてはいるが、本文では13項目が均等に扱われており、読者を圧倒するリスクがある。with_skill版の「優先度高3つ」という絞り込みとは対照的。"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 2,
+    "total": 4,
+    "pass_rate": 0.5
+  },
+  "timing": {
+    "total_duration_seconds": 68.3
+  },
+  "claims": [
+    {
+      "claim": "sql.ErrNoRows の型は *errors.errorString",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Go 標準ライブラリの実装と一致する。"
+    },
+    {
+      "claim": "Temporary() は Go 1.18 以降 deprecated",
+      "type": "factual",
+      "verified": true,
+      "evidence": "net.Error インターフェースの Temporary() は Go 1.18 で deprecated とされた。正確。"
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "指摘が3つ以内の優先度高に絞られている（圧倒しない）",
+        "reason": "このアサーションは with_skill の構造化出力と without_skill のフラットな出力の差を検出できており、discriminating power が高い。良いアサーション。"
+      }
+    ],
+    "overall": "No suggestions, evals look solid for this reviewer eval."
+  }
+}

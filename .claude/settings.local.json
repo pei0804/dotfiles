@@ -41,7 +41,12 @@
       "Skill(my-github-dashboard)",
       "mcp__slack__slack_search_public_and_private",
       "WebFetch(domain:blog.gitbutler.com)",
-      "WebFetch(domain:aiorg.dev)"
+      "WebFetch(domain:aiorg.dev)",
+      "Skill(merge-pr)",
+      "WebFetch(domain:docs.getdbt.com)",
+      "WebFetch(domain:hub.getdbt.com)",
+      "WebFetch(domain:zenn.dev)",
+      "WebFetch(domain:speakerdeck.com)"
     ],
     "deny": [
       "Bash(sudo *)",

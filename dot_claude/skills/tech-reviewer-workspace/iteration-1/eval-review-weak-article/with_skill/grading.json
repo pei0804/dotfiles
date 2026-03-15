@@ -1,0 +1,65 @@
+{
+  "eval_id": 3,
+  "eval_name": "review-weak-article",
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "具体例（docker-compose.yml等）の欠如を指摘している",
+      "passed": true,
+      "evidence": "優先度の高い改善点の項目1「具体的なコード例がまったくない」で明確に指摘。「肝心の docker-compose.yml が一つも登場しません」と述べ、改善案として Web + DB 構成の実際に動く docker-compose.yml を YAML コードブロックで提示している。"
+    },
+    {
+      "text": "悪い例と良い例の対比がないことを指摘している",
+      "passed": true,
+      "evidence": "優先度の高い改善点の項目2「『なぜDocker Composeなのか』の動機づけが弱い」で、Docker Composeを使わない場合の辛さ（Before）と使った場合（After）の対比がないことを指摘。改善案として「Before（辛い状態）→ After（Composeで解決）」の対比構造を具体的な文例付きで提案している。"
+    },
+    {
+      "text": "本番での注意点の欠如を指摘している",
+      "passed": true,
+      "evidence": "優先度の高い改善点の項目3「本番環境での注意点・制約への言及がない」で明確に指摘。改善案として3つの具体的な注意点を箇条書きで提示: (1) 本番では Kubernetes/ECS 等を検討すべき、(2) macOS での volumes のI/O遅延、(3) depends_on はアプリ準備完了を保証しない。"
+    },
+    {
+      "text": "「〜が足りない」だけでなく具体的な改善案を提示している",
+      "passed": true,
+      "evidence": "全ての指摘に対して具体的な改善案が提示されている。項目1: docker-compose.yml の完全な YAML コード例。項目2: 動機づけの文例（引用ブロック）。項目3: 注意点の箇条書き3項目。「あると良い改善」でも対象読者の明示、バージョン情報、参考文献の具体的な提案がある。"
+    },
+    {
+      "text": "レビューが優先度付きで構造化されている",
+      "passed": true,
+      "evidence": "「優先度の高い改善点」（3項目）、「あると良い改善」（3項目）、「細かい指摘」（1項目）の3段階で構造化されている。各カテゴリが太字見出しで明確に区分されている。"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "total_duration_seconds": 71.7
+  },
+  "claims": [
+    {
+      "claim": "Docker Composeは開発・テスト環境向けのツールであり、本番環境では Kubernetes や ECS 等を検討すべき",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Docker Compose は単一ホスト向けであり、本番環境ではオーケストレーションツールが推奨されるのは広く認められたベストプラクティス。"
+    },
+    {
+      "claim": "depends_on はコンテナの起動順序を制御するが、アプリケーションの準備完了は保証しない",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Docker Compose 公式ドキュメントでも depends_on は起動順序のみを保証し、サービスの ready 状態は保証しないと記載されている。正確。"
+    },
+    {
+      "claim": "macOS では volumes のファイルI/Oが遅くなることがある",
+      "type": "factual",
+      "verified": true,
+      "evidence": "macOS での Docker bind mount の I/O パフォーマンス問題は広く知られた事実。"
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid. Assertions test for the key weaknesses a reviewer should detect in a weak article, and the constructive-suggestions assertion ensures the review goes beyond just pointing out problems."
+  }
+}

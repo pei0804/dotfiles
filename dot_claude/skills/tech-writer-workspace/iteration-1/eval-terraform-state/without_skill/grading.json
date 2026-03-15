@@ -1,0 +1,75 @@
+{
+  "eval_id": 1,
+  "eval_name": "terraform-state-management",
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "アンチパターン（local state等）を正しい方法より先に提示している",
+      "passed": false,
+      "evidence": "記事は「なぜRemote Stateが必要なのか」セクションでローカルstateの問題点（不一致、紛失、機密情報散在）を箇条書きで述べているが、これはRemote Stateの必要性を説明する文脈であり、アンチパターンを独立して先に提示する構成にはなっていない。具体的な失敗シナリオ（with_skill版のようなGitコンフリクトのタイムライン等）もなく、正しい方法（S3 backend設定）がすぐ後に続く。"
+    },
+    {
+      "text": "動作するHCLコード例が3つ以上含まれている",
+      "passed": true,
+      "evidence": "以下のHCLコード例が含まれている: (1) backend-setup/main.tf のS3バケット+DynamoDB定義、(2) backend \"s3\" 設定（AWS）、(3) backend \"gcs\" 設定（GCP）、(4) network/outputs.tf の output 定義、(5) application/main.tf の terraform_remote_state + aws_ecs_service、(6) データソースによる直接参照（aws_vpc + aws_subnets）、(7) GitHub Actions の YAML例。HCLだけでも3つ以上。"
+    },
+    {
+      "text": "本番環境での注意点（lock残留、state破損リカバリー等）に言及している",
+      "passed": true,
+      "evidence": "「ロックが残ってしまった場合の対処」セクションで force-unlock の使い方と3つの確認事項を記載。ただし、state破損のリカバリー手順（S3バージョニングからの復元コマンド等）の具体的な記述はない。バージョニング有効化には言及しているが「壊れたときの復旧手順」は with_skill 版ほど詳細ではない。部分的に言及しているため PASS とするが、リカバリー手順は弱い。"
+    },
+    {
+      "text": "前提知識・対象読者が冒頭で明示されている",
+      "passed": true,
+      "evidence": "「はじめに」の冒頭で「Terraform歴半年ほどのインフラエンジニアを対象に」と明記。ただし、with_skill版のような「前提知識」の箇条書きリストや「扱わないこと」のスコープ定義はない。"
+    },
+    {
+      "text": "参考文献・出典が記載されている",
+      "passed": false,
+      "evidence": "記事末尾に参考文献セクションが存在しない。記事全体を通じて外部リンクや出典への言及がない。"
+    },
+    {
+      "text": "チーム全員が安全に運用できる仕組み（CI/CD等）が提案されている",
+      "passed": true,
+      "evidence": "「CI/CDパイプラインでの考慮」セクションで、GitHub Actions の concurrency 設定とタイムアウト設定の例をYAMLコード付きで提示。cancel-in-progress: false の理由も解説。パイプラインの同時実行制限について言及。"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 2,
+    "total": 6,
+    "pass_rate": 0.67
+  },
+  "timing": {
+    "total_duration_seconds": 119.0
+  },
+  "claims": [
+    {
+      "claim": "GCSはバケット自体にロック機構が組み込まれているため、DynamoDBのような別サービスは不要",
+      "type": "factual",
+      "verified": true,
+      "evidence": "GCS backend はネイティブでロックをサポートしており、追加のサービスは不要。Terraform公式ドキュメントと一致。"
+    },
+    {
+      "claim": "backendブロックに変数は使えない",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Terraform の backend ブロックでは variables や locals の参照ができない。これは Terraform の仕様上の制約であり正確。"
+    },
+    {
+      "claim": "1つのstateに含まれるリソースが50〜200個程度になるように分割すると、plan速度と管理コストのバランスが取りやすくなる",
+      "type": "quality",
+      "verified": false,
+      "evidence": "経験則であり客観的な根拠は示されていない。妥当な目安ではあるがプロジェクトにより異なる。"
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "本番環境での注意点（lock残留、state破損リカバリー等）に言及している",
+        "reason": "「言及している」の基準が緩い。lock残留への言及はあるが、state破損リカバリーの具体的手順がない。without_skill版はlock残留のみで PASSになったが、「lock残留、state破損リカバリー等」とアサーションに並記されている以上、両方への言及を求める厳密な判定もあり得る。基準を明確化すると判定のぶれが減る。"
+      }
+    ],
+    "overall": "Assertions are mostly discriminating. The production-context assertion could benefit from clearer minimum criteria."
+  }
+}
