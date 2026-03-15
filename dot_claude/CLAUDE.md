@@ -54,6 +54,10 @@
 - 編集後は `chezmoi apply` で反映する
 - 新しいファイルを管理対象に追加する場合は `chezmoi add <path>` を使う
 
+## 技術哲学
+
+記事、Issue、ADR、Design Docなどを書くとき、`~/.claude/references/tech_philosophy.md` を読んで骨子とする。
+
 ## Core Principles
 
 - **Simplicity First**: Make every change as simple as possible. Impact minimal code.
