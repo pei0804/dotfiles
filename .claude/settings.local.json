@@ -11,7 +11,12 @@
       "Bash(kill:*)",
       "Bash(for d:*)",
       "Bash(git rm:*)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)",
+      "Bash(git -C ~/.local/share/chezmoi log --oneline --all -- dot_claude/skills/merge-pr/SKILL.md)",
+      "Bash(chezmoi diff:*)",
+      "WebFetch(domain:www.humanlayer.dev)"
     ]
   }
 }
