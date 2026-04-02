@@ -16,7 +16,21 @@
       "Bash(git stash:*)",
       "Bash(git -C ~/.local/share/chezmoi log --oneline --all -- dot_claude/skills/merge-pr/SKILL.md)",
       "Bash(chezmoi diff:*)",
-      "WebFetch(domain:www.humanlayer.dev)"
+      "WebFetch(domain:www.humanlayer.dev)",
+      "Skill(tech-reviewer)",
+      "WebFetch(domain:docs.google.com)",
+      "Bash(gh issue:*)",
+      "Bash(printf 'dbt、Terraform、CDK、CI/CD、ドキュメント。データ基盤に関わる開発を、全部AIに寄せている。ツールを導入したという話ではない。AIが開発メンバーとして機能する前提で、基盤側の開発体験そのものを作り直している話だ。\\\\n\\\\n具体的にやっていることは3つ。メタデータを充実させてAIが察せるようにする。品質ゲートを仕組みで敷いてAIの出力を担保する。人間向けドキュメント174本をAI向けに変換する。結果として「自分で書くより任せたほうが楽」という状態が生まれ、活用が加速する。このサイクルをどう作ったか、実践ベースで話す。')",
+      "Bash(pbcopy)",
+      "Bash(printf 'データ基盤に関わる開発を、全部AIに寄せていく取り組みについてお話しします。AIを開発メンバーとして機能させるために、基盤側の開発体験そのものを作り直しています。メタデータを充実させてAIが察せるようにする。品質ゲートを仕組みで敷いてAIの出力を担保する。人間向けドキュメントをAI向けに変換する。「自分で書くより任せたほうが楽」という状態をどう作ったか、実践ベースでお話しします。')",
+      "Bash(printf 'データ基盤に関わる開発を、全部AIに寄せていく取り組みについてお話しします。AIを開発メンバーとして機能させるために、基盤側の開発体験そのものを作り直しています。どのようにガードレールを設計し、どのように品質を向上させ、何を作って、何を捨てたか。「自分で書くより任せたほうが楽」という状態をどう作ったか、実践ベースでお話しします。')",
+      "Bash(curl -s \"https://registry.npmjs.org/-/v1/search?text=gmail+mcp&size=10\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s \"https://pypi.org/search/?q=gmail+mcp\" -o /dev/null -w \"%{http_code}\")",
+      "Bash(pip3 search:*)",
+      "Bash(pip3 index:*)",
+      "Bash(curl -s \"https://api.github.com/search/repositories?q=gmail+mcp+server&sort=stars&order=desc&per_page=15\")",
+      "WebSearch"
     ]
   }
 }

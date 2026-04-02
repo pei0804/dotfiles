@@ -2,7 +2,7 @@
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "$HOME/.vimrc",
     "vim.useSystemClipboard": true,
-    "snowflake.connectionsConfigFile": "/Users/j-chikamori/Library/Application Support/Code/User/globalStorage/snowflake.snowflake-vsc/connections.toml",
+    "snowflake.connectionsConfigFile": "/Users/ca00930/.snowflake/config.toml",
     "files.autoSave": "afterDelay",
     "editor.fontSize": 14,
     "editor.accessibilitySupport": "off",
