@@ -22,6 +22,9 @@ config.color_scheme = "Catppuccin Mocha"
 config.window_padding = { left = 4, right = 4, top = 4, bottom = 4 }
 config.window_decorations = "RESIZE"
 
+-- Scrollback
+config.scrollback_lines = 10000
+
 -- Cursor
 config.default_cursor_style = "SteadyBlock"
 
