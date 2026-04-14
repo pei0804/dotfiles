@@ -5,6 +5,12 @@
 - 完了前に「staff engineer が承認するか？」で自己チェック
 - 非自明な変更では「もっとエレガントな方法は？」と一度立ち止まる
 
+## 略語禁止
+
+- ユーザーから明示的に指示された場合を除き、略語・短縮形を使わない
+- 例: Salesforce (×SF)、Snowflake (×SF)、オーダーエントリー (×OE)
+- コード中の変数名・関数名など技術的に定着した略語（API, URL, ID 等）はこの限りではない
+
 <important if="working on a non-trivial task with multiple steps">
 ## Task Management
 
