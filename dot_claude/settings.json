@@ -110,7 +110,8 @@
     "cekernel@clonable-eden-plugins": true,
     "dbt@dbt-agent-marketplace": true,
     "example-skills@anthropic-agent-skills": true,
-    "document-skills@anthropic-agent-skills": true
+    "document-skills@anthropic-agent-skills": true,
+    "agent-skills@addy-agent-skills": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
@@ -118,7 +119,22 @@
         "source": "github",
         "repo": "anthropics/skills"
       }
+    },
+    "addy-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "addyosmani/agent-skills"
+      }
+    },
+    "dlthub-ai-workbench": {
+      "source": {
+        "source": "github",
+        "repo": "dlt-hub/dlthub-ai-workbench"
+      }
     }
   },
-  "skipDangerousModePermissionPrompt": true
+  "model": "opusplan",
+  "env": {
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-4-6"
+  }
 }
