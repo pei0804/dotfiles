@@ -30,7 +30,9 @@
       "Bash(pip3 search:*)",
       "Bash(pip3 index:*)",
       "Bash(curl -s \"https://api.github.com/search/repositories?q=gmail+mcp+server&sort=stars&order=desc&per_page=15\")",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git worktree *)",
+      "Bash(git *)"
     ]
   }
 }
