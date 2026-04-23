@@ -49,7 +49,22 @@ eval "$(direnv hook zsh)"
 
 # zoxide
 export _ZO_DOCTOR=0
-command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
+  # z: 実パスなら cd、zoxide でヒットしなければ zi にフォールバック
+  unalias z 2>/dev/null
+  z() {
+    if [[ $# -eq 0 ]]; then
+      __zoxide_z
+      return
+    fi
+    if [[ -d "$*" ]]; then
+      builtin cd -- "$*"
+      return
+    fi
+    __zoxide_z "$@" 2>/dev/null || __zoxide_zi "$@"
+  }
+fi
 
 # sheldon plugin manager
 eval "$(sheldon source)"
