@@ -32,7 +32,11 @@
       "Bash(curl -s \"https://api.github.com/search/repositories?q=gmail+mcp+server&sort=stars&order=desc&per_page=15\")",
       "WebSearch",
       "Bash(git worktree *)",
-      "Bash(git *)"
+      "Bash(git *)",
+      "Bash(zsh -n /Users/ca00930/.local/share/chezmoi-zoxide-fallback/dot_zshrc)",
+      "Bash(zsh *)",
+      "Bash(gh pr create --title 'zoxide の z にフォールバックを追加' --body ' *)",
+      "Bash(gh pr *)"
     ]
   }
 }
