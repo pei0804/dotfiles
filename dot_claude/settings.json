@@ -135,7 +135,7 @@
   },
   "skipAutoPermissionPrompt": true,
   "permissions": {
-    "defaultMode": "auto"
+    "defaultMode": "plan"
   },
   "model": "opusplan",
   "env": {
