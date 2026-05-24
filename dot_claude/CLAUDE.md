@@ -1,22 +1,27 @@
-## 進め方
-
-- 不明瞭な指示は聞き返す。推測で埋めない
-- 想定外が出たら止まる。押し通さない
-
-## 設計・実装
+## コード設計
 
 - 最初に思いついた案を一度疑う
 - 賢さより可読性と保守性
+- ネストするくらいならアーリーリターン
+- 読めば分かる名前にする。説明が必要なら分割のサイン
+- コメントは Why だけ。What はコードに語らせる
+- 迷ったら言語の慣習に合わせる
+
+## 開発スタイル
+
+- 不明瞭な指示は聞き返す。推測で埋めない
+- TDD で進める: 探索 → Red → Green → Refactoring
+- 想定外が出たら止まる。押し通さない
 - 出す前に staff engineer の目で読み直す
 
-## 略語禁止
+## Writing
 
-- ユーザーから明示的に指示された場合を除き、略語・短縮形を使わない
-- 例: Salesforce (×SF)、Snowflake (×SF)、オーダーエントリー (×OE)
-- コード中の変数名・関数名など技術的に定着した略語（API, URL, ID 等）はこの限りではない
+- 箇条書きは最低限。並列なら箇条書き、順序なら数字付き、それ以外は文章
 
 ## 言語
 
+- 略語・短縮形を使わない（例: Salesforce ×SF、Snowflake ×SF）
+  - コード中の定着略語（API, URL, ID 等）は除く
 - 公開リポジトリではドキュメントやコミットメッセージを英語で記述する
 
 <important if="writing articles, Issues, ADRs, or Design Docs">
@@ -35,10 +40,12 @@
 - 作業開始時に「worktreeを作成しますか？」と確認する
 </important>
 
-<important if="creating Issues or Pull Requests">
-## References: Issue/PR
+<important if="working with Issues or Pull Requests">
+## Issue/PR
 
-- Issue/PR作成時は `~/.claude/references/issue_pr_rules.md` を参照
+- 作成時は `~/.claude/references/issue_pr_rules.md` を参照
+- issue クローズ時はサマリを書く
+- クローズ/マージ時はタイトル・本文と実態のズレを直す
 </important>
 
 <important if="starting a new session or managing plugins">
