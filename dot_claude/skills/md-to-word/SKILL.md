@@ -46,11 +46,13 @@ pandoc は docx に SVG をそのまま埋め込むこともできるが、Word 
 
    画像ディレクトリ名が `images/` 以外なら、その名前に合わせる。
 
-3. Markdown の画像参照を `.svg` → `.png` に置換した一時ファイルを作る。
+3. Markdown の画像参照を `.svg` → `.png` に置換し、あわせて画像幅 100%（テキスト幅いっぱい）の属性を付けた一時ファイルを作る。
 
    ```bash
-   sed 's/\.svg)/.png)/g' "$IN" > "$WORK/tmp.md"
+   sed -E 's/\.svg\)/.png){width=100%}/g' "$IN" > "$WORK/tmp.md"
    ```
+
+   pandoc の既定だと画像はテキスト幅より一回り小さく配置されるため、`{width=100%}` で幅を揃える。raster 画像（元から `.png`）も大きく出したい場合は、その参照にも手動で `{width=100%}` を付ける。
 
 4. pandoc で docx を生成する。`--resource-path` で変換済み PNG（`$WORK`）と元の画像（`$DIR`、ラスター画像用）の両方を解決する。`--reference-doc` で罫線付きテーブルのスタイルを当てる。
 
