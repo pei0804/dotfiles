@@ -52,15 +52,18 @@ pandoc は docx に SVG をそのまま埋め込むこともできるが、Word 
    sed 's/\.svg)/.png)/g' "$IN" > "$WORK/tmp.md"
    ```
 
-4. pandoc で docx を生成する。`--resource-path` で変換済み PNG（`$WORK`）と元の画像（`$DIR`、ラスター画像用）の両方を解決する。
+4. pandoc で docx を生成する。`--resource-path` で変換済み PNG（`$WORK`）と元の画像（`$DIR`、ラスター画像用）の両方を解決する。`--reference-doc` で罫線付きテーブルのスタイルを当てる。
 
    ```bash
+   REF="$HOME/.claude/skills/md-to-word/assets/reference.docx"
    ( cd "$WORK" && pandoc tmp.md -o "$OUT" \
        -f markdown-implicit_figures \
-       --resource-path="$WORK:$DIR" )
+       --resource-path="$WORK:$DIR" \
+       --reference-doc="$REF" )
    ```
 
    - `-f markdown-implicit_figures`: 画像の alt テキストがキャプションとして出るのを止める。
+   - `--reference-doc`: 同梱の `assets/reference.docx` を使う。pandoc 既定の Table スタイルはヘッダー下線だけで全セルの罫線が無く、Google Docs に取り込むと罫線なしの素のテキストに見える。このテンプレは Table スタイルに全罫線とヘッダー網掛けを入れてあるため、Word でも Google Docs でも表として描画される。
 
 5. 一時ディレクトリを削除する。
 
@@ -80,6 +83,5 @@ pandoc は docx に SVG をそのまま埋め込むこともできるが、Word 
 ## 注意
 
 - docx はビルド成果物。リポジトリにはコミットしない。
-- 体裁（フォント・見出しスタイル）を細かく整えたい場合は、pandoc の `--reference-doc=<テンプレ.docx>` を使う。
-- 表・見出しは pandoc 既定の Word スタイルで出力される。
+- 体裁（フォント・見出し・表）は同梱の `assets/reference.docx` で決まる。フォントや見出しスタイルを変えたいときは、この docx を Word で開いてスタイルを編集し上書き保存する（テーブルの罫線は Table スタイルの `tblBorders` で定義済み）。
 - ベクターのまま図を残したいなら Word ではなく PDF（`md-to-pdf`）を使う。
