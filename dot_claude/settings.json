@@ -1,4 +1,10 @@
 {
+  "env": {
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-4-6"
+  },
+  "permissions": {
+    "defaultMode": "plan"
+  },
   "hooks": {
     "Stop": [
       {
@@ -133,12 +139,12 @@
       }
     }
   },
-  "skipAutoPermissionPrompt": true,
-  "permissions": {
-    "defaultMode": "plan"
+  "language": "japanease",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
   },
-  "model": "opus",
-  "env": {
-    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-4-6"
-  }
+  "skipWorkflowUsageWarning": true,
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true
 }

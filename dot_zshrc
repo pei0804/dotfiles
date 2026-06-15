@@ -141,3 +141,6 @@ fi
 # キーバインディングの設定
 bindkey "^I" menu-complete  # タブキーで補完候補を順に表示
 bindkey "^[[Z" reverse-menu-complete  # Shift+Tabで逆順に表示
+
+# Cortex CLI completion (disable via /settings in cortex)
+[[ -s ~/.zsh/completions/cortex.zsh ]] && source ~/.zsh/completions/cortex.zsh
