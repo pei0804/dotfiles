@@ -48,8 +48,6 @@
 ## Issue/PR
 
 - 作成時は `~/.claude/references/issue_pr_rules.md` を参照
-- issue クローズ時はサマリを書く
-- クローズ/マージ時はタイトル・本文と実態のズレを直す
 </important>
 
 <important if="starting a new session or managing plugins">

@@ -1,5 +1,5 @@
 ---
-description: 過去のSlack発言からチャンネル別に活動サマリーを生成する。「今週何してた？」「先週の振り返り」「Slackで何話してた？」「活動まとめ」などと聞かれたときに使う。
+description: 過去のSlack発言からチャンネル別に活動サマリーを生成する。「今週何してた？」「先週の振り返り」「Slackで何話してた？」「活動まとめ」などと聞かれたときに使う。対象はSlackの発言のみ。コマンド実行履歴ならaudit-analyzer、Claude Codeセッションの会話ならtranscript-recallを使う。
 allowed-tools:
   - mcp__slack__slack_search_public_and_private
 ---
