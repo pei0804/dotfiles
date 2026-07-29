@@ -1,10 +1,11 @@
 {
   "env": {
-    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-4-6"
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5"
   },
   "permissions": {
     "defaultMode": "plan"
   },
+  "model": "opusplan",
   "hooks": {
     "Stop": [
       {
@@ -146,7 +147,7 @@
     "mode": "hold"
   },
   "skipWorkflowUsageWarning": true,
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true,
-  "model": "claude-fable-5[1m]"
+  "voiceEnabled": true
 }

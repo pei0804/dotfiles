@@ -9,6 +9,9 @@ description: |
   「△△さんと1時間で打ち合わせ組んで」などと言われたときに使う。
   既存の予定を見るだけ・1人の予定確認だけなら Google Calendar を直接使えばよく、
   このスキルは「複数メンバーの空き探索から予定確定まで」を一気通貫でやるとき専用。
+  例外として、終日予定・不在ブロック（「終日で入れて」「不在にして」「休みを
+  カレンダーに入れて」）を create_event で作るときも、末尾のリファレンスを
+  参照するためにこのスキルを開く。
 argument-hint: "<メールアドレス...> <期間・所要時間などの条件>"
 allowed-tools:
   - mcp__claude_ai_Google_Calendar__suggest_time
@@ -147,3 +150,16 @@ create_event(
   権限のないメンバーは予定が見えず「空いている」と誤って扱われうる。候補が想定外に
   多い・少ないときはこの可能性をユーザーに伝える
 - 候補が0件でも条件を独断で緩めない。緩め方の選択肢を出してユーザーに委ねる
+
+## リファレンス: 終日予定・不在ブロック（create_event）
+
+日程調整に限らず、`create_event` で終日予定を作るときの注意。
+
+- `allDay: true` にし、`startTime` は当日 00:00、`endTime` は翌日 00:00（end exclusive）。
+  `endTime` を当日 23:59:59 にすると "invalid argument" で失敗する
+- `eventType: OUT_OF_OFFICE` と `allDay: true` の組み合わせは "invalid argument" で
+  弾かれる。不在ブロックは `eventType` を指定せず（DEFAULT）、
+  `availability: AVAILABILITY_BUSY` の終日予定で作る
+- 会社カレンダーに個人予定を入れるときは `calendarId` にそのアドレスを明示し、
+  `visibility: private`、タイトルは中立に（例「不在」）
+- ユーザーはカレンダー登録を自分でやることもある。依頼されたときだけ作る

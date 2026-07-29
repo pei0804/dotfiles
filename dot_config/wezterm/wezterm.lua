@@ -31,4 +31,13 @@ config.default_cursor_style = "SteadyBlock"
 -- Kitty keyboard protocol (tmux経由でShift+Enter等を送るために必要)
 config.enable_kitty_keyboard = true
 
+-- Mouse: 選択があればコピー、なければカーソル下のリンクを開く
+config.mouse_bindings = {
+  {
+    event = { Up = { streak = 1, button = "Left" } },
+    mods = "NONE",
+    action = wezterm.action.CompleteSelectionOrOpenLinkAtMouseCursor("ClipboardAndPrimarySelection"),
+  },
+}
+
 return config
