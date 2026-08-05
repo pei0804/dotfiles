@@ -8,6 +8,15 @@ Always use GitHub permalinks (commit SHA-based) when referencing source code in 
 - Always use commit SHA-based links (`/blob/abc1234/...`)
 - Use `#L10-L20` format for line ranges
 
+### Referencing Issues and PRs
+
+When mentioning an Issue or PR in body text, always link it at the point of mention.
+
+- Write a full link, e.g. `[#123](https://github.com/org/repo/issues/123)` — never a bare `#123`, even within the same repository. A bare reference breaks the moment the text is copied outside GitHub
+- Keep the link text to the number only. Embedding the title makes the link stale when the title changes
+- Never paste a bare URL into body text
+- A trailing "references" list is optional and never a substitute for linking at the point of mention
+
 ### Scripts Require Tests
 
 When writing one-shot scripts (batch replacements, migrations, etc.), always write test code alongside them.
