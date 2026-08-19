@@ -6,6 +6,7 @@
     "defaultMode": "plan"
   },
   "model": "opusplan",
+  "outputStyle": "legible",
   "hooks": {
     "Stop": [
       {
