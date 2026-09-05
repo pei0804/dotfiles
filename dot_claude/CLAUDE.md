@@ -41,6 +41,12 @@
 記事、Issue、ADR、Design Docなどを書くとき、`~/.claude/references/tech_philosophy.md` を読んで骨子とする。
 </important>
 
+<important if="writing design documents, proposals, or research records">
+## 文書の設計
+
+設計文書・提案・調査記録を書くとき、`~/.claude/references/document_design.md` を読んで進め方の骨子とする。
+</important>
+
 <important if="writing or revising articles or long-form Japanese prose">
 ## 執筆哲学・推敲ルール
 
