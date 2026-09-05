@@ -25,11 +25,6 @@ update_vscode_config:
 mise_install:
 	mise install
 
-.PHONY: setup_hooks
-setup_hooks:
-	git config core.hooksPath .githooks
-	@echo "Git hooks configured (.githooks/)"
-
 .PHONY: required_homebrew
 required_homebrew:
 ifndef HOMEBREW
