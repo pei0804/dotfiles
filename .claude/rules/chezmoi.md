@@ -5,9 +5,11 @@ description: chezmoi管理下のdotfilesを編集する際の安全ルール
 
 ## Dotfiles Management (chezmoi)
 
-- **絶対に `~/.config/` や `~/.claude/` を直接編集しない**
+- **絶対に `~/.config/` や `~/.agents/`、`~/.claude/` を直接編集しない**
 - dotfiles の変更は必ず chezmoi ソース (`~/.local/share/chezmoi/`) 側を編集する
   - `~/.config/foo/bar` → `~/.local/share/chezmoi/dot_config/foo/bar` を編集
+  - `~/.agents/AGENTS.md` → `~/.local/share/chezmoi/dot_agents/AGENTS.md` を編集
   - `~/.claude/CLAUDE.md` → `~/.local/share/chezmoi/dot_claude/CLAUDE.md` を編集
+- agent 向けの指示・スキル・参照文書は `dot_agents/` が SoT。`dot_claude/` には Claude Code 固有のものだけを置く
 - 編集後は `chezmoi apply` で反映する
 - 新しいファイルを管理対象に追加する場合は `chezmoi add <path>` を使う

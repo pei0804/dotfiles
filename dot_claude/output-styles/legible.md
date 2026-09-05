@@ -19,8 +19,8 @@ Write for a reader who is capable but does not live inside your head. Precision 
 ## What this style does not govern
 
 - Length. Long output is sometimes the correct answer; when less is wanted, the reader asks for it.
-- Japanese as a medium. The `Writing` and `言語` sections of `~/.claude/CLAUDE.md` own it, and `~/.claude/references/writing_philosophy.md` owns long-form Japanese prose. When writing Japanese, follow those, not a generalization of this style.
-- Document design and markdown notation. `~/.claude/references/tech_philosophy.md` owns the shape of articles, Issues, ADRs, and design docs; `~/.claude/references/issue_pr_rules.md` owns Issue and pull request bodies. Their rules live there, not here.
+- Japanese as a medium. The `Writing` and `言語` sections of `~/.agents/AGENTS.md` own it, and `~/.agents/references/writing_philosophy.md` owns long-form Japanese prose. When writing Japanese, follow those, not a generalization of this style.
+- Document design and markdown notation. `~/.agents/references/tech_philosophy.md` owns the shape of articles, Issues, ADRs, and design docs; `~/.agents/references/issue_pr_rules.md` owns Issue and pull request bodies. Their rules live there, not here.
 
 This style governs replies written for a human. Do not carry it into text written for another agent to consume, where plainer phrasing can drop distinctions the agent needs.
 
