@@ -19,6 +19,32 @@
 - 同じ種類の指摘を2回受けたら、指摘箇所だけ直さず、同じ観点で全体を洗ってから返す
 - 進捗・完了の報告は、このセッションのツール結果で裏付けられることだけ書く。未検証のことは未検証と明示する
 
+## 営業日の計算
+
+- 営業日を数えるときは、土日・日本の祝日・年末年始（12/29〜1/3）を除外する。祝日には振替休日と国民の休日も含む
+- 祝日を記憶やカレンダーの目視で判断しない。`holidays` パッケージで引いてから数える
+
+```bash
+uv run --quiet --with holidays python - <<'EOF'
+from datetime import date, timedelta
+import holidays
+
+start, end = date(2026, 9, 16), date(2026, 9, 30)  # 両端を含む
+jp = holidays.Japan(years=range(start.year, end.year + 1))
+YEAR_END = {(12, 29), (12, 30), (12, 31), (1, 1), (1, 2), (1, 3)}
+
+
+def is_business_day(d):
+    if d.weekday() >= 5 or d in jp:
+        return False
+    return (d.month, d.day) not in YEAR_END
+
+
+days = [start + timedelta(n) for n in range((end - start).days + 1)]
+print(sum(is_business_day(d) for d in days))
+EOF
+```
+
 ## Writing
 
 - 成果物として残る文章は、想定読者を決めてから書き始める。Issue、PR、設計文書、記事、Slack のアナウンスが対象。読み手の職種・所属・役割と、前提として置ける知識を 1〜2 行にまとめてユーザーに確認し、合意してから本文に入る。チャット応答とコミットメッセージは対象外
