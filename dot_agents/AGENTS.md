@@ -131,5 +131,5 @@ EOF
 ## Issue/PR
 
 - 作成・本文更新・コメント時は `~/.agents/references/issue_pr_rules.md` を参照
-- Issue に Markdown 文書を紐付けるときは `gh issue artifact create` を使い、画像や動画は `--attach` で添付する。PDF は添付できないので PNG に変換してから貼る。gh 2.103 以降で、Issue artifacts のプライベートプレビューに登録したリポジトリでだけ使える
+- 画像や PDF を載せるときは `gh` の `--attach` で添付する。PDF は添付できないので PNG に変換してから貼る。手順と制約は `~/.agents/references/issue_pr_rules.md` の添付の節を参照
 </important>
