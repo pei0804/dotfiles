@@ -98,6 +98,16 @@ EOF
 
 公開リポジトリで社内情報をコミットしたと分かったら、その場で止めてユーザーに報告する。push 済みなら履歴の書き換えが必要になるので、自分の判断で先に進めない。
 
+## ユーザースコープの設定とスキル
+
+`~/.agents/`、`~/.claude/`、`~/.config/` 配下の設定・スキル・参照文書は chezmoi で管理している。ソースは `~/.local/share/chezmoi/` で、`~/.claude/skills` は `~/.agents/skills` へのシンボリックリンクなので、スキルの実体は `dot_agents/skills/` にある。
+
+- home 側のファイルを直接編集しない。`chezmoi source-path <home のパス>` が返すソース側のファイルを編集し、`chezmoi apply <home のパス>` で反映する。1 行の修正でもこの順序を守る
+- 新しいスキル・参照文書は `~/.local/share/chezmoi/dot_agents/` に作ってから apply する。agent 向けの指示・スキル・参照文書は `dot_agents/` が SoT で、`dot_claude/` には Claude Code 固有のものだけを置く
+- 編集前に `chezmoi status <home のパス>` を見る。1 列目が M なら home 側にだけある変更があるので、取り込むか捨てるかをユーザーに確認してから進める
+- リポジトリで管理しないもの（社内固有のスキル、認証情報を含む設定）は、`~/.local/share/chezmoi/.chezmoiignore.local` に target 相対パス（例: `.agents/skills/<name>`）で書いて chezmoi の管理外にする。このファイルは git に含めないので社内の名前を書いてよい。管理外にする判断は必ずここに残す
+- `chezmoi unmanaged ~/.agents` に出るものは、`chezmoi add` で取り込むか `.chezmoiignore.local` に書くかのどちらかにする。どちらでもない状態を残さない
+
 <important if="writing articles, Issues, ADRs, or Design Docs">
 ## 技術哲学
 
