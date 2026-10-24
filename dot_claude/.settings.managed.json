@@ -3,9 +3,9 @@
     "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5"
   },
   "permissions": {
-    "defaultMode": "plan"
+    "defaultMode": "auto"
   },
-  "model": "opusplan",
+  "model": "opus[1m]",
   "outputStyle": "legible",
   "hooks": {
     "Stop": [
@@ -120,7 +120,9 @@
     "example-skills@anthropic-agent-skills": true,
     "document-skills@anthropic-agent-skills": true,
     "agent-skills@addy-agent-skills": true,
-    "explainer@explainer": true
+    "explainer@explainer": true,
+    "1password@1password": true,
+    "snowflake-cortex-code@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
@@ -145,6 +147,18 @@
       "source": {
         "source": "github",
         "repo": "mizchi/explainer"
+      }
+    },
+    "1password": {
+      "source": {
+        "source": "github",
+        "repo": "1Password/1password-claude-plugin"
+      }
+    },
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
       }
     }
   },

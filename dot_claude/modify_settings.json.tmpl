@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+# chezmoi modify script: deep-merge the managed settings into the live
+# ~/.claude/settings.json. Keys that exist only in the live file (for
+# example autoMode, which Claude Code generates and which must stay out
+# of this repository) are preserved. Dicts merge recursively; scalars
+# and lists from the managed file win.
+import base64, json, sys
+
+managed = json.loads(base64.b64decode("{{ include "dot_claude/.settings.managed.json" | b64enc }}"))
+raw = sys.stdin.read()
+live = json.loads(raw) if raw.strip() else {}
+
+def merge(dst, src):
+    for k, v in src.items():
+        if isinstance(v, dict) and isinstance(dst.get(k), dict):
+            merge(dst[k], v)
+        else:
+            dst[k] = v
+    return dst
+
+sys.stdout.write(json.dumps(merge(live, managed), ensure_ascii=False, indent=2) + "\n")
