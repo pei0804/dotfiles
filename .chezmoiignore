@@ -1,0 +1,5 @@
+{{/* Entries that must not be published live in .chezmoiignore.local (git-ignored). */}}
+{{- $local := joinPath .chezmoi.sourceDir ".chezmoiignore.local" -}}
+{{- if stat $local }}
+{{ include $local }}
+{{- end }}
