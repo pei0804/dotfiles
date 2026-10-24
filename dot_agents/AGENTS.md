@@ -110,6 +110,14 @@ EOF
 - 編集前に `chezmoi status <home のパス>` を見る。1 列目が M なら home 側にだけある変更があるので、取り込むか捨てるかをユーザーに確認してから進める
 - リポジトリで管理しないもの（社内固有のスキル、認証情報を含む設定）は、`~/.local/share/chezmoi/.chezmoiignore.local` に target 相対パス（例: `.agents/skills/<name>`）で書いて chezmoi の管理外にする。このファイルは git に含めないので社内の名前を書いてよい。管理外にする判断は必ずここに残す
 - `chezmoi unmanaged ~/.agents` に出るものは、`chezmoi add` で取り込むか `.chezmoiignore.local` に書くかのどちらかにする。どちらでもない状態を残さない
+- 設定値を追加・変更するときは、残したい設定か（他のマシンでも同じにする）、今だけ・この PC だけ必要かをユーザーに確認する。残すものはソースに入れて apply する。今だけ・この PC だけのものは、その設定の local ファイルに書き、`.chezmoiignore.local` に載せる。local ファイルの対応は次の通り
+    - git は `~/.gitconfig.local`（`~/.gitconfig` が include する）
+    - zsh は `~/.zshrc.local`（`~/.zshrc` の末尾で読む）
+    - tmux は `~/.tmux.conf.local`（`~/.tmux.conf` が TPM 初期化の直前で読む）
+    - mise は `~/.config/mise/config.local.toml`（mise が標準で読む）
+    - Claude Code は `~/.claude/settings.json` に直接書く。ソースの管理値は deep merge で書かれるため、home 専用のキーは apply しても残る
+    - スキルは `~/.agents/skills/<name>/` に直接作る
+    - local の読み込み口がない設定は、先に読み込み口をソースに足す PR を作ってから local に書く
 
 <important if="writing articles, Issues, ADRs, or Design Docs">
 ## 技術哲学

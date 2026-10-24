@@ -144,3 +144,6 @@ bindkey "^[[Z" reverse-menu-complete  # Shift+Tabで逆順に表示
 
 # Cortex CLI completion (disable via /settings in cortex)
 [[ -s ~/.zsh/completions/cortex.zsh ]] && source ~/.zsh/completions/cortex.zsh
+
+# Machine-local settings that stay out of the dotfiles repository
+[[ -s ~/.zshrc.local ]] && source ~/.zshrc.local
