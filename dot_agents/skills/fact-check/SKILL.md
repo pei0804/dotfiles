@@ -7,7 +7,6 @@ description: >
   ずれることがあるため、人に出す前の裏取りに使う。
   「ファクトチェックして」「裏取りして」「事実確認して」「この内容合ってる？」「引用合ってる？」
   「正式名称合ってる？」「ドキュメントで確認して」「実際に動かして確かめて」などと言われたときに使う。
-  tech-reviewer・tech-article-reviewer・self-review・tech-writer・my-voice の手順からも呼ばれる。
   設計の良し悪しや文章の読みやすさの評価は対象外で、それぞれのレビュースキルが担う。
 argument-hint: "<file-path or URL or 'この下書き'>"
 ---
