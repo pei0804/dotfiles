@@ -130,5 +130,6 @@ EOF
 <important if="working with Issues or Pull Requests">
 ## Issue/PR
 
-- 作成時は `~/.agents/references/issue_pr_rules.md` を参照
+- 作成・本文更新・コメント時は `~/.agents/references/issue_pr_rules.md` を参照
+- Issue に Markdown 文書を紐付けるときは `gh issue artifact create` を使い、画像や動画は `--attach` で添付する。PDF は添付できないので PNG に変換してから貼る。gh 2.103 以降で、Issue artifacts のプライベートプレビューに登録したリポジトリでだけ使える
 </important>
