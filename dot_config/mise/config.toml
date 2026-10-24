@@ -1,6 +1,5 @@
 [settings]
 experimental = true
-pipx_uvx = true
 
 [tools]
 java = "latest"
