@@ -1,0 +1,16 @@
+{
+  "name": "pei-dotfiles",
+  "owner": {
+    "name": "pei0804"
+  },
+  "metadata": {
+    "description": "dotfiles で管理している個人スキルを claude.ai と Claude Code に配布するマーケットプレイス"
+  },
+  "plugins": [
+    {
+      "name": "pei-skills",
+      "source": "./dot_agents",
+      "description": "dot_agents/skills 配下の個人スキル一式"
+    }
+  ]
+}
