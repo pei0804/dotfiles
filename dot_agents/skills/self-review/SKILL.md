@@ -4,6 +4,7 @@ argument-hint: "<pr-number-or-url>"
 allowed-tools:
   - Bash(gh *)
   - Bash(git *)
+  - Bash(open *)
   - Read
   - Edit
   - Write
@@ -36,13 +37,15 @@ allowed-tools:
 
 ```bash
 # PR のメタ情報
-gh pr view <number> --json number,title,body,headRefName,baseRefName,url
+gh pr view <number> --json number,title,body,headRefName,headRefOid,baseRefName,url
 
 # diff
 gh pr diff <number>
 ```
 
 diff が 500 行を超える場合の読む順序は、tech-reviewer の「レビュー共通ルール」に従う。
+
+`headRefOid`（PR head の commit SHA）は、指摘の場所をパーマリンクにするのに使う。
 
 リポジトリ名とログインユーザーを動的に取得しておく（Step 6 の push / worktree 操作で使う）:
 
@@ -61,6 +64,7 @@ gh api user --jq .login
 - 必要に応じてリポジトリ内の関連コード（`Read` / `Grep` / `Glob` で取得）
 - `~/.agents/skills/tech-reviewer/SKILL.md` を読み、「レビューの姿勢」「レビュー共通ルール」「レビュー観点（人間にしか判断できないこと）」の PR 向けの問いに従うよう指示
 - 技術哲学: `~/.agents/references/tech_philosophy.md` を読むよう指示
+- リポジトリ名と PR head の SHA（場所をパーマリンクにするため）
 - 以下の出力フォーマット（tech-reviewer のフォーマットではなくこちらを使う）
 
 #### 出力フォーマット
@@ -78,19 +82,23 @@ gh api user --jq .login
 **要検討（3つ以内）:**
 1. 指摘: [問題の説明]
    なぜ: [なぜ問題か]
-   改善案: [具体的な対応策]
-   場所: [file:line または "全体"]
+   改善案: [具体的な対応策。変更前後の文面またはコードを diff で書く]
+   場所: [パーマリンク または "PR 本文" / "全体"]
    カテゴリ: design | behavior | naming | typo | other
 
 **軽微:**
 - 指摘: [...]
-  改善案: [...]
-  場所: [file:line]
+  改善案: [変更前後を diff で書く]
+  場所: [パーマリンク]
   カテゴリ: design | behavior | naming | typo | other
 
 **Good:**
 - [積極的に評価したい判断・設計]
 ```
+
+場所はファイル名と行番号だけで書かない。PR head の SHA で固定したパーマリンク `https://github.com/<owner>/<repo>/blob/<headRefOid>/<path>#L<start>-L<end>` にする。行番号は PR head のファイルで数える。このパーマリンクはユーザーへの提示には出さず、Step 5 でユーザーが「開いて」と言ったときに `open` に渡すために持っておく。
+
+改善案は方針の説明で止めない。どのファイルのどこに何を書くかを、変更前後の diff（`+` が追加、`-` が削除、前後 1 行の文脈つき）で示す。PR 本文への指摘も、本文の該当箇所の変更前後を diff で示す。
 
 `typo` カテゴリは **コメント・文字列リテラル・docstring 内のスペルミスのみ**。識別子・公開 API 名・設定キー・i18n キーはカテゴリを `naming` または `other` とする（影響範囲が自明でないため）。
 
@@ -119,15 +127,28 @@ gh api user --jq .login
 
 ---
 
-**指摘 1/N** — `path:line`
-> [指摘の内容]
-> なぜ: [理由]
-> 改善案: [対応策]
+**指摘 1/N**: [何をするかを一文で]（推奨: 取り込む／取り込まない）
 
-**推奨**: 取り込む／取り込まない
+1a. `<ファイル名>` L120（[その箇所が何かを一言で]）
+
+```diff
+ [変更箇所の直前の 1 行]
+-[消す行]
++[追加する行]
+```
+
+> 指摘: [問題の説明]
+> なぜ: [理由]
+
 **理由**: [推奨の根拠]
 
 ---
+
+場所には URL を書かない。ターミナルによっては Markdown のリンクが `表示名 (URL)` の文字列で表示され、画面幅を超えた URL は折り返されて、押しても途中までしか開けないためである。場所は「指摘番号 + 英字」の番号（1a, 1b, 2a …）・ファイル名・行番号・箇所の説明だけで書く。
+
+ファイルが複数にまたがる指摘は、場所ごとに番号を振り、場所と diff の組を並べる。PR 本文への指摘は場所を「PR 本文の『[見出し]』」と書き、diff を付ける。
+
+提示の末尾に「場所を開くときは『1a を開いて』『全部開いて』と言ってください」と添える。ユーザーがそう言ったら、該当する場所のパーマリンクを `open '<URL>'` でブラウザに開く。PR 本文の場所は PR の URL を開く。
 
 提示後、「全部取り込む」「2番だけスキップ」「3番は別のアプローチで」など、ユーザーの粒度別の指示を待つ。
 
